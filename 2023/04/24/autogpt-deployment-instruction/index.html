@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AutoGPT部署指引 | Jerry的赛博车库</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：https:&#x2F;&#x2F;github.com&#x2F;Significant-Gravitas&#x2F;Auto-GPT-Plugins   2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏  &#x2F;&#x2F;进入Auto-GPT文件夹，右键启动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoGPT部署指引">
+<meta property="og:url" content="https://playgroundjerry.github.io/2023/04/24/autogpt-deployment-instruction/index.html">
+<meta property="og:site_name" content="Jerry的赛博车库">
+<meta property="og:description" content="2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：https:&#x2F;&#x2F;github.com&#x2F;Significant-Gravitas&#x2F;Auto-GPT-Plugins   2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏  &#x2F;&#x2F;进入Auto-GPT文件夹，右键启动">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_kqa_a1pN4A.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_mxB1idY99J.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_ff6yjFGhQs.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_vwp9woDNJo.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_HNmTEtrIR5.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_6qa4FKqJsA.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_z3t3NcWwt2.png">
+<meta property="article:published_time" content="2023-04-23T17:35:01.000Z">
+<meta property="article:modified_time" content="2026-02-27T17:19:14.348Z">
+<meta property="article:author" content="Jerry Fan">
+<meta property="article:tag" content="Autogpt">
+<meta property="article:tag" content="ai">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Jerry的赛博车库" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jerry的赛博车库</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Playground of Jerry</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://playgroundjerry.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-autogpt-deployment-instruction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/24/autogpt-deployment-instruction/" class="article-date">
+  <time class="dt-published" datetime="2023-04-23T17:35:01.000Z" itemprop="datePublished">2023-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AutoGPT部署指引
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：<a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT-Plugins">https://github.com/Significant-Gravitas/Auto-GPT-Plugins</a></p>
+</blockquote>
+<blockquote>
+<p>2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏</p>
+</blockquote>
+<p>&#x2F;&#x2F;进入Auto-GPT文件夹，右键启动git bash，直接输入以下命令拉取最新的文件<br>git pull</p>
+<p>&#x2F;&#x2F;拉取完成后正常通过miniconda启动，启动前重新运行以下命令保证安装最新的依赖包<br>pip install -r requirements.txt</p>
+<p>AutoGPT最近很热，在Github上该项目到目前为止已经获得了70k+的星标（还在迅速增长中），为了让大家都能够体会到这个神奇的项目，下面是经过我亲身实验的部署步骤，希望能对感兴趣的伙伴有所帮助。</p>
+<p>官方项目地址：<a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT">https://github.com/Significant-Gravitas/Auto-GPT</a></p>
+<hr>
+<h2 id="预先准备"><a href="#预先准备" class="headerlink" title="预先准备"></a>预先准备</h2><hr>
+<h3 id="官方要求"><a href="#官方要求" class="headerlink" title="官方要求"></a>官方要求</h3><p>根据官方的指引，目前主要需要准备以下内容：</p>
+<p><img src="/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png" alt="官方文档的要求"></p>
+<p>必须的部分主要是两块：</p>
+<ol>
+<li><p>环境准备：根据指引是二选一的，比较直接的应该是直接用python作为环境，我们会在后面用比较便捷的miniconda作为虚拟环境管理工具，创建符合条件的python环境</p>
+</li>
+<li><p>OpenAI的API准备：需要进入自己的OpenAI账户的API key管理页面创建新的API key，需要保证你的OpenAI账户的免费额度还在有效期内或者已经绑定了合适的payment method。</p>
+<p>API key管理页面：<a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
+<p><img src="/wp-content/uploads/2023/04/image_kqa_a1pN4A.png"></p>
+<p>点击Create new secret key创建，注意一定要在创建后的页面进行复制，关闭后该key就无法再次查看，当然你需要的时候可以随时再创建新的key。</p>
+</li>
+</ol>
+<p>另外还有两个可选的工具，分别是：</p>
+<ol>
+<li><p>记忆缓存的工具：默认情况下AutoGPT是可以在本地进行缓存的，但是如果使用一些专业的云端缓存工具，可能会便于迁移、以及更快的访问速度。但今天的教程中就使用默认的本地记忆，暂时不涉及这里的网站使用。有需要的伙伴可以自己探索一下。</p>
+<p><a target="_blank" rel="noopener" href="https://www.pinecone.io/">Vector Database for Vector Search Pinecone</a></p>
+<p><a target="_blank" rel="noopener" href="https://milvus.io/">Vector database - Milvus</a></p>
+</li>
+<li><p>文字转音频的工具：用于让你的AutoGPT可以说话，通过语音形式交互。这可能会让它显得更加酷，但可能没有具体生产力提升，本次的教程也不会包含，后续我探索后可能会补充相关信息。</p>
+<p><a target="_blank" rel="noopener" href="https://beta.elevenlabs.io/">ElevenLabs Prime Voice AI</a></p>
+</li>
+</ol>
+<hr>
+<h3 id="miniconda和git"><a href="#miniconda和git" class="headerlink" title="miniconda和git"></a>miniconda和git</h3><p>除了官方指引中工具，我们此次教程还需要预先安装以下两个工具，用于提供python环境和git管理</p>
+<hr>
+<h4 id="miniconda"><a href="#miniconda" class="headerlink" title="miniconda"></a><strong>miniconda</strong></h4><p>conda是一个著名的虚拟环境的管理工具，可以用于在你的电脑中创建多个不同的虚拟环境，这样对于需要不同的Python版本的多个项目，可以分别为其加载对应版本的Python作为运行环境，特别适合我们目前各种AI开源项目层出不穷的情况使用，我们这里使用的是一个轻量化的anaconda版本，叫做miniconda。下面简单介绍下miniconda的下载和安装过程：</p>
+<ol>
+<li><p>访问官方网站，根据你的系统下载安装包，我们这里使用的是Windows 64位版本</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+</li>
+<li><p>运行安装包，每个步骤基本按照默认进行即可</p>
+</li>
+<li><p>安装完成后，在你的开始菜单中，应当出现了miniconda的命令行启动快捷方式</p>
+<p><img src="/wp-content/uploads/2023/04/image_mxB1idY99J.png"></p>
+</li>
+</ol>
+<p>我们通过运行Anaconda Prompt（miniconda）就可以进入它的命令行工具了。</p>
+<hr>
+<h4 id="git"><a href="#git" class="headerlink" title="git"></a><strong>git</strong></h4><p>git主要是我们用于拉取GitHub上的仓库文件到本地的工具，相当于是一个专用的下载工具。下面简单介绍下git的下载和安装过程：</p>
+<ol>
+<li><p>访问官方网站，根据你的系统下载安装包，我们这里使用的是Windows版本</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+</li>
+<li><p>运行安装包，每个步骤按照默认选择安装，如果你不理解里面的选项尽量不要修改任何选择</p>
+</li>
+<li><p>安装完成后可以在任何一个文件夹中打开右键菜单，确认是否有git bash命令</p>
+<p><img src="/wp-content/uploads/2023/04/image_ff6yjFGhQs.png"></p>
+</li>
+</ol>
+<p>以上内容完成准备之后，我们可以进入正文，开始部署安装AutoGPT项目了。</p>
+<hr>
+<h2 id="拉取项目文件"><a href="#拉取项目文件" class="headerlink" title="拉取项目文件"></a>拉取项目文件</h2><ol>
+<li><p>首先在电脑上找到一个合适的位置，拉取AutoGPT项目文件到本地。这里我在D盘中创建了一个名为playground的文件夹，存储各种AI项目</p>
+</li>
+<li><p>进入文件夹，右键菜单中选择“Git Bash Here”，启动了git的命令行工具后，在命令行中输入以下命令</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT.git">https://github.com/Significant-Gravitas/Auto-GPT.git</a></p>
+</li>
+<li><p>等待命令运行完成，将会在文件夹中创建一个名为“Auto-GPT”文件夹，可以关闭git命令行窗口</p>
+</li>
+</ol>
+<hr>
+<h2 id="准备项目环境"><a href="#准备项目环境" class="headerlink" title="准备项目环境"></a>准备项目环境</h2><ol>
+<li><p>在开始菜单中运行Anaconda Prompt（miniconda）启动miniconda命令行工具</p>
+</li>
+<li><p>默认情况下，miniconda可能会在你的C盘路径下启动，如果你的Auto-GPT没有在C盘内，为了切换到Auto-GPT文件夹，需要执行以下操作</p>
+<p>&#x2F;&#x2F;首先需要切换到D盘，如果你的项目本身就在C盘可以忽略这一步<br>d:</p>
+<p>&#x2F;&#x2F;下一步进入到项目文件夹<br>cd D:\playground\Auto-GPT</p>
+</li>
+<li><p>创建一个适合AutoGPT运行的环境，根据项目要求是3.8以上版本的python，我们这里直接用了最新版本的python</p>
+<p>conda create -n autogpt python=3.11</p>
+<p>等待运行完毕，这个命令创建了一个名为autogpt的虚拟环境，包含3.11版本的python</p>
+</li>
+<li><p>运行AutoGPT内的项目内容之前，激活环境</p>
+<p>conda activate autogpt</p>
+<p>当你的命令前面（base）显示为（autogpt）时，意味着你当前已经在该环境内运行了</p>
+</li>
+<li><p>安装所有依赖（确保当前在Auto-GPT文件夹内）</p>
+<p>pip install -r requirements.txt</p>
+<p>安装依赖需要一定的时间，耐心等待，如果中途出错，可以重复执行命令，直到完全运行完毕为止</p>
+</li>
+</ol>
+<hr>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
+<li><p>进入Auto-GPT文件夹，找到文件.env.template，使用记事本打开</p>
+</li>
+<li><p>找到OPENAI_API_KEY参数，在等号后粘贴之前复制的key，保存文件</p>
+</li>
+<li><p>修改文件名为.env</p>
+</li>
+</ol>
+<p>这样基本的运行条件就已经满足了，env中还有多个参数可以调节，可以自己进一步探索。</p>
+<hr>
+<h2 id="启动AutoGPT"><a href="#启动AutoGPT" class="headerlink" title="启动AutoGPT"></a>启动AutoGPT</h2><ol>
+<li>回到miniconda命令行内，确保环境激活并且进入Auto-GPT文件夹，运行以下命令</li>
+</ol>
+<p> python -m autogpt</p>
+<p>2. 运行之后，需要等待一会，autogpt会询问你为要运行的任务agent起一个名字<img src="/wp-content/uploads/2023/04/image_vwp9woDNJo.png">3. 下面会请求你为它输入一个角色定位 <img src="/wp-content/uploads/2023/04/image_HNmTEtrIR5.png"></p>
+<p>4. 最后要求你列出五个主要目标，一个一个输入即可，如果没有五个目标也可以留空</p>
+<p><img src="/wp-content/uploads/2023/04/image_6qa4FKqJsA.png"></p>
+<p>5.回车后开始运行，每次需要执行命令时，它会询问你进行授权</p>
+<p>&#x2F;&#x2F;回复y则默认运行一个命令<br>y<br>&#x2F;&#x2F;回复y -N则会连续运行N个命令，比如下面的命令则会连续运行5个命令<br>y -5</p>
+<p><img src="/wp-content/uploads/2023/04/image_z3t3NcWwt2.png"></p>
+<p>之后就可以享受它给你带来的震撼了。</p>
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p>目前由于网络环境原因，如果需要它访问一些网站获取内容，可能需要一些科学上网手段</p>
+</li>
+<li><p>默认情况下不允许它在运行的时候在你的电脑使用命令行工具，但可以通过修改env.文件中的参数EXECUTE_LOCAL_COMMANDS的值修改为true解除限制，谨慎进行该操作</p>
+</li>
+<li><p>运行过程中它在消耗你的OpenAI的tokens额度，所以最好不要一次性授权太多步操作，并且在适时的时候结束运行，避免消耗过高</p>
+</li>
+<li><p>默认情况下，程序输出的文件会保存在workspace或者autogpt&#x2F;workspace文件夹中，需要仔细找一找，或者仔细看下输出日志里面write_file命令的执行情况</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/04/24/autogpt-deployment-instruction/" data-id="cuidoEQmtu4TZ82N65mRbYKk3" data-title="AutoGPT部署指引" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Autogpt/" rel="tag">Autogpt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/04/the-age-of-ai-has-begun/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          比尔盖茨谈AI公开信全文——AI的时代已经到来
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autogpt/" rel="tag">Autogpt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E7%AB%AF/" rel="tag">B端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">chatgpt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civitai/" rel="tag">civitai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civitai-helper/" rel="tag">civitai helper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/controlnet/" rel="tag">controlnet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lora/" rel="tag">lora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openai/" rel="tag">openai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">产品经理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">人人都是产品经理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" rel="tag">人力资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" rel="tag">公开信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%B9%E8%AE%AD/" rel="tag">培训</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" rel="tag">比尔盖茨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 13.33px;">AI绘画</a> <a href="/tags/Autogpt/" style="font-size: 10px;">Autogpt</a> <a href="/tags/B%E7%AB%AF/" style="font-size: 13.33px;">B端</a> <a href="/tags/ai/" style="font-size: 20px;">ai</a> <a href="/tags/chatgpt/" style="font-size: 13.33px;">chatgpt</a> <a href="/tags/civitai/" style="font-size: 10px;">civitai</a> <a href="/tags/civitai-helper/" style="font-size: 13.33px;">civitai helper</a> <a href="/tags/controlnet/" style="font-size: 13.33px;">controlnet</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/lora/" style="font-size: 10px;">lora</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/stablediffusion/" style="font-size: 16.67px;">stablediffusion</a> <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 16.67px;">产品经理</a> <a href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 16.67px;">人人都是产品经理</a> <a href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" style="font-size: 10px;">人力资源</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16.67px;">人工智能</a> <a href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" style="font-size: 10px;">公开信</a> <a href="/tags/%E5%9F%B9%E8%AE%AD/" style="font-size: 10px;">培训</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.33px;">教程</a> <a href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" style="font-size: 10px;">比尔盖茨</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/04/sd-webui%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86/">SD webui小技巧：扩展安装及管理</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91state-of-gpt-openai-%E5%A4%A7%E7%A5%9Eandrej-karpathy-%E6%8F%AD%E7%A7%98%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%85%A8%E8%BF%87/">【转载】State of GPT: OpenAI 大神Andrej Karpathy 揭秘大模型原理和训练全过程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%EF%BC%9A%E4%BC%81%E4%B8%9A%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E4%B8%9A%E5%8A%A1%E6%A6%82%E8%A7%88/">理解业务：企业培训管理业务概览</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/b%E7%AB%AF%E6%9D%82%E8%B0%88%EF%BC%9Ab%E7%AB%AF%E4%B8%8Ec%E7%AB%AF%E9%9C%80%E6%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82/">B端杂谈：B端与C端需求的差异</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/">ChatGPT类人工智能，如何改变传统工作和产品设计</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Jerry Fan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

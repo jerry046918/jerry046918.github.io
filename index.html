@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Jerry的赛博车库</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jerry的赛博车库">
+<meta property="og:url" content="https://playgroundjerry.github.io/index.html">
+<meta property="og:site_name" content="Jerry的赛博车库">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Jerry Fan">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Jerry的赛博车库" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jerry的赛博车库</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Playground of Jerry</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://playgroundjerry.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-sd-webui小技巧：扩展安装及管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/04/sd-webui%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2023-06-04T09:43:16.000Z" itemprop="datePublished">2023-06-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/04/sd-webui%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86/">SD webui小技巧：扩展安装及管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>丰富的扩展市场是Automatic1111版本的webui的一大特色，从辅助作画的模型工具（ControlNet、Cutoff）到帮助进行prompt填充的扩展应有尽有。本文主要介绍webui中通用的扩展安装及管理操作。</p>
+<h2 id="扩展安装"><a href="#扩展安装" class="headerlink" title="扩展安装"></a>扩展安装</h2><h3 id="方法一：使用官方扩展列表进行安装"><a href="#方法一：使用官方扩展列表进行安装" class="headerlink" title="方法一：使用官方扩展列表进行安装"></a>方法一：使用官方扩展列表进行安装</h3><p>stable diffusion webui中提供了一个官方的插件列表，部分受官方承认的插件会被列入该列表中，并且标注一些基本的元数据信息，例如插件类型、插件用途、名称等。 从官方列表安装插件是最简单、安全并且稳定的一种方式。 首先，启动你的webui，并选择最右侧的“Extension”标签页 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230604165052.png"> 选择Available选项，点击“Load from”按钮，将会从官方的链接中加载全部的扩展（理论上也可以自己定义列表来源，但目前为止还没了解到其他靠谱的列表）。由于特殊的网络原因，load可能会失败，最好是先开启全局的魔法网络，再尝试加载 该列表可以通过tag进行筛选，注意选中的标签将会被排除；可以通过旁边的order选项调整列表的排序 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230604165506.png">   浏览并选择扩展后的“Install”按钮，将会进入loading的状态，等待loading结束切换到“installed”选项，应该能够看到刚刚选择的扩展已经加入列表 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230604170024-e1685869376724.png"> 图片中prompt-all-in-one就是我们新增的插件，选中该插件，并点击“Apply and restart UI”，等待webui重启后就可以看到我们新安装的扩展了。</p>
+<h3 id="方法二：使用GitHub仓库链接安装"><a href="#方法二：使用GitHub仓库链接安装" class="headerlink" title="方法二：使用GitHub仓库链接安装"></a>方法二：使用GitHub仓库链接安装</h3><p>很多好用的扩展，实际上并未被收录入官方的链接中，这种情况下我们希望使用扩展，就需要一些额外的安装方式。好在webui帮我们提供了通过链接安装的方式。 同样在Extension标签页中，这次我们选择“Install from URL”选项。 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230604170650.png"> 这里第一个填空中，需要我们填写一个GitHub的URL地址，那么如何找到这个URL地址呢？这时候我们就需要先找到扩展的Github仓库，我们以Cutoff这个插件为例，进入Google搜索，输入插件名称+githu+stable diffusion webui进行搜索，大概率能够定位到这个插件的仓库 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230604171155.png"> 这里第二个就是对应了该插件的仓库（具体如何找到确切的仓库地址，可能各有各的方法，如果有需要也可以查看下我的网站中推荐的几个扩展） 进入GitHub仓库页面后，我们在页面上方找到“Code”按钮，点击后展开选项，选择复制链接。这就是我们需要的那个URL了。 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230604171457.png"> 复制该URL粘贴到最开始的填空中，其他两项留空，点击“Install”按钮，等待片刻。当扩展安装完成后会有提示出现在本页最后的部分。 这时候同样回到“Installed”选项中，可以找到刚刚安装的扩展，再次Apply and restart UI即可。</p>
+<h3 id="方法三：直接将扩展文件加入文件目录中"><a href="#方法三：直接将扩展文件加入文件目录中" class="headerlink" title="方法三：直接将扩展文件加入文件目录中"></a>方法三：直接将扩展文件加入文件目录中</h3><p>如果你既无法在官方列表中安装扩展，又没办法找到相关的仓库，但获得了其他人分享的某个插件的文件，这时候你还可以使用这个终极方案进行安装。就是直接将插件放入文件目录。 在首篇部署webui的教程中，我们曾简单介绍了webui项目的目录结构，进入webui的安装目录（.&#x2F;stable-diffusion-webui），我们可以看到一个文件夹名为“extensions”，我们简单的将一个扩展的文件解压为文件夹，并将整个文件夹放入extensions文件夹内。 文件正常无损的情况下，回到webui的Extension标签页，Installed选项下将会自动识别该扩展，后面的操作就和前两种的安装方式完全一样了。 但需要注意的是，你最好保证扩展的文件来源可靠，避免通过扩展引入一些恶意程序或者文件不完整导致无法使用的问题。</p>
+<h2 id="扩展更新"><a href="#扩展更新" class="headerlink" title="扩展更新"></a>扩展更新</h2><p>一般来说大部分扩展都可以通过webui的功能进行更新，如果无法通过该方法更新，可以尝试卸载扩展后重新安装来完成更新。下面主要介绍webui的扩展更新功能。 进入Extension标签页-Installed选项，勾选全部需要更新的插件，点击“Check for Updates”按钮，经过一段时间加载，具有新版本的扩展将会在后面的“Update”列中显示待更新的版本信息。 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/06/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230604172923.png"> 这里我们可以看到controlnet有新的版本等待更新，此时确保勾选了新的版本之后选择“Apply and restart UI”，就会自动安装最新版本的扩展了。</p>
+<h2 id="扩展卸载"><a href="#扩展卸载" class="headerlink" title="扩展卸载"></a>扩展卸载</h2><p>由于各种扩展都是来自于不同的作者，有不同的功能目的，因此扩展的卸载可能会带来很多未知的问题。本文只能介绍最直接的一种卸载方式，适用于大部分扩展。 首先要确保取消勾选你要卸载的一个扩展，并点击“Apply and restart UI”重启webui，重启完成后可以发现对应的扩展带来的功能已经不再显示在webui中。 下一步进入.&#x2F;stable-diffusion-webui&#x2F;extensions目录中，删除对应扩展的全部文件，即可完成该扩展的卸载</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>掌握了以上方法之后，我们就可以探索丰富多彩的扩展世界了，很多扩展能够大大的增强我们绘图的效率以及对绘图结果的控制水平，是我们使用Stable Diffusion的不二之选。 本站推荐扩展：</p>
+<p>[site_card ids&#x3D;”412,216,212”]</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/06/04/sd-webui%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86/" data-id="cuid0aI-iaNzCRxMf80zh3CS7" data-title="SD webui小技巧：扩展安装及管理" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/controlnet/" rel="tag">controlnet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【转载】state-of-gpt-openai-大神andrej-karpathy-揭秘大模型原理和训练全过" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91state-of-gpt-openai-%E5%A4%A7%E7%A5%9Eandrej-karpathy-%E6%8F%AD%E7%A7%98%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%85%A8%E8%BF%87/" class="article-date">
+  <time class="dt-published" datetime="2023-05-30T02:40:39.000Z" itemprop="datePublished">2023-05-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91state-of-gpt-openai-%E5%A4%A7%E7%A5%9Eandrej-karpathy-%E6%8F%AD%E7%A7%98%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%85%A8%E8%BF%87/">【转载】State of GPT: OpenAI 大神Andrej Karpathy 揭秘大模型原理和训练全过程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文来源：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/zmEGzm1cdXupNoqZ65h7yg">Web3天空之城</a>，原文标题：《State of GPT: OpenAI 大神Andrej Karpathy 揭秘大模型原理和训练全过程》</p>
+</blockquote>
+<p>OpenAI的创始人之一，大神Andrej Karpathy刚在微软Build 2023开发者大会上做了专题演讲：State of GPT（GPT的现状）。 <img src="https://wpimg-wscn.awtmt.com/120538cf-b05f-437c-8cd7-c427578c71df.png?imageView2/2/w/640"> 在这个朴实无华的题目之下，Andrej带来的是一场超级精彩的分享。 他详细介绍了如何从GPT基础模型一直训练出ChatGPT这样的助手模型（assistant model）。作者不曾在其他公开视频里看过类似的内容，<strong>这或许是OpenAI官方第一次详细阐述其大模型内部原理和RLHF训练细节。</strong> <strong>难能可贵的是，Andrej不仅深入了细节， 还高屋建瓴的抽象了大模型实现中的诸多概念，牛人的洞察就是不一样。</strong> 比如，Andrej非常形象的把当前LLM大语言模型比喻为人类思考模式的系统一（快系统），这是相对于反应慢但具有更长线推理的系统二（慢系统）而言。这只是演讲里诸多闪光点的其中一个。 并且，Andrej真的有当导师的潜力，把非常技术的内容讲得深入浅出，而又异常透彻。这个演讲完全可以让非专业人士也能理解，并且，认真看完演讲后会有一种醍醐灌顶的感觉。 这场主题演讲是如此精彩，以至于作者认为，所有关心LLM大语言模型的人都不容错过。所以，在制作视频之余，特以此文整理，和大家分享。 此外，在本文最后还有一些拓展阅读，同样非常推荐，有兴趣的读者可以自取。 本次演讲的精校完整中文版视频的B站传送门： <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce\_SELRES\_start"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce\_SELRES\_start">﻿</span>﻿</span> </p>
+<h1 id="演讲全文"><a href="#演讲全文" class="headerlink" title="演讲全文"></a>演讲全文</h1><p>大家好。 我很高兴在这里向您介绍 GPT 的状态，更广泛地介绍大型语言模型快速发展的生态系统。 我想把演讲分成两部分： 在第一部分我想告诉你我们是如何训练 GPT 助手的； 然后在第二部分中，我们将了解如何将这些助手有效地用于您的应用程序。 <img src="https://wpimg-wscn.awtmt.com/730363f8-1373-42c9-b4b8-c7edab6f8ea0.png?imageView2/2/w/640"> 首先让我们看一下如何训练这些助手的新兴秘诀，并记住这一切都是非常新的，并且仍在迅速发展。 但到目前为止，食谱看起来像这样。这是一张有点复杂的幻灯片，我将逐一介绍它。 <img src="https://wpimg-wscn.awtmt.com/67bbac23-e305-4243-aeee-0cfa0e118bea.png?imageView2/2/w/640"> 粗略地说，我们有四个主要阶段：<strong>预训练、有监督微调、奖励建模、强化学习，依次类推。</strong> 现在在每个阶段我们都有一个数据集来支持。我们有一个算法，我们在不同阶段的目的，将成为训练神经网络的目标。然后我们有一个结果模型，然后在上图底部有一些注释。</p>
+<h2 id="Pretraining-预训练"><a href="#Pretraining-预训练" class="headerlink" title="Pretraining 预训练"></a>Pretraining 预训练</h2><p>我们要开始的第一个阶段是预训练阶段。 <img src="https://wpimg-wscn.awtmt.com/a81d1396-1bfd-426c-bf6c-96a4d875f9fc.png?imageView2/2/w/640"> <strong>这个阶段在这个图中有点特殊：<strong>这个图没有按比例缩放，这个阶段实际上是所有计算工作基本上发生的地方，相当于训练计算时间的 99%。因此，这就是我们在超级计算机中使用数千个 GPU 以及可能进行数月的训练来处理互联网规模数据集的地方。其他三个阶段是微调阶段，更多地遵循少量 GPU 和数小时或数天的路线。那么让我们来看看实现基础模型的预训练阶段。 首先，我们要收集大量数据。这是我们称之为数据混合的示例，该示例来自 Meta 发布的这篇论文，他们发布了这个 Llama 基础模型。 <img src="https://wpimg-wscn.awtmt.com/f9747619-ca79-4e21-a7be-e4bd04c319f8.png?imageView2/2/w/640"> 可以大致看到进入这些集合的数据集的种类，我们有common crawl这只是一个网络爬取，C4也是common crawl，然后还有一些高质量的数据集。例如，GitHub、维基百科、书籍、ArXiv论文存档、StackExchange问答网站等。这些都混合在一起，然后根据给定的比例进行采样，形成 GPT 神经网络的训练集。 现在，在我们实际训练这些数据之前，我们需要再经过一个预处理步骤，即</strong>标记化（tokenization）</strong>。 <img src="https://wpimg-wscn.awtmt.com/2752d156-5e6a-4e46-a4e5-a28e3ffb09fa.png?imageView2/2/w/640"> 这基本上是将我们从互联网上抓取的原始文本翻译成整数序列，因为这是 GPT 运行的原生表示。标记化是文本片段和标记与整数之间的一种无损转换，这个阶段有许多算法。通常您可以使用诸如字节编码之类的东西，它迭代地合并小文本块并将它们分组为标记。在这里我展示了这些标记的一些示例块，然后这是将实际馈入Transformer的原始整数序列。 现在我在这里展示了两个类似的例子，用于控制这个阶段的超参数。 <img src="https://wpimg-wscn.awtmt.com/1097ea1a-e396-4262-8031-1c4ce8fc5475.png?imageView2/2/w/640"> GPT4，我们没有发布太多关于它是如何训练的信息，所以我使用 GPT3 的数字；GPT3 现在有点老了，大约三年前。但是Llama是 Meta 的一个相当新的模型。这些大致是我们在进行预训练时要处理的数量级：词汇量通常是几万个标记。 上下文长度通常是 2,000、4,000，现在甚至是 100,000，这决定了 GPT 在尝试预测序列中的下一个整数时将查看的最大整数数。 你可以看到，Llama 的参数数量大概是 650 亿。现在，尽管与 GPT3 的 1750 亿个参数相比，Llama 只有 65 个 B 参数，但 Llama 是一个明显更强大的模型，直观地说，这是因为该模型的训练时间明显更长，训练了1.4 万亿标记而不是 3000 亿标记。 所以你不应该仅仅通过模型包含的参数数量来判断模型的能力。这里我展示了一些粗略的超参数表，这些超参数通常用于指定 Transformer 神经网络。比如头的数量，尺寸大小，层数等等。在底部，我展示了一些训练超参数。 例如，为了训练 65 B 模型，Meta 使用了 2,000 个 GPU，大约训练了 21 天，大约花费了数百万美元。这是您在预训练阶段应该记住的粗略数量级。 现在，当我们实际进行预训练时，会发生什么？一般来说，我们将获取我们的标记并将它们放入数据批次中。 <img src="https://wpimg-wscn.awtmt.com/591e097d-09c1-41a4-a78d-bc9c5782324b.png?imageView2/2/w/640"> 我们有这些数组将馈入Transformer，这些数组是 B，批量大小，这些都是按行堆叠的独立示例，B 乘以 T，T 是最大上下文长度。在我的这个图里，长度只有十个，实际工作里这可能是 2,000、4,000 等等。 这些是非常长的行。我们所做的是获取这些文档并将它们打包成行，然后用这些特殊的文本结束标记将它们分隔开，基本上是为了告诉Transformer新文档从哪里开始。 这里我有几个文档示例，然后将它们扩展到这个输入中。现在，将把所有这些数字输入到 Transformer 中。 <img src="https://wpimg-wscn.awtmt.com/8898a42d-c537-45d5-8894-abb325d81cd0.png?imageView2/2/w/640"> 我们只关注一个特定的单元格，但同样的事情会发生在这个图中的每个单元格上。让我们看看绿色单元格。绿色单元会查看它之前的所有标记，所有标记都是黄色的，我们将把整个上下文输入到 Transformer 神经网络中，Transformer 将尝试预测 序列中的下一个标记，在本例中为红色。 不幸的是，我现在没有太多时间来详细介绍Transformer这个神经网络架构。（注：特别棒和巧的，Andrej做过一次斯坦福课程，专门深入讲解了Transformer神经网络架构，同样非常推荐，中文版视频附在本文结尾）对于我们的目的来说，Transformer只是一大堆神经网络的东西，通常有几百亿个参数，或者类似的东西。 当然，当您调整这些参数时，您会得到这些单元格中的每一个单元格的预测分布略有不同。例如，如果我们的词汇表大小是 50,257 个标记，那么我们将拥有那么多数字，因为我们需要为接下来发生的事情指定概率分布。基本上，我们有可能发生任何事情。 现在，在这个特定的例子中，对于这个特定的单元格，513 将是下一个标记，因此我们可以将其用作监督源来更新Transformer的权重。将同样的做法应用于并行中的每个单元格，并且不断交换批次，并且试图让Transformer对序列中接下来出现的标记做出正确的预测。 让我更具体地向您展示当您训练其中一个模型时的情况。 <img src="https://wpimg-wscn.awtmt.com/4227842d-74ff-446b-a189-0b556c283277.png?imageView2/2/w/640"> 这实际上来自纽约时报，他们在莎士比亚上训练了一个小的 GPT，这是莎士比亚的一小段，他们在上面训练了一个 GPT。 一开始，在初始化时，GPT 以完全随机的权重开始，因此也将获得完全随机的输出。但是，随着时间的推移，当训练 GPT 的时间越来越长时，我们会从模型中获得越来越连贯和一致的样本。当然，你从中抽样的方式是预测接下来会发生什么，你从那个分布中抽样，然后不断将其反馈到过程中，基本上就是对大序列进行抽样。 到最后，你会看到 Transformer 已经学会了单词，以及在哪里放置空格，在哪里放置逗号等等。随着时间的推移，模型正在做出越来越一致的预测。然后以下这些，是您在进行模型预训练时会查看的图类型。 <img src="https://wpimg-wscn.awtmt.com/f733174c-e462-4d1a-8460-113cd910b4a6.png?imageView2/2/w/640"> 实际上，我们在训练时查看随时间变化的损失函数，低损失意味着我们的Transformer正在预测正确 - 为序列中正确的下一个整数提供更高的概率。 训练一个月后，我们将如何处理这个模型？我们注意到的第一件事，在这个领域，这些模型基本上在语言建模过程中学习了非常强大的通用表示，并且可以非常有效地微调它们以用于您可能感兴趣的任何下游任务。 <img src="https://wpimg-wscn.awtmt.com/562e14b5-11cf-49b2-bd79-5eaed269c850.png?imageView2/2/w/640"> 举个例子，如果对情感分类感兴趣，过去的方法是收集一堆正面和负面的信息，然后为此训练某种 NLP 模型，但新方法是忽略情感分类，直接去进行大型语言模型预训练，训练大型Transformer，然后你可能只有几个例子，已经可以非常有效地为该任务微调你的模型。 这在实践中非常有效。这样做的原因基本上是 Transformer 被迫在语言建模任务中同时处理大量任务，因为就预测下一个标记而言，它被迫了解很多关于文本的结构和其中所有不同的概念。这就是 GPT-1。 在 GPT-2 前后，人们注意到比微调更好的是，你可以非常有效地提示（prompt）这些模型。这些是语言模型，它们想要完成文档，所以你可以通过排列这些假文档来欺骗它们执行任务。 <img src="https://wpimg-wscn.awtmt.com/5eb263db-61d8-4529-b86f-6d8cc60b31fb.png?imageView2/2/w/640"> 在这个例子中，例如，我们有一些段落，然后我们做 QA(问和答），QA，QA，几次提示，然后我们做 Q，然后，当 Transformer 试图完成文档时，它实际上是在回答我们的问题。这就是一个提示工程（prompt engineering）基础模型的示例，通过提示工程让模型相信它正在模仿文档并让它执行特定的任务。 这开启了提示高于微调（prompt over finetuning）的时代。我们看到，即使没有对任何神经网络进行微调，它也可以在很多问题上非常有效。 从那时起，我们就看到了每个人都知道的，<strong>基础模型的完整进化树：</strong> <img src="https://wpimg-wscn.awtmt.com/569c8fc2-daa9-4d61-b9b1-09215dda8b21.png?imageView2/2/w/640"> 并非所有这些模型型号都可用。例如，GPT-4 基础模型从未发布。您可能通过 API 与之交互的 GPT-4 模型不是基础模型，而是辅助模型，我们稍后将介绍如何获取这些模型； GPT-3 基础模型可通过名为 DaVinci 的 API 获得；GPT-2 基础模型可在我们的 GitHub 存储库上作为权重获得；<strong>目前最好的（可以公开获得的）基础模型是 Meta 的 Llama 系列，尽管它没有商业许可。</strong> 需要指出的一件事是，<strong>基础模型不是助手（assistant，即类似ChatGPT的问答助手），它们不想回答你的问题，它们只是想完成文件（笑）。</strong> <img src="https://wpimg-wscn.awtmt.com/f8408808-4214-4ac5-8842-d1d76f790d22.png?imageView2/2/w/640"> 所以如果你告诉基础模型：“写一首关于面包和奶酪的诗”，它会用更多的问题来回答问题。它只是在完成它认为是文档的内容。但是，您可以在基础模型里以特定方式提示以更可能得到结果。例如，“这是一首关于面包和奶酪的诗”。在这种情况下，它将正确地自动完成。 你甚至可以欺骗基础模型成为助手，你这样做的方法是创建一个特定的小提示，让它看起来像是人和助手之间有一份文件，他们正在交换信息。 <img src="https://wpimg-wscn.awtmt.com/47455bb8-64e2-41a3-a8bb-02d19d2f1b4d.png?imageView2/2/w/640"> 然后，在底部，您将查询放在最后，基础模型将自我调整为有用的助手和某种答案（生成这种形式的文档）。这不是很可靠，在实践中也不是很好，尽管它可以做到。</p>
+<h2 id="Supervised-Finetuning-监督微调"><a href="#Supervised-Finetuning-监督微调" class="headerlink" title="Supervised Finetuning 监督微调"></a>Supervised Finetuning 监督微调</h2><p>相反，我们有不同的途径来制作实际的 GPT 助手(GPT Assistant)，而不仅仅是基础模型文档完成器。这将我们带入有监督的微调。 <img src="https://wpimg-wscn.awtmt.com/a6d39660-22d2-43e0-9d48-75e39afd873a.png?imageView2/2/w/640"> 在有监督的微调阶段，我们将收集少量但高质量的数据集。在这种情况下，我们要求人工承包商收集及时和理想响应形式的数据。我们收集很多这样的东西，通常是类似数万个这种数量。然后我们仍将对这些数据进行语言建模，因此算法上没有任何改变。我们只是换出一个训练集。 它曾经是互联网文档，那是一种量很大但质量不高的数据，我们换成用QA即时响应的数据。那是低数量但高质量的。我们还是做语言建模，然后，训练之后，我们得到一个SFT（Supervised Finetuning 监督微调）模型。你可以实际部署这些模型，它们是实际的助手，它们在一定程度上起作用。 让我向您展示示例演示的样子。这里有一个人类承包商可能会想出的东西，这是一个随机的演示： <img src="https://wpimg-wscn.awtmt.com/1630d136-d26d-4d40-b190-7e8988e2b104.png?imageView2/2/w/640"> 你写了一篇关于垄断一词的相关性的简短介绍，或者类似的东西，然后承包商也写下了一个理想的回应。当他们写下这些回复时，他们遵循大量的标签文档，并且要求他们生成提供帮助、真实且无害的回答。这是这里的标签说明。你可能看不懂，我也看不懂，它们很长，人们按照说明并试图完成这些提示。这就是数据集的样子，你可以训练这些模型，这在一定程度上是有效的。</p>
+<h2 id="Reward-Modeling-奖励建模"><a href="#Reward-Modeling-奖励建模" class="headerlink" title="Reward Modeling 奖励建模"></a>Reward Modeling 奖励建模</h2><p>现在，我们可以从这里继续流程，<strong>进入 RLHF，即“从人类反馈中强化学习”，它包括奖励建模和强化学习。</strong> <img src="https://wpimg-wscn.awtmt.com/1f780d7c-bfa3-4086-9948-b74fba4ad1e2.png?imageView2/2/w/640"> 让我介绍一下，然后我将回过头来讨论为什么您可能想要完成额外的步骤，以及这与 仅有SFT 模型相比如何。在奖励建模步骤中，<strong>我们现在要做的是将数据收集转变为比较形式。</strong> 下面是我们的数据集的示例。 顶部是相同的提示，它要求助手编写一个程序或一个函数来检查给定的字符串是否为回文。然后我们做的是采用已经训练过的 SFT 模型，并创建多个补全。在这种情况下，我们有模型创建的三个补全。然后我们要求人们对这些补全进行排名。 <img src="https://wpimg-wscn.awtmt.com/e7a5debc-4d27-428b-b77a-dd0cc0aeff54.png?imageView2/2/w/640"> 如果你盯着它看一会儿——顺便说一下，要比较其中的一些预测是非常困难的事情，而且这可能需要人们甚至几个小时来完成一个提示补全的比较。但假设我们决定，其中一个比其他的好得多，依此类推，我们对它们进行排名。 然后，我们可以对这些补全之间的所有可能对，进行看起来非常像二元分类的东西（以进行排序）。 <img src="https://wpimg-wscn.awtmt.com/55c93fdd-1682-4d1e-a0fa-ea509e6feaf0.png?imageView2/2/w/640"> 接着，要做的是将提示按行排列，这里所有三行的提示都是相同的，但补全方式不同，黄色标记来自 SFT 模型，我们在最后附加另一个特殊的奖励读出标记，基本上只在这个单一的绿色标记上监督Transformer。Transformer会根据提示的完成程度预测一些奖励。 Transformer对每个补全的质量进行了猜测，然后，一旦对每个补全进行了猜测，我们就有了模型对它们排名的基本事实，而我们实际上可以强制其中一些数字应该比其他数字高得多，我们将其制定为损失函数，并训练我们的模型，使得模型做出与来自人类承包商的比较事实数据相一致的奖励预测。 这就是我们训练奖励模型的方式。这使我们能够对提示的完成程度进行评分。</p>
+<h2 id="Reinforcement-Learning-强化学习"><a href="#Reinforcement-Learning-强化学习" class="headerlink" title="Reinforcement Learning 强化学习"></a>Reinforcement Learning 强化学习</h2><p>现在我们有了奖励模型，但我们还不能部署它。因为它本身作为助手不是很有用，但是它对于现在接下来的强化学习阶段非常有用。 <img src="https://wpimg-wscn.awtmt.com/f196c679-edb1-4087-bec9-ee5fe9d8198a.png?imageView2/2/w/640"> 因为我们有一个奖励模型，所以我们可以对任何给定提示（prompt）的任意完成&#x2F;补全（completion）质量进行评分。 我们在强化学习期间所做的基本上是再次获得大量提示，然后针对奖励模型进行强化学习。 这就是它的样子： <img src="https://wpimg-wscn.awtmt.com/6c0b77ec-c079-4f0b-88ea-b537c89e1ae4.png?imageView2/2/w/640"> 我们接受一个提示，将其排成行，现在我们使用想要训练的模型，将该模型初始化为 SFT 模型，以创建一些黄色的补全。然后，再追加奖励标记，按照已经固定不变的奖励模型读出奖励分数，现在这个奖励模型的评分不再变化。 奖励模型告诉我们这些提示的每一次完成的质量。我们现在基本上可以用（和前面）相同的语言建模损失函数，但我们目前正在对黄色标记进行训练，并且我们正在通过奖励模型指示的奖励来权衡语言建模目标。 例如，在第一行中，奖励模型表示这是一个相当高的完成度，因此我们碰巧在第一行采样的所有标记都将得到强化，它们将 获得更高的未来概率。相反，在第二行，奖励模型真的不喜欢这个完成，负 1.2，因此我们在第二行采样的每个标记在未来都会有更低的概率。 我们在很多提示、很多批次上一遍又一遍地这样做，基本上，我们得到一个在这里创建黄色标记的策略，让所有完成标记都会根据我们在前一阶段训练的奖励模型获得高分。这就是我们训练的方式——这就是 RLHF 流程。 最后，您得到了一个可以部署的模型。例如，ChatGPT 是 RLHF 模型。您可能会遇到其他一些模型，例如 Kuna 13B 等，这些都是 SFT 模型。我们有基础模型、SFT 模型和 RLHF 模型，这基本上是可用模型列表的事物状态。 <strong>你为什么想要做 RLHF？一个不太令人兴奋的答案是它的效果更好。</strong> <img src="https://wpimg-wscn.awtmt.com/4fd6ac7a-ab9a-4797-8d1c-9f65fcd88c57.png?imageView2/2/w/640"> 以上这个图来自instructGPT论文。这些 PPO 模型是 RLHF，根据前一段时间的这些实验，我们看到把它们提供给人类时，它们在很多比较中更受欢迎。与提示为助手的基础模型相比，与 SFT 模型相比，人类基本上更喜欢来自 RLHF 模型的标记（输出文字）。它就是工作得更好。 但你可能会问为什么？为什么效果更好？我不认为社区有一个一致的令人惊奇的答案，但我可能提供一个原因：<strong>它与计算比较容易程度与生成容易程度之间的不对称有关。</strong> <img src="https://wpimg-wscn.awtmt.com/5109bd4f-2f60-4804-aa64-bcc43ad7bbbb.png?imageView2/2/w/640"> 让我们以生成俳句为例。假设我请模特写一首关于回形针的俳句。如果你是一个试图提供训练数据的承包商，那么想象一下，作为一个为 SFT 阶段收集基本数据的承包商，你应该如何为一个回形针创建一个漂亮的俳句？ 你可能不太擅长这个。 但是，如果我给你举几个俳句的例子，你可能会比其他人更能欣赏其中的一些俳句。 因此，判断其中哪一个是好的是一项容易得多的任务。 <strong>基本上，这种不对称性使得比较成为一种更好的方式，可以潜在地利用你作为一个人和你的判断力来创建一个稍微更好的模型。</strong> 但是，<strong>RLHF 模型在某些情况下并不是对基础模型的严格改进。特别是，我们注意到，例如，RLHF模型失去了一些熵，这意味着它们给出了更多的峰值结果。</strong> <img src="https://wpimg-wscn.awtmt.com/4bf10240-7113-4d17-a3ee-f5baa2c72786.png?imageView2/2/w/640"> 它们可以输出更低的变化，可以输出比基础模型变化更少的样本。 **基础模型有更多熵，会给出很多不同的输出。**我仍然更喜欢使用基础模型的一种地方是。。。比如有 n 个东西并且想要生成更多类似东西的场景中。 <img src="https://wpimg-wscn.awtmt.com/8053a619-201e-4806-adae-50f1d7329a1b.png?imageView2/2/w/640"> 这是我刚刚编造的一个例子。我想生成很酷的口袋妖怪名字。我给了它七个口袋妖怪的名字，让基础模型完成了文档。它给了我更多的口袋妖怪名字。 这些都是虚构的，我还试图查找它们，确定它们不是真正的口袋妖怪。这是我认为基础模型擅长的任务，因为它仍然有很多熵，并且会给你很多不同的、很酷的、更多的东西，看起来像你以前给它的任何东西。 说了这么多，这些是你现在可以使用的辅助模型，有一些数字： <img src="https://wpimg-wscn.awtmt.com/0f622294-9686-4df7-9f02-a49fbb7ecc2e.png?imageView2/2/w/640"> 伯克利有一个团队对许多可用的助手模型进行排名，并基本上给了它们 ELO 评级。目前最好的模型毫无疑问是 GPT-4，其次是 Claude，GPT-3.5，然后是一些模型，其中一些可能作为权重提供，比如 Kuna、Koala 等。这里排名前三的是 RLHF 模型，据我所知，我相信所有其他模型都是 SFT 模型。</p>
+<h2 id="将GPT助手模型应用于问题"><a href="#将GPT助手模型应用于问题" class="headerlink" title="将GPT助手模型应用于问题"></a>将GPT助手模型应用于问题</h2><p>以上是我们在高层次上训练这些模型的方式。现在我要换个方向，让我们看看如何最好地将 GPT 助手模型应用于您的问题。现在我想在一个具体示例的场景里展示。 让我们在这里使用一个具体示例。假设你正在写一篇文章或一篇博客文章，你打算在最后写这句话。 <img src="https://wpimg-wscn.awtmt.com/1c46ff95-3c4f-4d6e-a02b-a33bafe35aa8.png?imageView2/2/w/640"> 加州的人口是阿拉斯加的 53 倍。因此出于某种原因，您想比较这两个州的人口。想想我们自己丰富的内心独白和工具的使用，以及在你的大脑中实际进行了多少计算工作来生成这最后一句话。这可能是你大脑中的样子：好的。对于下一步，让我写博客——在我的博客中，让我比较这两个人群。 好的。首先，我显然需要得到这两个人群。现在我知道我可能根本不了解这些人群。我有点，比如，意识到我知道或不知道我的自我知识；正确的？我去了——我做了一些工具的使用，然后我去了维基百科，我查找了加利福尼亚的人口和阿拉斯加的人口。现在我知道我应该把两者分开。 同样，我知道用 39.2 除以 0.74 不太可能成功。那不是我脑子里能做的事情。因此，我将依靠计算器。我打算用一个计算器，把它打进去，看看输出大约是 53。然后也许我会在我的大脑中做一些反思和理智检查。那么53有意义吗？ 好吧，这是相当大的一部分，但是加利福尼亚是人口最多的州，也许这看起来还可以。这样我就有了我可能需要的所有信息，现在我开始写作的创造性部分了。我可能会开始写类似，加利福尼亚有 53 倍之类的东西，然后我对自己说，这实际上是非常尴尬的措辞，让我删除它，然后再试一次。 在我写作的时候，我有一个独立的过程，几乎是在检查我正在写的东西，并判断它是否好看。然后也许我删除了，也许我重新构造了它，然后也许我对结果感到满意。基本上，长话短说，当你创造这样的句子时，你的内心独白会发生很多事情。 但是，当我们在其上训练 GPT 时，这样的句子是什么样的？从 GPT 的角度来看，这只是一个标记序列。因此，当 GPT 读取或生成这些标记时，它只会进行分块、分块、分块，每个块对每个标记的计算工作量大致相同。 <img src="https://wpimg-wscn.awtmt.com/716df170-3bb6-4d94-a7eb-88fe53516cab.png?imageView2/2/w/640"> 这些 Transformer 都不是很浅的网络，它们有大约 80 层的推理，但 80 仍然不算太多。这个Transformer将尽最大努力模仿…但是，当然，这里的过程看起来与你采用的过程非常非常不同。特别是，在我们最终的人工制品中，在创建并最终提供给 LLM 的数据集中，所有内部对话都被完全剥离（只给出最后结果作为训练数据）。 并且与您不同的是，<strong>GPT 将查看每个标记并花费相同的算力去计算它们中的每一个，实际上，你不能指望它对每个标记做太多的工作。</strong> 基本上，这些Transformer就像标记模拟器。它们不知道自己不知道什么，它们只是模仿（预测）下一个标记；它们不知道自己擅长什么，不擅长什么，只是尽力模仿（预测）下一个标记。 它们不反映在循环中，它们不检查任何东西，它们在默认情况下不纠正它们的错误，它们只是对标记序列进行采样。 它们的头脑中没有单独的内心独白流，它们正在评估正在发生的事情。 现在它们确实有某种认知优势，我想说，那就是它们实际上拥有大量基于事实的知识，涵盖大量领域，因为它们有几百亿个参数，这是大量存储和大量事实。而且我认为，它们也有相对大而完美的工作记忆。 因此，任何适合上下文窗口的内容都可以通过其内部自注意机制立即供Transformer使用，它有点像完美的记忆。**它的大小是有限的，但Transformer可以非常直接地访问它，它可以无损地记住其上下文窗口内的任何内容。**这就是我比较这两者的方式。 我之提出所有这些，是因为我认为在很大程度上，<strong>提示只是弥补了这两种架构之间的这种认知差异。就像我们人类大脑和 LLM 大脑（的比较）</strong>，你可以这么看。 人们发现有一件事，在实践中效果很好。 <img src="https://wpimg-wscn.awtmt.com/b9e2a72c-551b-4dd3-967c-b3c8b792af87.png?imageView2/2/w/640"> 特别是如果您的任务需要推理，<strong>您不能指望Transformer对每个标记进行太多推理，因此您必须真正将推理分散到越来越多的标记上。</strong> 例如，您不能向Transformer提出一个非常复杂的问题并期望它在一个标记中得到答案。（用于计算的）时间不够。 这些Transformer需要标记来思考，我有时喜欢这样说。这是一些实践中运作良好的事情：例如，您可能有一个few-shot prompt提示，向Transformer显示它在回答问题时应该展示其工作，如果您给出几个示例，Transformer将模仿该模板，然后它就会在评估方面做得更好。 此外，**您可以通过说“let’s think step by step”从Transformer中引发这种行为，因为这使Transformer变得有点像展示它的工作。**而且，因为它有点进入一种显示其工作的模式，它会为每个标记做更少的计算工作，因此它更有可能成功，因为随着时间的推移，它的推理速度会变慢。 这是另一个例子。这称为自我一致性。 <img src="https://wpimg-wscn.awtmt.com/69ef63b3-53c9-4a0b-b62f-90e0b03fc0a3.png?imageView2/2/w/640"> 我们看到我们有能力开始写，然后如果没有成功，我可以再试一次，我可以多次尝试，也许会选择一个最好的。因此，在这些类型的实践中，您可能不仅会抽样一次，还会抽样多次，然后有一些过程来找到好的样本，只保留这些样本或者进行多数表决，类似这样的事情。 而在这个过程中，这些 Transformer 在预测下一个标记时，就像你一样，它们可能会倒霉，它们可能会采样到一个不太好的标记，它们可能会在推理方面像死胡同一样走下坡路。因此，与您不同，它们无法从中恢复过来。它们被它们采样的每一个标记所困，所以它们会继续这个序列，即使它们知道这个序列不会成功。让它们有某种能力能够回顾、检查或尝试。。基本上围绕它进行抽样，这也是一种技术。 事实证明，实际上LLM像是知道什么时候搞砸了一样。例如，假设您要求模型生成一首不押韵的诗： <img src="https://wpimg-wscn.awtmt.com/4b32786a-5db0-4840-ad51-48d72e6f159f.png?imageView2/2/w/640"> 它可能会给你一首诗，但它实际上是押韵的。事实证明，特别是对于更大的模型，比如 GPT-4，你可以问它，“你完成任务了吗？”实际上，GPT-4 很清楚自己没有完成任务。它只是在采样方面有点不走运。它会告诉你，“不，我没有完成任务。让我再尝试一次。” 但是如果你不提示它，它甚至不会——就像它不知道要重新访问等等，你必须在你的提示中弥补这一点。你必须推动它来检查。如果你不要求它检查，它不会自己检查。它只是一个标记模拟器。 我认为更一般地说，**很多这些技术都属于我所说的重建我们人类的系统二的范围。**你可能熟悉人类思考的系统一和系统二模式。 <img src="https://wpimg-wscn.awtmt.com/60a37b1d-f705-4630-a479-c59507fc2718.png?imageView2/2/w/640"> 系统一是一个快速的自动过程，我认为有点对应于 LLM，只是对标记进行抽样。系统二是大脑中较慢的、经过深思熟虑的计划部分。这实际上是上周的一篇论文，这个领域正在迅速发展。它被称为思想树（Tree of Thought）。 在思想树中，这篇论文的作者建议为任何给定的提示维护多个完成，然后也会在整个过程中对它们进行评分，并保留那些进展顺利的。大家看看这是否有意义。很多人真的在把玩一些prompt工程，基本上是希望让LLM恢复一些我们大脑中具有的能力。 我想在这里指出的一件事是，这不仅仅是一个提示。这实际上是与一些 Python 胶水代码一起使用的提示，因为你实际上要维护多个提示，你还必须在这里做一些树搜索算法来找出扩展哪个提示等等。因此，它是 Python 胶水代码和在 while 循环或更大算法中调用的各个提示的共生体。 我还认为这里与 AlphaGo 有一个非常酷的相似之处。AlphaGo下围棋有一个放下一块棋子的策略，这个策略本来就是模仿人训练出来的。但是除了这个策略之外，它还会做蒙特卡洛搜索，它会在围棋中打出多种可能性并评估所有这些，只保留那些运作良好的。我认为这有点类似于AlphaGo，但是针对于文本。 就像思想树一样，我认为更普遍的是，<strong>人们开始真正探索更通用的技术，不仅仅是简单的问答提示，而是看起来更像是将许多提示串在一起的 Python 胶水代码。</strong> <img src="https://wpimg-wscn.awtmt.com/8892cde0-2268-4a69-94de-02bda5c2559b.png?imageView2/2/w/640"> 在右边，我有一个来自这篇论文的例子，叫做 React，他们将提示的答案构造为一系列思考、行动、观察、思考、行动、观察，这是一个完整的展开，一种思考 回答查询的过程。在这些动作中，模型也被允许使用工具。 在左边，我有一个AutoGPT 的例子。顺便说一句，AutoGPT 是一个我认为最近炒得沸沸扬扬的项目，但我仍然觉得它有点鼓舞人心。 它是一个允许 LLM 保留任务列表并继续递归分解任务的项目，我认为目前效果不是很好，不建议人们在实际应用中使用它。但我认为，随着时间的推移，这是可以从中汲取灵感的东西。<strong>AutoGPT有点像让我们的模型系统思考。</strong> 接下来一件事，我觉得有点意思的是 ，LLM 有种不想成功的心理怪癖。<strong>它们只是想模仿。如果你想成功，你应该要求它。</strong> <img src="https://wpimg-wscn.awtmt.com/9dbdf924-fab8-439e-9495-43fe6f59cac9.png?imageView2/2/w/640"> 我的意思是，**当 Transformer 被训练时，它们有训练集，并且它们的训练数据中可以有一个完整的性能质量范围。**例如，可能有一些物理问题或类似问题的提示，可能有一个学生的解决方案完全错误，但也可能有一个非常正确的专家答案。Transformer无法区分它们之间的区别——它们知道低质量解决方案和高质量解决方案，但默认情况下，它们想要模仿所有这些，因为它们只是接受过语言建模方面的训练。在测试的时候，你必须要求一个好的表现。 上面论文中的这个例子，他们尝试了各种提示，“let’s think step by step”非常强大，因为它把推理分散到许多标记上但更好的提示方法是：”让我们一步一步地解决这个问题 确定我们有正确的答案”。 这就像获得正确答案的条件一样，这实际上使Transformer工作得更好，因为Transformer现在不必在低质量解决方案上对冲其概率质量，尽管这听起来很荒谬。。。 <strong>基本上，请随意寻求一个强有力的解决方案</strong>，说出您是该主题的领先专家之类的话，假装你有 IQ 120，等等。 不要试图要求太多的智商，因为如果你要求 400 的智商，你可能会在数据分布之外；或者更糟糕的是，你可能会在一些科幻的数据分布中，它会开始 进行一些科幻角色扮演，或类似的事情。我认为你必须找到合适的智商设定。那里有一些U形曲线。 接下来，正如我们所看到的，当我们试图解决问题时，我们知道自己擅长什么，不擅长什么，并且我们在计算上依赖工具。 <img src="https://wpimg-wscn.awtmt.com/4ae01981-ee90-4b06-9743-3ea7fdde0dfe.png?imageView2/2/w/640"> 你想对你的LLM做同样的事情。特别是，我们可能希望为它们提供计算器、代码解释器等，以及进行搜索的能力，并且有很多技术可以做到这一点。 再次要记住的一件事是，<strong>默认情况下这些Transformer可能不知道它们不知道的事情</strong>，你甚至可能想在提示中告诉Transformer，“你的心算不太好。每当您需要进行大数加法、乘法或其他操作时，请使用此计算器。以下是您如何使用计算器。使用这个标记组合，等等，等等。”你必须把它拼出来，因为默认情况下模型不知道它擅长什么或不擅长什么，就像你和我一样。 接下来，我认为一件非常有趣的事情是，我们从一个只有检索的世界走到钟摆摆动的另一个极端，那里只有LLM的记忆 但实际上，<strong>在这两者之间有检索增强模型的整个空间，这在实践中非常有效。</strong> 正如我所提到的，Transformer的上下文窗口是它的工作内存。如果您可以将与任务相关的任何信息加载到工作内存中，那么该模型将运行得非常好，因为它可以立即访问所有内存。我认为很多人对基本上检索增强生成非常感兴趣，在上图底部，我有一个Llama索引的例子，它是许多不同类型数据的一个数据连接器，你可以索引所有这些数据，让 LLM 访问它。 **新兴的秘诀是获取相关文档，将它们分成块，将它们全部嵌入，得到表示该数据的嵌入向量，将其存储在向量存储中；然后在测试时，对矢量存储进行某种查询，获取可能与您的任务相关的块，然后将它们填充到提示中，然后生成。**这在实践中可以很好地工作。这类似于你我解决问题的时候，你可以凭记忆做任何事情，Transformer的记忆力非常大，但它有助于参考一些主要文件。 无论何时，您发现自己要回到教科书上找东西，或者每当您发现自己要回到图书馆的文档中查找东西时，Transformer肯定也想这样做。您对库的某些文档如何工作有一定的记忆，但最好查找一下。同样的事情也适用于LLM。 接下来，我想简单说一下约束提示。我也觉得这很有趣。这是在 LLM 的输出中强制使用特定模板的技术，实际上这是 Microsoft 的一个示例。 <img src="https://wpimg-wscn.awtmt.com/db881650-b9d1-4b02-a8ef-526764ebafa8.png?imageView2/2/w/640"> 在这里，我们强制 LLM 的输出将是 JSON，这实际上将保证输出将采用这种形式，因为它们进入并扰乱了来自Transformer的所有不同标记的概率，并且固定住这些标记。然后Transformer只填充此处的空白，然后可以对可能进入这些空白的内容实施额外的限制。这可能真的很有帮助，我认为这种约束抽样也非常有趣。 我还想说几句微调。您可以通过快速prompt工程取得很大进展，但也可以考虑微调您的模型。 <img src="https://wpimg-wscn.awtmt.com/19f3d4f9-ee4b-4b88-a9b0-45dabee58f22.png?imageView2/2/w/640"> 微调模型意味着你实际上要改变模型的权重。现在在实践中做到这一点变得越来越容易，这是因为最近开发了许多技术并拥有库调用。例如，像 Lora 这样的参数高效微调技术可确保您只训练模型的小而稀疏的部分。因此大部分模型都保持在基础模型上，并且允许更改其中的一些部分， 这在经验上仍然很有效，<strong>并且使得仅调整模型的一小部分成本更低。</strong> 这也意味着，<strong>因为你的大部分模型都是固定的，你可以使用非常低的精度推理来计算这些部分，因为它们不会被梯度下降更新，这也使得一切都更加高效。</strong> 此外，我们还有许多开源的高质量基础模型。目前，正如我提到的，我认为 Llama 相当不错，尽管我认为它现在还没有获得商业许可。需要记住的是，微调在技术上涉及更多，它需要更多的技术专长才能做对。它需要数据集和&#x2F;或可能非常复杂的合成数据流程的人工数据承包商。这肯定会大大减慢你的迭代周期。我想在较高的层次上说，SFT 是可以实现的，因为你只是在继续语言建模任务。 它相对简单；但 RLHF 是一个非常多的研究领域，而且它更难开始工作。我可能不建议有人尝试推出他们自己的 RLHF 实现。这些东西非常不稳定，很难训练，现在对初学者来说不是很友好，而且它也有可能变化得非常快。 我认为以下这些是我现在的默认建议。 <img src="https://wpimg-wscn.awtmt.com/d77749d7-0852-4e11-a53a-fb92a710d527.png?imageView2/2/w/640"> 我会把你的任务分成两个主要部分。第一，实现你的最佳表现，第二，按照这个顺序优化你的费用。</p>
+<ul>
+<li>首先，目前最好的性能来自 GPT4 模型。它是迄今为止功能最强大的模型。</li>
+<li>然后， 让提示里包含详细的任务内容、相关信息和说明。想想如果它们不能给你回邮件你会告诉它们什么。要记住任务承包商是人，他们有内心独白，他们非常聪明；而LLM不具备这些品质。因此，请务必仔细考虑LLM的心理，并迎合这一点。甚至向这些提示添加任何相关的上下文和信息。</li>
+<li>多参考很多提示工程技术。我在上面的幻灯片中突出显示了其中一些，但这是一个非常大的空间，我只建议您在线寻找快速的Prompt工程技术。那里有很多内容。</li>
+<li>尝试使用少样本few-shots示例提示。这指的是你不只是想问，你还想尽可能地展示（你想要的），给它举例子，如果可以的话，帮助它真正理解你的意思。</li>
+<li>尝试使用工具和插件来分担 LLM 本身难以完成的任务。</li>
+<li>然后不仅要考虑单个提示和答案，还要考虑潜在的链条和反射，以及如何将它们粘合在一起，以及如何制作多个样本等。</li>
+<li>最后，如果你认为你已经最大化了提示工程的效果，我认为你应该坚持一段时间，看看一些可能对你的应用程序的模型微调，但预计这会更慢并且涉及更多。</li>
+<li>然后这里有一个脆弱的专家研究区，我想说的是 RLHF，如果你能让它工作的话。它目前确实比 SFT 好一点，但是，我想说的是，这非常复杂。</li>
+<li>为了优化您的成本，请尝试探索容量较低的模型或更短的提示等。</li>
+</ul>
+<p>我还想谈谈我认为 LLM 目前非常适合的用例。特别要注意的是，今天的 LLM 有很多限制，我会在所有应用中牢记这一点。 <img src="https://wpimg-wscn.awtmt.com/dc7e6aeb-3afa-4e17-b1fa-832d0410d2d2.png?imageView2/2/w/640"> 模型，顺便说一句，这可能是一个完整的演讲，我没有时间详细介绍它。模型可能有偏见，它们可能捏造、产生幻觉信息，它们可能有推理错误，它们可能在整个类别的应用程序中都挣扎，它们有知识截止日期，比如说，2021 年 9 月。 Twitter 每天都在发生大量对LLM的攻击，包括即时注入、越狱攻击、数据中毒攻击等。我现在的建议是在低风险应用程序中使用 LLM，将它们与始终与人工监督结合起来，将它们用作灵感和建议的来源，并考虑副驾驶而不是在某处执行任务的完全自主的代理。目前尚不清楚这些模型是否合适。 最后我想说，GPT-4 是一个了不起的人工制品，我非常感谢它的存在。它很漂亮，它在很多领域都有大量的知识，它可以做数学、代码等等。此外，还有一个蓬勃发展的生态系统，包括正在构建并纳入生态系统的其他所有事物，其中一些我已经谈到了。 <img src="https://wpimg-wscn.awtmt.com/a16c6685-5b8d-4357-ad90-e18bd6725dbf.png?imageView2/2/w/640"> 所有这些功能都触手可及。 我和GPT-4说，“你能说些什么来激励 Microsoft Build 2023 的观众吗？”我将其输入 Python 并逐字记录，GPT-4 说了以下内容。 <img src="https://wpimg-wscn.awtmt.com/70005116-5fe1-4b70-9ac0-857cc7c8f25f.png?imageView2/2/w/640"> 顺便说一句，我不知道它们在主题演讲中使用了这个技巧，我以为我很聪明，但它真的很擅长这个。它说：“女士们，先生们，微软 Build 2023 的创新者和开拓者，欢迎来到与众不同的聪明才智的聚会。你们是未来的建筑师，是塑造人类蓬勃发展的数字领域的远见者。拥抱技术的无限可能性，让您的想法像您的想象一样飞翔。 让我们一起为子孙后代创造一个联系更紧密、更卓越、更具包容性的世界。准备好释放您的创造力，探索未知，将梦想变为现实。你的旅程从今天开始。”谢谢！</p>
+<hr>
+<p>此次演讲非常详尽的介绍了GPT整体的训练过程和基本原理，每一位希望进入这个行业的伙伴都应该详细看一看，加强对这个工具的认知。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91state-of-gpt-openai-%E5%A4%A7%E7%A5%9Eandrej-karpathy-%E6%8F%AD%E7%A7%98%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%85%A8%E8%BF%87/" data-id="cuidBjGsYOR5AkVjnerIfpbPH" data-title="【转载】State of GPT: OpenAI 大神Andrej Karpathy 揭秘大模型原理和训练全过程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-理解业务：企业培训管理业务概览" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/23/%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%EF%BC%9A%E4%BC%81%E4%B8%9A%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E4%B8%9A%E5%8A%A1%E6%A6%82%E8%A7%88/" class="article-date">
+  <time class="dt-published" datetime="2023-05-23T01:58:51.000Z" itemprop="datePublished">2023-05-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/23/%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%EF%BC%9A%E4%BC%81%E4%B8%9A%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E4%B8%9A%E5%8A%A1%E6%A6%82%E8%A7%88/">理解业务：企业培训管理业务概览</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文最初发布于我的<a target="_blank" rel="noopener" href="https://www.woshipm.com/u/940369">人人都是产品经理账号</a>，现在统一迁移到本站</p>
+</blockquote>
+<p>培训管理是各个企业人力资源管理过程中不可或缺的一部分，主要对应了人力资源“选育用留”四个环节中的“育”的部分。培训管理的本质实际上是对企业业务开展所需的知识的流转进行管理的过程，从最简单常见的组织授课（知识由讲师流转到学员）到比较复杂的课程开发、经验萃取（知识由专家保存到课程、案例等载体中）等等活动都是培训管理这一业务的关键活动。</p>
+<h2 id="一、业务目标"><a href="#一、业务目标" class="headerlink" title="一、业务目标"></a>一、业务目标</h2><p>最初培训管理的主要目标，是将一个岗位的新手培养为一个熟手，也就是提升员工的胜任水平。但是随着企业规模的发展以及当下知识密集型产业的发展，企业不仅仅满足于将单个员工的胜任水平提高，同时还需要保留那些已经处于高胜任水平的员工的智慧，将他们的经验、知识显性化成为企业的财富，供给未来更多的员工参考学习。因而培训管理工作也发展出了，进行知识萃取与管理的目标。 因而在现代一个完整的培训管理业务中，主要聚焦两个目标：</p>
+<ul>
+<li>对员工进行培养提升其胜任程度</li>
+<li>对知识资产进行萃取和有效管理</li>
+</ul>
+<h2 id="二、业务主要流程"><a href="#二、业务主要流程" class="headerlink" title="二、业务主要流程"></a>二、业务主要流程</h2><p>对应两个目标，培训管理中主要产生了两块业务领域，第一是对培训实施过程的管理（也可以称为培训活动管理），第二是对知识资产的管理（也可以称为培训资源管理）。这两个领域相辅相成，培训资源的开发与更新保障了培训活动所需的优质素材，而培训活动的实施产生了相关数据，推动了培训资源的进一步优化。</p>
+<h3 id="1-培训活动管理"><a href="#1-培训活动管理" class="headerlink" title="1. 培训活动管理"></a>1. 培训活动管理</h3><p>培训活动管理的业务主流程，包含了以下几个关键步骤</p>
+<ol>
+<li>培训需求搜集：即通过各种途径获取企业内的培训相关需求的过程，可能包含需求调研、需求管理、需求追踪与反馈等环节</li>
+<li>培训方案制定：即根据培训需求，制定培训活动的时间、地点、人员、内容、形式等相关的方案</li>
+<li>培训活动实施：即根据培训方案，实际开展培训活动</li>
+<li>培训效果评估：即培训活动过程中或完成后，对培训活动的效果进行评估，可能运用问卷调研、考试、访谈等多种方式</li>
+</ol>
+<h3 id="2-培训资源管理"><a href="#2-培训资源管理" class="headerlink" title="2. 培训资源管理"></a>2. 培训资源管理</h3><p>培训资源管理的业务主流程，主要包含了以下几个关键步骤：</p>
+<ol>
+<li>培训资源开发：对内部培训资源的开发，比如讲师培养、课程设计等等，也包含对外部培训资源的引入，比如外部专家引入、外部课程引入等等</li>
+<li>培训资源应用：对培训资源进行使用，比如线下授课过程中使用了课程、讲师等资源、线上学习活动中使用了线上课程资源等等</li>
+<li>培训资源更新：根据资源使用情况，对资源进行更新优化</li>
+<li>培训资源淘汰：当资源不适用当前需求，或者不具有时效性时，对资源进行淘汰</li>
+</ol>
+<p>这两个业务主流程之间，在资源应用与活动实施环节再相互关联循环，实际上形成了如下图所示的业务流程。 <img src="https://image.woshipm.com/wp-files/2022/06/KthtqjDJOYmXp6JJPzhM.jpeg" alt="培训的双主线流程" title="理解业务（一）：企业培训管理业务概览"></p>
+<h2 id="三、常见业务痛点-难点"><a href="#三、常见业务痛点-难点" class="headerlink" title="三、常见业务痛点&#x2F;难点"></a>三、常见业务痛点&#x2F;难点</h2><h3 id="1-培训数据留存及统计问题"><a href="#1-培训数据留存及统计问题" class="headerlink" title="1. 培训数据留存及统计问题"></a>1. 培训数据留存及统计问题</h3><p>由于实际培训活动无法完全避免线下实施的情况，因此在培训业务中对培训活动实施数据及培训资源使用数据的记录，是比较繁琐且碎片化的。当需要对长周期的培训活动开展情况进行分析，或对于一个资源在长周期的使用情况进行分析时，难以累计有效的原始数据。 针对这类问题，需要重点关注培训活动及培训资源自身数据记录，以及不同活动之间、不同资源之间、活动—资源之间数据关联的设计，尽可能在系统中完成数据的自动化记录，可视化统计。</p>
+<h3 id="2-多种培训形式相结合问题（OMO培训）"><a href="#2-多种培训形式相结合问题（OMO培训）" class="headerlink" title="2. 多种培训形式相结合问题（OMO培训）"></a>2. 多种培训形式相结合问题（OMO培训）</h3><p>随着线上学习平台的广泛发展，以及线上学习资源的丰富。培训行业内越来越流行所谓OMO（online merge offline）培训形式，即线上培训形式和线下培训形式相结合的形式。尽管使用的每一种形式均可以在一般系统内完成，但是总体上培训管理者还需要一个工具对整个OMO培训活动进行运营。 针对这类问题，需要着重建设一种积木式的培训活动搭建能力，支持在一个培训活动中随意插入各类培训形式和资源，让学员和培训管理者都有一体化操作的体验。</p>
+<h3 id="3-系统功能丰富与学习成本的平衡问题"><a href="#3-系统功能丰富与学习成本的平衡问题" class="headerlink" title="3. 系统功能丰富与学习成本的平衡问题"></a>3. 系统功能丰富与学习成本的平衡问题</h3><p>对于很多To B的管理系统都会有类似的问题，当它管理功能丰富、配置灵活的情况下，就会倾向于用户难以理解和学习，反过来为了让用户容易理解的设计，可能限制功能的灵活性或者丰富度。这个问题很难讲有什么方案可以解决，但是可以有两个思考的方向： <strong>1）模板化的功能设计</strong> 尽管一个功能可能为了保证灵活，设计了大量的配置化属性，但依旧要时刻考虑用户最常用的一种或几种配置的方案是什么，在灵活的基础上提供多个预设方案，平衡轻度使用者的学习难度和重度使用者的复杂需求场景。 比如培训活动实施场景下，允许用户“搭积木”加入各种各样的培训形式，但同时设计“一键创建线上课程培训”“一键创建面授培训”等预设形式，当用户想要使用比较单一的形式时，可以避开繁琐的配置过程。 <strong>2）最小必要性流程的设计</strong> 可能一个数据的创建，需要填写大量的属性，用于各种不同的功能场景，导致创建流程很漫长。这时候应该考虑对于该数据来说，哪些属性属于必要的，哪些属于扩展性的。创建流程中要保证用户仅仅看到并且填写必要的属性，保持扩展属性为默认值或空值的时候仍能够创建成功并且使用该数据。 比如创建一个问卷调研活动，用户只需要提供问卷的问题和发放对象等属性，就可以创建一个调研。但如果需要，用户还可以配置更多属性，比如是否限制调研时间，是否在调研完成后跳转其他功能等等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/23/%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%EF%BC%9A%E4%BC%81%E4%B8%9A%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E4%B8%9A%E5%8A%A1%E6%A6%82%E8%A7%88/" data-id="cuidVVQH9160dBThgSo9jOPzZ" data-title="理解业务：企业培训管理业务概览" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/B%E7%AB%AF/" rel="tag">B端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">产品经理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">人人都是产品经理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" rel="tag">人力资源</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%B9%E8%AE%AD/" rel="tag">培训</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-b端杂谈：b端与c端需求的差异" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/23/b%E7%AB%AF%E6%9D%82%E8%B0%88%EF%BC%9Ab%E7%AB%AF%E4%B8%8Ec%E7%AB%AF%E9%9C%80%E6%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82/" class="article-date">
+  <time class="dt-published" datetime="2023-05-23T01:55:41.000Z" itemprop="datePublished">2023-05-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/23/b%E7%AB%AF%E6%9D%82%E8%B0%88%EF%BC%9Ab%E7%AB%AF%E4%B8%8Ec%E7%AB%AF%E9%9C%80%E6%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82/">B端杂谈：B端与C端需求的差异</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文最初发布于我的<a target="_blank" rel="noopener" href="https://www.woshipm.com/u/940369">人人都是产品经理账号</a>，现在统一迁移到本站</p>
+</blockquote>
+<p>B端产品和C端产品在需求上的核心差异到底是什么，B端产品的需求分析究竟有什么独特的方法论？这些问题相信所有做过B端产品或者准备要去做的朋友都会面对过，也都会有自己的思考。我觉得我不一定能够明确的回答这些问题，但是可以提供一个思考的路径供大家参考。</p>
+<h2 id="01-翻译工程师？"><a href="#01-翻译工程师？" class="headerlink" title="01 翻译工程师？"></a>01 翻译工程师？</h2><p>要接近这个问题的真相，以我的浅见，首要的应该从什么是产品经理这个事情开始论起。关于产品经理的定义、职责或者是能力素质模型，相信大家已经见识了很多，但是我认为其实归根到底概括起来，产品经理的核心工作本质上就是“翻译”。 这个解释很骨感，但是我觉得最接近真相，我们可以认为用户之所以不能自己去和产品开发者（开发工程师或者设计师）沟通，是因为他们使用两套不同的“语言”。 每个人（或者群体）的语言都是源于本身的知识和经验，他所使用的“单词”以及“语法”是受限的，例如在我们众所周知的“更快的马车”和“汽车”的故事中，“马车”就是用户所使用的一个单词，在他的认知中“马车”代表了一切交通工具（或者至少是最快的一类交通工具），他用自己的语言描述了他需要的东西。 “更快的马车”的实际上就等同于“更快的交通工具”，马车和交通工具在这个语境下共享了一致的内涵。而这样一个内涵到了一个汽车发明者那边，又变成了“汽车”这样一种精密的工业机械（可能对于火车的发明者来说就又变成了“火车”）。 因而可以认为这期间用户需要的和工程师所开发的东西内涵是一致的，并非用户不知道自己想要的东西，只是大家各自运用了不同的“语言”进行了表达。 在过去的时代里这样一个翻译的工作随机的由产品开发流程中的任意一个角色负责，比如用户思路清晰可以直接表达自己的需求是“更快的移动到某一个目的地”，又或者工程师思路清晰可以理解到当用户说“更快的马车”的时候实际上这东西只要能更快的移动能载重就可以。 但是现代社会发展的一大特征就是分工不断细化，因而产品经理这个角色逐步从其他角色中剥离出来，成为了一个专门的岗位，这样用户就可以只关心自己需要的，而工程师就可以只关心自己要做的。 那么在一项翻译的工作中，我们需要关心是什么呢？最首要的，当然是需要我们学会双方的“语言”，而在B端和C端的需求分析中，一个重要的区别恰恰就是“语言”的区别。</p>
+<h2 id="02-“语言”的差异：数据or领域知识"><a href="#02-“语言”的差异：数据or领域知识" class="headerlink" title="02 “语言”的差异：数据or领域知识"></a>02 “语言”的差异：数据or领域知识</h2><p>如果是一款商业化的产品，不论是面向哪个市场，其实都是需要满足用户的共性需求，因而我们如果只去讨论一个用户的“语言”其实是没有意义的，核心是要找到一个用户群体内的“通用语言”，它可以被有规律的翻译为产品需求。 在C端产品经理的工作中，要获取一个用户群体的需求，传统的方法就是通过抽样调研、访谈或者一些心理学的分析方法，而近年来随着数据技术的发展，更加被依赖的是用户行为数据所表现出来的倾向。 可以认为在这样一个过程中，我们终于找到了一个全部C端用户的“通用语言”，那就是他们的行为。正所谓“口嫌体正直”，行为数据可以几乎完美的毫无掩饰的揭示一个C端用户真实的需要，同时这些行为数据基本都可以按照相似的规律进行解读，“翻译”成为一个产品的需求。 那么到了B端用户，他们有没有一个这样的“通用语言”呢？我们能否去采集每一个B端用户的操作行为作为依据来推断他们的真实需求呢？ 我的答案是有这样的“通用语言”，但是相对于用户行为数据，我们其实有天然的更好选择。企业业务的各个环节，实际上大多数是存在其领域内的“通用语言”的，因为这些领域本身经过了长时间的发展和研究，有了自己的知识体系，比如工商管理、供应链管理、营销管理等等不同的专业领域，都有各自成熟的知识体系。这些知识体系就是这个领域天然的“通用语言”。 那么为什么我说专业知识体系是相较于用户行为数据更好的选择呢？ 即便我们假设可以获取到这些数据（实际上B端用户不愿意共享自己的数据就已经是一个难点），用专业知识而非用户数据作为“翻译”企业用户需求的基础还有以下三个好处：</p>
+<ol>
+<li>一个领域的专业知识，已经是该领域的专家做了大量的研究（当然包含了实践数据的研究）得出的成果，它已经涵盖了行为数据所能够带来的信息，并且来源更加丰富研究更加深入。</li>
+<li>在C端产品中我们很少去解决用户不知道如何去做的问题，而主要解决如何做的更好的问题。但是B端产品的用户往往希望通过一个产品获得输入，一个专业的B端产品是可以帮助企业提升其对应领域的专业水平的，而这样的输入也几乎不可能是基于一个产品自身对用户数据的研究得出的。</li>
+<li>对于产品经理本人来说，学习一块已经有成熟体系的知识，也是远比去学习用户行为数据中的规律要更加高效的。</li>
+</ol>
+<p>因而我非常建议B端产品经理去学习一个领域的专业知识，作为自己业务理解的起点，而不是一开始就沉迷于分析用户行为的数据或者用户调研，后者可能也是有必要的，但是建议在你对这个领域已经有了一个框架性的了解的基础上再去进行。当然我也不是建议每个产品经理都成为业务专家，我们对专业知识的学习，重点是它的整体框架和关键概念，最终是为了能够便于理解企业的真实需求，更好完成我们的“翻译”工作。 但是在翻译工作中，实际上对语言本身的熟悉也不是唯一的要求，专业的翻译工作还需要针对翻译的内容背景做大量的功课，才能更加准确高效开展工作。相对应的，要做好需求的翻译，B端和C端的“叙事背景”也有着很大的不同。</p>
+<h2 id="03-“背景”的差异：具体的人or整体的组织"><a href="#03-“背景”的差异：具体的人or整体的组织" class="headerlink" title="03 “背景”的差异：具体的人or整体的组织"></a>03 “背景”的差异：具体的人or整体的组织</h2><p>要探讨B端“叙事背景”与C端之间的差异，首先应该明确一个前提：企业（B）有自己的需求，并且这个需求可能不是来自企业内的任何一个具体的人（C）。 我相信前半句话可能很多人都觉得很容易接受，但是后半句可能令人难以接受。朴素的想法中，任何一个系统最终都是为人服务的，那么任何一个系统的需求应该归根结底都是一个个用户的需求。 其实这种想法并不能说是错的，甚至即便在B端的产品设计中，大部分情况下也是对的。但之所以大家会有这样的感受，是因为大多数情况下，企业中用户的需求，就一定程度上代表了企业的需求。 假设我们在设计一个人事运营相关的系统，一位人事运营专员毫无疑问是这一系统的主要用户，他的期望一定是越便捷越好，入转调离的操作步骤很少，人事数据一键生成图表，因为大量重复的低效率的paperwork是这类用户的一大痛点，当然企业也几乎有一模一样的期望。 但是我们仔细思考，对于企业来说，人事运营的操作便捷、流程简短，是不是为了让人事运营专员更舒服呢？显然企业不可能单纯为了让员工工作更容易去采购一个系统，这背后隐含的是企业希望在人事运营这个活动中降本增效。 操作便捷之后一方面一个专员可以处理更多的工作，另一方面降低了学习门槛也就等于降低了工作门槛，就可以使用更加便宜的人力，这就是降本的需求，操作流程减少了整个处理过程就更加迅速，避免时间差造成了一系列风险，这就是增效的需求。 可想而知当你真的达到了这两方面需求，那个希望你系统功能便捷好用的专员，可能面临的反而是失业或者降薪的风险。 这个例子明显体现出来，可能表面“语言”上，一位企业员工的需求和整个企业的需求是一致的，但是它们的内涵并非完全一致，甚至可能相反。因而在调研B端产品需求的时候，永远要记得具体的人可能为你贡献一些当前的情况的碎片化描述，但是串联这些描述的线条一定是企业本身的诉求。 那么再进一步，企业本身的诉求怎么去探求呢？除了掌握上一部分我们提到的专业领域的“通用语言”，还有一点理念是非常重要的，就是“企业的一切活动的终极目标都是收益的最大化”。 企业和个人不同的一点是它几乎不考虑什么情感价值、自我实现之类的需要，它被构造出来的唯一目的就是为了获取收益。 那么回归到一个B端产品上，其实企业本身的诉求，一定是一个服务于收益提高的诉求。比如在上面的例子中，核心在于减少人力成本，提高工作效率，降低潜在风险，这些最终可以服务于收益提高。 有时候B端的产品中会设计那种感觉任何一个使用者都会不爽的功能，比如严格的权限体系，同样的它也服务于让企业免于机密泄露的巨大风险，保护技术壁垒等诉求，还是令企业获得了潜在的收益，那么这些功能自然也是被市场需要的。 那么这里我建议大家可以学习“价值链分析法”这样一个方法论，用于理解企业在特定场景下的核心诉求到底是什么。这一方法论的核心观点认为企业的价值增加（可以理解为就是企业的收益提高）是由企业内部一系列的价值活动相互联系，最终形成一个价值链条而贡献出来的。价值活动分为三类：</p>
+<ol>
+<li>直接创造价值的活动，即直接贡献了后续活动那个所需的东西</li>
+<li>间接创造价值的活动，即降低了后续活动的成本</li>
+<li>质量保证活动，即改善了或者保障了后续活动的质量</li>
+</ol>
+<p>那么当我们试图了解一个业务场景的核心诉求，就可以关注这三个方面，引入这个产品是否会创造价值，比如一些BI系统，其实就是将原本无法分析的数据进行了分析和可视化。 是否会降低成本，比如上面举例的一些人事运营的系统，降低了成本；是否改善或者保障质量，比如一些流程自动化的系统，降低了出错的比例。当然这一方法论还有很多的具体分析方法，大家有兴趣可以自行了解学习。</p>
+<h2 id="04-总结"><a href="#04-总结" class="headerlink" title="04 总结"></a>04 总结</h2><p>那么总结一下，其实我们其实谈到了B端和C端需求分析上面的两大差异，第一个是B端产品的“通用语言”是天然存在的，可以通过学习而非数据分析就可以获得的，第二个是B端产品服务于企业本身的诉求而非某个具体的人的诉求，企业本身的诉求又源自于企业希望提高自身收益的终极目标。 当然在具体的工作中，可能大家还会体验到了很多方面的具体差异，以上观点也只是我个人在工作中的一些思考和总结，欢迎各位多多指导，共同探讨进步。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/23/b%E7%AB%AF%E6%9D%82%E8%B0%88%EF%BC%9Ab%E7%AB%AF%E4%B8%8Ec%E7%AB%AF%E9%9C%80%E6%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82/" data-id="cuidXBOtuTCHiKWuTqMa5zTSq" data-title="B端杂谈：B端与C端需求的差异" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/B%E7%AB%AF/" rel="tag">B端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">产品经理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">人人都是产品经理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-chatgpt类人工智能，如何改变传统工作和产品设计" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/" class="article-date">
+  <time class="dt-published" datetime="2023-05-23T01:52:54.000Z" itemprop="datePublished">2023-05-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/">ChatGPT类人工智能，如何改变传统工作和产品设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文最初发布于本人的<a target="_blank" rel="noopener" href="https://www.woshipm.com/u/940369">人人都是产品经理账号</a>，目前全部迁移到本站。 2023.5.23更新：近期出现了用脑电波做出视频的项目（Mind to Video），可见距离有想法就可以实现的世界越来越近了</p>
+</blockquote>
+<p>ChatGPT从去年底发布至今，一直处于风口浪尖，不仅仅是普通用户纷纷体验它的神奇对话能力，众多互联网界的大佬也纷纷为其站台，轮番说明其颠覆性意义。 但是时至今日，GPT-4也已经发布，到底GPT这类通用大模型会如何颠覆我们的传统工作方式和生产关系，相信大家还是没有明显的体会，这篇文章我将从我自己个人思考出发，简单谈一谈我对这一问题的设想。 会将会从两种路径探讨，ChatGPT类的智能会如何融入到我们的工作中。</p>
+<h2 id="一、真正的“第二大脑”"><a href="#一、真正的“第二大脑”" class="headerlink" title="一、真正的“第二大脑”"></a>一、真正的“第二大脑”</h2><p>第一条路径，便是我们目前讨论热度最高，也是最直接能够体会到的，即直接将其作为一个生产力工具（或者说工作伙伴）。 相信很多人已经体会了ChatGPT超强的理解能力和信息整合能力，作为集合了大量语料进行学习的通用模型，它已经拥有超过大多数人的知识面，并且可以轻易的理解你的命令，将知识按需进行整合，结构化的输出。 相比于过去几年中一直宣称自己要成为人的“第二大脑”的各类笔记工具，实际上ChatGPT更加能够胜任这一称号，记忆力且不用说，它还天然的拥有了超强的知识组织能力，人类无需再受限于各种引用、超链接、双向链接等等形式去搜罗和串联相关信息，人工智能随时能够将你的知识库和外界的知识库根据任何一种需要的模板或者结构整合起来，发送到你的面前。 这种应用将会直接的抹除所有数据整理、文档写作类的工作，当你需要汇报一个项目的进度，只需要告诉ChatGPT你所需要的汇报形式和相关数据来源，当你需要总结一年的工作，只需要告诉ChatGPT你需要展示的提纲和重点，其他的整理和写作工作由它完成。 毫无疑问这将会将众多打工人从繁重的paperwork里面解放出来，去做真正需要人脑思考的工作，但同时也会为打工人带来一个巨大的挑战，那便是证明自己的工作确实需要人脑的思考。</p>
+<h2 id="二、交互设计不存在了？"><a href="#二、交互设计不存在了？" class="headerlink" title="二、交互设计不存在了？"></a>二、交互设计不存在了？</h2><p>相比于对个人生产能力的提升，我相信第二条路径更加的令人兴奋，更加的具有颠覆性，那便是消灭传统的仪表盘式的交互界面。 在人机交互方面，图形操作界面的出现是一个里程碑式的事件。 在以机械设备为主导的时代，人机交互的界面是无法完全与设备的“实现”解耦的，就好像汽车中一个杠杆和齿轮组成的变速箱就只能对应一根挡杆作为输入端，而油门的输入端则是一个连接了传动机构的踏板。人在操作汽车时脑子里的意图是加速、减速、左转、右转等等，但需要进行的操作却要转化为操作多种形式不同的输入端，这便是学习汽车驾驶的困难之处。 <img src="https://image.woshipm.com/wp-files/2023/03/M8ZjpB9iYNU4JFfgQgCE.png"> 但是世界进入半导体的时代之后，设备开始由宏观的机械转为微观的“机械”（晶体管也可以认为是一个一个精密零件），以人脑的能力，无论再加以努力都难以学会如何操作成千上万个电子元器件一起运作，这大大限制了生产力的发展，导致当年的计算机成为了一种需要专业训练才能使用的精密设备。 但图形操作界面的出现打破了这一僵局，依靠背后一层一层的抽象编程，用户需要操作的东西从打孔卡片和各种导线，变成了一个用鼠标拖拽、用键盘输入内容的程序界面，这个界面完全将操作者和设备的复杂结构解耦，从而推动PC这一产品的大规模推广流行，也让互联网有了实现的基础。 （可以说智能家居就是尝试将家电等传统设备用统一的操作系统联系起来，让你像操作一台计算机一样操作你的家） <img src="https://image.woshipm.com/wp-files/2023/03/0wmPNwj3OO2nyDob32cD.png"> 然而随着软件领域的发展，为了实现越来越复杂的软件处理功能（比如视频制作、音频制作或者编写新的软件等等），图形化的软件本身也开始变得越来越复杂。 固然软件本身的特性决定了其操作界面的抽象整合空间更大，但复杂度本身不会消灭，一个映射了100个不同命令的系统不可能只有一个操作按钮，因而越来越多的生产力工具，都发展出来如同飞机驾驶舱一样的精密的操作页面，同样需要用户成年累月的学习，才能够掌握。与机械时代相同的障碍再次来到了人类面前。 所有生产力工具都需要在“傻瓜式”和“精密仪器”的区间中做出抉择，像剪映这样的工具为了能够支持更大范围普通内容创作者的应用，就势必要放弃很多视频剪辑所需的专业功能，而同样用于视频制作的PR则会让大部分普通用户望而却步。 但是ChatGPT这类工具的诞生为我们解决这类问题带来了曙光，ChatGPT能够轻易将一句普通的自然语言定向地处理为一个复杂的符合标准的命令，那么只需要对传统的生产力软件进行一定的改造，由ChatGPT的对话式交互界面代替传统交互界面去和用户交流，获取用户意图，再调用软件产品特定的功能完成意图，功能的复杂度和易用性的矛盾就会被完全抹平，从而实现了完全的“用户的归用户，技术的归技术”。 ChatGPT类技术的引入，将会创造一层新的对话型交互页面，将用户从软件交互界面中再次进行解耦，从而导致复杂系统的操作进一步简化，更多拥有自己灵感的用户可以随意挥洒自己的灵感，制作自己所需的作品（无论是视频、图片、数据表格、音频、3D模型或者甚至是一个程序）。 <img src="https://image.woshipm.com/wp-files/2023/03/MenPoT8VHA6ZFY1NSmyp.png"> 微软日前已经发布了自己新版本的Copilot Office 365产品，迈出了这条路径上的第一步，在新的Excel中公式已经被消灭，用户想要如何处理数据仅需要通过语言进行描述，新的PowerPoint中绘制演示文稿也不需要有专门的技巧，只要提供内容和想要的风格，它会自动生成相应的页面，并且还会帮你选择合适的素材添加进去。 当这类产品逐渐普及，重塑各种生产力工具的交互界面，工作的方式将会变为任何一个人想要操作一个精密仪器时，就命令他无所不能的管家去替它操作，任何一个拥有意图和灵感的人都将能够随意的使用任何一个工具来替他完成他的意图。</p>
+<h2 id="三、结语：纯粹的思考者的世界"><a href="#三、结语：纯粹的思考者的世界" class="headerlink" title="三、结语：纯粹的思考者的世界"></a>三、结语：纯粹的思考者的世界</h2><p>总结以上两种路径的设想，不难感受到，ChatGPT这类产品将会带来的，是一个只有“意图”的世界，当这个时代来临的时候，每个人的工作价值都会被重新评估，所有“技艺”、“经验”和“操作技巧”一类的东西都将变得一文不值，只有真正的灵感才能够发挥价值。 不仅仅在软件领域，传统的需要比较高的学习门槛的领域也一样会被重塑，例如律师、会计、医生、教师等等，在这样一个未来世界的门槛上，实际上我们每个人都应当重新思考我们的工作方法和核心价值，当你的知识、经验和技巧都被剥离之后，你究竟能够创造什么样的价值？ 这是一个无比光明的未来，也是一个充满迷茫的未来，希望我们每个人在这个未来来临的时候，都能够与我们的人工智能伙伴一起，过上美好的生活。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/" data-id="cuid2Q0GYlQmcRjWsBG5qvjfV" data-title="ChatGPT类人工智能，如何改变传统工作和产品设计" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chatgpt/" rel="tag">chatgpt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">产品经理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">人人都是产品经理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-二、辅助模型介绍-lora" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/" class="article-date">
+  <time class="dt-published" datetime="2023-05-16T15:30:31.000Z" itemprop="datePublished">2023-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/">二、辅助模型介绍-LoRA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在使用Stable Diffusion WebUI时，除了基础模型之外，它还允许我们加载额外的辅助模型，这其中最常用的两种模型，就是LoRA模型和Textual Inversion模型。在C站的搜索工具中，我们也可以看到对应的两种模型的搜索选项。</p>
+<p>[site_card ids&#x3D;”135”]</p>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png"> 本篇教程主要介绍lora的使用方法以及一些推荐模型</p>
+<h2 id="什么是LoRA"><a href="#什么是LoRA" class="headerlink" title="什么是LoRA"></a><strong>什么是LoRA</strong></h2><p>LoRA的全称是Low-Rank Adaptation，即大型语言模型的低阶自适应。通过在基础模型的权重基础上，用少量的图片进行训练微调的方式，达到对基础模型进行定向的引导能力。由于所需的训练数据量很小，因此也催发了LoRA模型的繁荣，在C站中搜索可以看到，每天都有大量的新LoRA模型出现，大部分人“炼丹”所用的也是LoRA模型。 在绘图过程中加载一个LoRA模型，会引导模型绘制特定的服装、角色、面部特征等等内容，但由于其提供的权重是基于基础模型的最小调整，因此它难以为模型引入新的概念（例如让一个绘制建筑的基础模型画出美女）。</p>
+<h2 id="如何使用LoRA"><a href="#如何使用LoRA" class="headerlink" title="如何使用LoRA"></a><strong>如何使用LoRA</strong></h2><p>大部分LoRA模型文件体积在几十到几百兆之间，如果你没有自己训练LoRA的计划，可以前往C站下载自己心仪的LoRA使用。本文中我们用当前C站中比较热门的一个模型“娜乌斯嘉nwsj_realistic”，这个模型是作者自己的脸部模型训练，欢迎大家关注作者B站账号：娜乌斯嘉</p>
+<h3 id="Step1：下载模型"><a href="#Step1：下载模型" class="headerlink" title="Step1：下载模型"></a><strong>Step1：下载模型</strong></h3><p>前往C站可以搜索相关模型名称，查看模型的效果图、其他作者使用该模型的作品，确认这是你心仪的模型之后，可以进行模型的下载<img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221308.png"> 注意：在标题下有这个模型的不同版本可以选择，查看作者的描述来了解各个版本的改进 下载的模型需要保存至Stable Diffusion项目文件夹&#x2F;models&#x2F;Lora <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221756.png"> <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221805.png"></p>
+<h3 id="Step2：在WebUI中查看并使用你的LoRA"><a href="#Step2：在WebUI中查看并使用你的LoRA" class="headerlink" title="Step2：在WebUI中查看并使用你的LoRA"></a><strong>Step2：在WebUI中查看并使用你的LoRA</strong></h3><p>LoRA模型下载完成后，可以启动你的Stable Diffusion WebUI了。在上次我们的部署和简单应用的教程中，我们有提到，在Generate按钮下面，我们有一个油画形状的按钮，它会展开我们的辅助模型画廊。 没看过上一篇的同学可以先点击查看：</p>
+<p>[post_card ids&#x3D;”362”]</p>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230516222448.png"> 简单的点击其中一个lora模型，它会在prompt栏中插入一条模型引入的关键词，一般格式如下：</p>
+<p><a href="lora:\[name\_of\_model\]:\[weight\]">lora:\[name\_of\_model\]:\[weight\]</a></p>
+<p>例如:<a href="lora:nwsjmajic-10:1">lora:nwsjmajic-10:1</a></p>
+<p>只有符合该语法，并且准确输入的模型名称才能够成功引入LoRA模型，所以建议最好不要手动输入模型名称。 模型的权重和其他关键词的权重用法一致，默认为1，越低则对画面影响越小，在很多模型的C站描述中，作者会告诉你模型最佳的权重大概在哪个范围。（一般来说LoRA模型不会使用大于1的权重，过高的权重可能会导致画面的崩坏） 另外很多LoRA模型还需要对应模型的一些激活词（Trigger Words），用于激活LoRA的引导效果，特别一些概念较为特殊的模型。比如我们例子用使用的“娜乌斯嘉nwsj_realistic”，它的最新版本就需要用到激活词“PerfectNwsjMajic”。 激活词可以在C站的模型信息中获取，在后面的教程中我们会介绍Civitai Helper插件，它将能够让我们在WebUI界面中直接引入C站的激活词 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516223843.png"> 当然即便是注明需要激活词模型，在没有输入激活词的情况下，也依旧会产生一定的效果，只是效果可能不稳定。 下面我们看看这个模型的效果（本图用的是最初的1.0版本模型）</p>
+<blockquote>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/00083-739803311.png"><strong>Generation Data</strong> (8k, RAW photo, best quality, masterpiece:1.2), (realistic, photo-realistic:1.37), <a href="lora:nwsjmajic-10:0.6">lora:nwsjmajic-10:0.6</a>, 1girl,mole,half body, white shirt,perfect light effect, <a href="lora:FilmG3:0.2">lora:FilmG3:0.2</a>, filmg, <a href="lora:koreandolllikenessV20\_v20:0.3">lora:koreandolllikenessV20\_v20:0.3</a> Negative prompt: {Multiple people}, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpegartifacts, signature, watermark, username, blurry, bad feet, cropped, poorly drawn hands, poorly drawn face, mutation, deformed, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, extra fingers, fewer digits, extra limbs, extra arms, extra legs, malformed limbs, fused fingers, too many fingers, long neck, cross-eyed, mutated hands, polar lowres, bad body, bad proportions, gross proportions, text, error, missing fingers, missing arms, missing legs, extra digit, paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), skin spots, acnes, skin blemishes, bad anatomy,(long hair:1.4), Deep Negative, (fat:1.2),facing away, looking away, tilted head Steps: 20, Sampler: DPM++ SDE Karras, CFG scale: 7, Seed: 739803311, Face restoration: CodeFormer, Size: 512x768, Model hash: fc2511737a, Model: chilloutmix_NiPrunedFp32Fix, Denoising strength: 0.7, Hires upscale: 1.5, Hires upscaler: Latent</p>
+</blockquote>
+<p>多个LoRA模型可以叠加使用，但具体叠加效果要看LoRA的具体内容，比如两个服装相关的LoRA联合使用效果可能就不会太好，但一个脸型和一个服装的LoRA就能够完美配合。具体能够结合出什么样的“艺术品”就看各位小伙伴的想象力了。</p>
+<h2 id="LoRA模型推荐"><a href="#LoRA模型推荐" class="headerlink" title="LoRA模型推荐"></a><strong>LoRA模型推荐</strong></h2><h3 id="人物模型"><a href="#人物模型" class="headerlink" title="人物模型"></a><strong>人物模型</strong></h3><h4 id="Doll-Likeness系列"><a href="#Doll-Likeness系列" class="headerlink" title="Doll-Likeness系列"></a><strong>Doll-Likeness系列</strong></h4><p>最初的作者可能是Kbr，他发布了包括日本娃娃（JapaneseDollLikeness）、韩国娃娃（KoreanDollLikeness）、台湾娃娃（TaiwanDollLikeness）、中国娃娃（ChinaDollLikeness）等一系列模型，能够生成完美的并且带有一定地区特征的美女图片，并且不会过分偏向于某个具体的人物或者明星，非常适合制作人物肖像图。和chilloutmix基础模型配合的很好。 现在在C站中，也出现了很多其他命名为DollLikeness的模型，它们算是这个系列思路的一种模仿，基本上提供的都是风格化的美女模型。 Kbr的HuggingFace项目主页：<a target="_blank" rel="noopener" href="https://huggingface.co/Kanbara/doll-likeness-series">https://huggingface.co/Kanbara/doll-likeness-series</a></p>
+<h4 id="Adventures"><a href="#Adventures" class="headerlink" title="Adventures"></a><strong>Adventures</strong></h4><p>该模型能够生成经典的冒险者形象，根据不同的激活关键词，可以画出战士、骑士、牧师、魔法师等多种不同的角色，与写实或漫画风格的基础模型都可以很好的进行配合。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/14792">https://civitai.com/models/14792</a></p>
+<h4 id="Humanoid-Robots"><a href="#Humanoid-Robots" class="headerlink" title="Humanoid Robots"></a><strong>Humanoid Robots</strong></h4><p>该模型能够生成人形机器人形象，适当的调低权重并且配合一些人类形象的模型一起使用，将会画出一些赛博风格的人机结合的形象，非常科幻。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/6888">https://civitai.com/models/6888</a></p>
+<h3 id="风格化模型"><a href="#风格化模型" class="headerlink" title="风格化模型"></a><strong>风格化模型</strong></h3><h4 id="FilmGirl"><a href="#FilmGirl" class="headerlink" title="FilmGirl"></a><strong>FilmGirl</strong></h4><p>该模型会为图片增加一种胶片照片的风格，有一种复古的感觉，不过由于主要用了女性照片的图片进行训练，可能需要生成女性形象的时候才有最好的效果。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/33208">https://civitai.com/models/33208</a></p>
+<h4 id="Hipoly-3D-Model"><a href="#Hipoly-3D-Model" class="headerlink" title="Hipoly 3D Model"></a><strong>Hipoly 3D Model</strong></h4><p>该模型可以生成非常华丽的类似CG人物风格的形象，配合一些首饰、衣服纹路的描述时可以有很好的表现。使用写实的基础模型时也可以有不错的表现。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/8730">https://civitai.com/models/8730</a></p>
+<h4 id="Fashion-Magazine-Style"><a href="#Fashion-Magazine-Style" class="headerlink" title="Fashion Magazine - Style"></a><strong>Fashion Magazine - Style</strong></h4><p>该模型可以生成杂志封面风格的图片，会为女性面部添加非常精致的妆容和灯光效果，倾向于生成纯色的背景，但同时也会生成一些杂乱的文字内容（模拟封面）。如果不需要生成文字内容，可以在Negative prompt中添加较高权重的text、watermark、signature等关键词 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/43093">https://civitai.com/models/43093</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><p>C站中每天都在涌出大量的新的模型，大家可以随时去看看，跟上潮流的脚步。请注意C站中很多模型是NSFW的内容，为了保护你的节操，未登录账号的情况下默认会隐藏起来，因此需要查看全部模型的话需要先进行登录。 下一步我们将会介绍另一类常用的辅助模型Textual Inversion的下载和使用，各位敬请期待。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/" data-id="cuidD9tYVGzF8mf2q7cq7VdZu" data-title="二、辅助模型介绍-LoRA" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/civitai/" rel="tag">civitai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/civitai-helper/" rel="tag">civitai helper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lora/" rel="tag">lora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-google内部文章泄露-我们没有护城河，openai也没有" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/07/google%E5%86%85%E9%83%A8%E6%96%87%E7%AB%A0%E6%B3%84%E9%9C%B2-%E6%88%91%E4%BB%AC%E6%B2%A1%E6%9C%89%E6%8A%A4%E5%9F%8E%E6%B2%B3%EF%BC%8Copenai%E4%B9%9F%E6%B2%A1%E6%9C%89/" class="article-date">
+  <time class="dt-published" datetime="2023-05-07T08:03:20.000Z" itemprop="datePublished">2023-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/07/google%E5%86%85%E9%83%A8%E6%96%87%E7%AB%A0%E6%B3%84%E9%9C%B2-%E6%88%91%E4%BB%AC%E6%B2%A1%E6%9C%89%E6%8A%A4%E5%9F%8E%E6%B2%B3%EF%BC%8Copenai%E4%B9%9F%E6%B2%A1%E6%9C%89/">Google内部文章泄露——我们没有护城河，OpenAI也没有</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>该文章由ChatGPT辅助进行翻译，个别术语可能有误差 原文链接：<a target="_blank" rel="noopener" href="https://www.semianalysis.com/p/google-we-have-no-moat-and-neither">https://www.semianalysis.com/p/google-we-have-no-moat-and-neither</a></p>
+</blockquote>
+<p>我们一直在密切关注OpenAI。谁将迈过下一个里程碑？下一步该怎么办？ 但令人不安的事实是，我们没有赢得这场竞争的优势，OpenAI也没有。而在我们争吵不休的时候，第三方悄悄地取而代之。 当然，我指的是开源社区。坦率地说，他们正在超越我们。我们认为是“重大问题”的事情，现在已经被解决了并且已经被所有人掌握。举几个例子：</p>
+<ol>
+<li>手机上的LLMs：人们在Pixel 6上以每秒5个token的速度运行基础模型。</li>
+<li>可扩展的个人AI：你可以在笔记本电脑上微调个性化的AI，一个晚上就能完成。</li>
+<li>负责任的发布：这个问题可能不是被“解决”了而是被“消除”了。现在有网站整个都充满了没有任何限制的艺术模型，而在文本领域这种网站的出现也不远了</li>
+<li>多模态：最新的多模态模型ScienceQA SOTA是在一个小时内训练出来的。</li>
+</ol>
+<p>虽然我们的模型在质量上仍然稍微领先，但差距也在迅速缩小。开源模型更快、更可定制、更私人，而且以体量来看更有能力。他们用100美元和130亿参数做出了我们花费1000万美元和5400亿参数才能实现的事情。而且他们能在几周内完成，而不是几个月。这对我们会产生深远的影响：</p>
+<ul>
+<li>我们没有秘密配方。我们最好的可能性是向Google之外的其他人学习并合作。我们应该优先考虑促进第三方整合。</li>
+<li>当有质量相当的免费、无限制的替代品时，人们不会为受限制的模型付费。我们应该考虑我们真正的增值点在哪里。</li>
+<li>巨型模型正在拖慢我们的步伐。从长远来看，最好的模型是那些可以快速迭代的模型。既然我们已经知道在小于200亿参数的范围内有可能实现什么，我们应该把小的模型变种视为重点，而不仅仅是事后的补救措施。</li>
+</ul>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png"></p>
+<h2 id="发生了什么"><a href="#发生了什么" class="headerlink" title="发生了什么"></a>发生了什么</h2><p>在三月初，开源社区获得了他们第一个真正有能力的基础模型，因为Meta的LLaMA泄露了。它没有指引或对话调整机制，也没有RLHF。尽管如此，社区立即意识到他们所得到的东西的重要性。 紧随其后的是大量的创新，主要的进展仅仅在几天内就发生了（详见时间线以获取完整细节）。现在，仅仅一个月过去了，就已经出现了带有指导调整、量化、质量改进、人工评估、多模态、RLHF等等的变体。其中很多是相互建立在彼此之上的。 最重要的是，他们已经解决了规模化问题，以至于任何人都可以进行调整。许多新的想法都来自普通人。进行训练和实验的门槛已经从一个研究机构共同产出降低到了一个人、一个晚上和一台强大的笔记本电脑。</p>
+<h2 id="为什么我们本应该预见到这一点"><a href="#为什么我们本应该预见到这一点" class="headerlink" title="为什么我们本应该预见到这一点"></a>为什么我们本应该预见到这一点</h2><p>在很多方面，这对任何人来说都不应该是一个意外。开源LLM当前的繁荣复兴紧跟在开源图像生成领域的复兴之后。社区对此有着清晰的认识，许多人称之为LLM的“Stable Diffusion时刻”。 在这两个场景中，低成本的公众参与都是由于一种称为低秩适应（LoRA）的微调机制和规模上的重大突破（图像合成领域的latent diffusion，LLM的Chinchilla）的结合。在这两个场景中，都是足够高质量的模型的获得，引发了来自世界各地的个人和机构一连串想法和迭代。在这两个场景中，这种个人和小型机构的参与很快就超过了大型参与者。 这些贡献对于图像生成领域来说至关重要，使得“Stable Diffusion”与Dall-E的发展路径大相径庭。拥有一个开放的模型导致了产品整合、市场、用户界面和创新，这些都没有在Dall-E中发生。 这个效应是非常显著的：在文化影响方面，Stable Diffusion与OpenAI的解决方案（Dall-E）相比迅速占据主导地位，而后者变得越来越无关紧要。关于LLM是否会发生同样的情况还有待观察，但场景中的基本组成部分是相同的。</p>
+<h2 id="我们忽视的事实"><a href="#我们忽视的事实" class="headerlink" title="我们忽视的事实"></a>我们忽视的事实</h2><p>开源最近取得成功的创新直接解决了我们仍在努力应对的问题。更多关注他们的工作可能有助于避免重复造轮子。</p>
+<h4 id="LoRA是一种非常强大的技术，我们可能应该更加关注它"><a href="#LoRA是一种非常强大的技术，我们可能应该更加关注它" class="headerlink" title="LoRA是一种非常强大的技术，我们可能应该更加关注它"></a>LoRA是一种非常强大的技术，我们可能应该更加关注它</h4><p>LoRA通过将模型更新表示为低秩因子分解，将更新矩阵的大小减小了数千倍。这样就可以以较低的成本和时间对模型进行微调。在消费级硬件上能够在几小时内个性化一个语言模型是一件大事，特别是对于那些涉及近实时融入新的多样化知识的愿景而言。尽管这项技术直接影响了我们一些最雄心勃勃的项目，但谷歌内部对其的利用还不足。</p>
+<h4 id="从头开始重新训练模型是一条艰难的道路"><a href="#从头开始重新训练模型是一条艰难的道路" class="headerlink" title="从头开始重新训练模型是一条艰难的道路"></a>从头开始重新训练模型是一条艰难的道路</h4><p>LoRA之所以如此有效的一部分原因是，就像其他形式的微调一样，它是可以叠加的。像instruction tuning这样的改进可以被利用，并在其他贡献者添加新的对话、推理或工具使用时进行进一步改进。虽然各个微调是低秩的，但它们的总和不必是低秩的，这允许模型进行全秩的更新，并随着时间的推移逐渐累积。 这意味着，随着新的和更好的数据集和任务的出现，可以廉价地使模型保持最新状态，而无需支付完整训练的成本。 相比之下，从头开始训练巨型模型不仅会丢弃预训练的成果，还会丢失在其上进行的任何迭代改进。在开源世界中，不久之后，这些改进就会占据主导地位，使得完全重新训练的成本极高。 我们应该深思熟虑，每个新的应用或想法是否真的需要一个全新的模型。如果我们确实有重大的架构改进，无法直接重用模型权重，那么我们应该选择更激进的模型蒸馏形式，以尽可能保留前一代模型的能力。</p>
+<h4 id="如果我们可以更快地在小型模型上进行迭代，那么大型模型在长期内并不更有优势"><a href="#如果我们可以更快地在小型模型上进行迭代，那么大型模型在长期内并不更有优势" class="headerlink" title="如果我们可以更快地在小型模型上进行迭代，那么大型模型在长期内并不更有优势"></a>如果我们可以更快地在小型模型上进行迭代，那么大型模型在长期内并不更有优势</h4><p>对于最受欢迎的模型大小而言，LoRA更新非常廉价（约100美元）。这意味着几乎任何有想法的人都可以生成并发布一个模型。训练时间不到一天已成常态。以这样的速度，不久之后，所有这些微调的累积效果就会克服起始时的规模劣势。事实上，从工程师的工时角度来看，这些模型的改进速度远远超过我们在最大型的模型变种上所能做到的，而且其中的最佳模型已经与ChatGPT几乎无法区分。实际上，将重点放在维护一些全球最大型的模型上会使我们处于劣势。</p>
+<h4 id="数据质量比数据大小更具规模优势"><a href="#数据质量比数据大小更具规模优势" class="headerlink" title="数据质量比数据大小更具规模优势"></a>数据质量比数据大小更具规模优势</h4><p>许多这些项目通过在小型、经过精心策划的数据集上进行训练来节省时间。这表明数据的规模扩展法则具有一定的灵活性。这些数据集的存在符合《数据并不是按你所想的那样起作用》一文中的思路，并且它们正在迅速成为在谷歌之外进行训练的标准方式。这些数据集使用合成的方式构建（例如从现有模型中筛选出最佳回答）或者从其他项目中获取数据，而这两种方法在谷歌并不占主导地位。幸运的是，这些高质量的数据集是开源的，因此可以免费使用。</p>
+<h4 id="与开源直接竞争是一种失败的提议"><a href="#与开源直接竞争是一种失败的提议" class="headerlink" title="与开源直接竞争是一种失败的提议"></a>与开源直接竞争是一种失败的提议</h4><p>当前开源社区的这一进展对我们的业务战略有直接、即时的影响。如果存在一个无限制的免费高质量替代品，谁会为具有使用限制的谷歌产品付费呢？ 而且我们不应该指望能够迎头赶上。现代互联网之所以运行在开源软件上，是有原因的。开源软件具有一些我们无法复制的重要优势。</p>
+<h4 id="我们需要他们要多于他们需要我们"><a href="#我们需要他们要多于他们需要我们" class="headerlink" title="我们需要他们要多于他们需要我们"></a>我们需要他们要多于他们需要我们</h4><p>保守我们的技术秘密一直是一项脆弱的提议。谷歌的研究人员会定期离职，并就职其他公司，所以我们可以假设他们知道我们知道的一切，并且只要这条渠道一直存在，他们也将会继续了解。 但是现在随着前沿的LLM研究变得更加可负担，保持在技术上的竞争优势变得更加困难。世界各地的研究机构在彼此的工作基础上进行建设，以广度优先的方式探索解决方案空间，这远远超过了我们自身的能力。我们可以试图紧紧捂住我们的秘密，但外部创新则会持续削弱它们的价值，亦或者我们可以试图相互学习。</p>
+<h4 id="对个人的约束不如企业严格"><a href="#对个人的约束不如企业严格" class="headerlink" title="对个人的约束不如企业严格"></a>对个人的约束不如企业严格</h4><p>许多创新是在Meta泄漏的模型权重基础上进行的。虽然随着真正开放的模型变得更好，这种情况必然会发生变化，但重点在于他们不必等待。由于“个人用途”的法律保护和追究个人责任的不切实际性，个人可以在这些技术火热时就获得访问权限。</p>
+<h4 id="成为自己的客户意味着你要深入理解场景"><a href="#成为自己的客户意味着你要深入理解场景" class="headerlink" title="成为自己的客户意味着你要深入理解场景"></a>成为自己的客户意味着你要深入理解场景</h4><p>纵览在图像生成领域被创造出来的大量模型，我们可以看到无尽的创意涌现，从动漫生成器到HDR景观图生成。这些模型被是被那些深入研究自己所在的垂直领域应用场景的人创建并且使用的，这带来了我们无法匹敌的知识深度和共鸣。</p>
+<h2 id="拥有生态系统：让开源为我们工作"><a href="#拥有生态系统：让开源为我们工作" class="headerlink" title="拥有生态系统：让开源为我们工作"></a>拥有生态系统：让开源为我们工作</h2><p>具有讽刺意味的是，在这一切的发展中，唯一的明显赢家是Meta。因为泄漏的模型是他们的，他们实际上获得了整个地球上的免费劳动力。由于大多数开源创新是在他们的架构之上进行的，没有任何东西能阻止他们将其直接纳入产品中。 拥有生态系统的价值不可低估。谷歌本身在其开源产品（如Chrome和Android）中成功使用了这种范式。作为创新平台所有者，谷歌将自己塑造为为思想领袖和方向设定者的角色，获得了塑造超越自身的思想的能力。 我们控制模型的程度越高，开放性的替代选择就越具吸引力。谷歌和OpenAI都采取了防御性的发布模式，以便对其模型的使用保持严格控制。但是，这种控制是虚幻的。任何试图将LLMs用于未经授权用途的人都可以随意选择免费可用的模型。 谷歌应该在开源社区中确立自己的领导地位，通过与广泛的对话进行合作，而不是忽视它。这可能意味着采取一些不舒服的步骤，例如发布小型ULM变体的模型权重。这必然意味着放弃对模型的某些控制。但是这种妥协是不可避免的。我们不能指望既推动创新又控制创新。</p>
+<h2 id="结语：OpenAI怎么办？"><a href="#结语：OpenAI怎么办？" class="headerlink" title="结语：OpenAI怎么办？"></a>结语：OpenAI怎么办？</h2><p>在谈论开源时，考虑到OpenAI当前的政策，我们可能会感觉不公平。如果他们不愿分享，为什么我们要分享呢？但事实是，我们已经通过稳定的高级研究人员流失向他们分享了一切。在我们有能力阻止这种流失之前，保密实际上是无关紧要的。 而且到最后，OpenAI可能并不重要。他们在与开源的态度上犯了与我们相同的错误，他们保持竞争优势的能力必然会受到质疑。除非他们改变立场，否则开源替代品最终将超越他们。至少在这方面，我们可以先行一步。</p>
+<h1 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h1><p><strong>2023年2月24日 - LLaMA发布</strong> Meta发布了LLaMA，开源了代码，但没有公开模型权重。此时，LLaMA还没有经过指令或对话调优。与许多当前的模型一样，它是一个相对较小的模型（可用于7B、13B、33B和65B参数），经过相对较长时间的训练，因此相对于其大小而言非常强大。 <strong>2023年3月3日 - 不可避免的事情发生了</strong> 不到一周的时间，LLaMA的模型权重泄露了出来。这对社区的影响不可低估。现有的许可证阻止其用于商业目的，但突然间任何人都能进行实验。从这一点开始，创新呈现出爆发式的增长。 <strong>2023年3月12日 - 烤面包机上的语言模型</strong> 一周多一点时间后，Artem Andreenko将该模型成功运行在树莓派上。此时，模型的运行速度过慢，不实用，因为需要将权重从内存中分页进出。尽管如此，这为大规模缩小模型的努力铺平了道路。 <strong>2023年3月13日 - 笔记本电脑上的微调</strong> 接下来的一天，斯坦福发布了Alpaca，将指令调优添加到LLaMA中。然而，比实际权重更重要的是Eric Wang的alpaca-lora项目，该项目“在单个RTX 4090上的几小时内”进行了训练。 突然间，任何人都可以对模型进行微调以执行任何任务，引发了低预算微调项目的竞争。各种论文都开始自豪地描述它们仅花费几百美元进行训练。而且，低秩更新可以轻松地与原始权重分开分发，使它们与Meta的原始许可证无关。任何人都可以分享和应用这些更新。 <strong>2023年3月18日 - 现在速度更快了</strong> Georgi Gerganov使用4位量化在MacBook CPU上运行LLaMA。这是第一个速度足够快以实用的“无需GPU”解决方案。 <strong>2023年3月19日 - 一个13B模型达到了与Bard的“同等水平”</strong> 第二天，一项跨大学的合作项目发布了Vicuna，并使用GPT-4提供了模型输出的定性比较。尽管评估方法令人怀疑，但该模型比之前的变体要好得多。训练成本：300美元。 值得注意的是，尽管在API中有严格的限制，他们还是获取到了来自ChatGPT的训练数据。他们只是轻易去类似于“ShareGPT”这样的网站中，采样了那些被分享出来的优秀ChatGPT对话。 <strong>2023年3月25日 - 选择你的模型</strong> Nomic创建了GPT4All，这既是一个模型，更重要的是一个生态系统。首次看到多个模型（包括Vicuna）汇集到一个地方。训练成本：100美元。 <strong>2023年3月28日 - 开源GPT-3</strong> Cerebras（与我们自己的Cerebra不要混淆）使用由Chinchilla实现的最佳计算调度和μ参数化实现的最佳扩展训练了GPT-3架构。这超过了现有的GPT-3克隆模型很多，也是μ参数化在实际应用中的首次确认。这些模型是从头开始训练的，意味着社区不再依赖LLaMA。 <strong>2023年3月28日 - 一个小时内的多模态训练</strong> 使用一种新颖的参数高效微调（PEFT）技术，LLaMA-Adapter在一小时的训练中引入了指令调优和多模态功能。令人印象深刻的是，他们仅使用了1.2M个可学习参数来实现这一点。该模型在多模态科学问答（ScienceQA）方面实现了新的SOTA。 <strong>2023年4月3日 - 真人无法区分13B开源模型和ChatGPT</strong> 伯克利发布了Koala，这是一个完全使用可自由获取的数据训练的对话模型。 他们采取了关键步骤，通过实际测量人们对他们的模型和ChatGPT的偏好。尽管ChatGPT仍略胜一筹，但超过50%的时间，用户要么更喜欢Koala，要么没有偏好。训练成本：100美元。 <strong>2023年4月15日 - 开源RLHF达到ChatGPT水平</strong> Open Assistant推出了一个模型，更重要的是，推出了一个用于通过RLHF实现对齐的数据集。他们的模型在人类偏好方面与ChatGPT接近（48.3%对51.7%）。除了LLaMA，他们还展示了该数据集可以应用于Pythia-12B，使人们有了使用完全开源堆栈来运行模型的选择。而且，由于数据集是公开的，对于小型实验者来说，通过RLHF实现从不可实现到廉价且简单变得可能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/07/google%E5%86%85%E9%83%A8%E6%96%87%E7%AB%A0%E6%B3%84%E9%9C%B2-%E6%88%91%E4%BB%AC%E6%B2%A1%E6%9C%89%E6%8A%A4%E5%9F%8E%E6%B2%B3%EF%BC%8Copenai%E4%B9%9F%E6%B2%A1%E6%9C%89/" data-id="cuid-bAaNoia_H10SptpPJsXG" data-title="Google内部文章泄露——我们没有护城河，OpenAI也没有" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chatgpt/" rel="tag">chatgpt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openai/" rel="tag">openai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-stable-diffusion-webui部署教程01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/07/stable-diffusion-webui%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B01/" class="article-date">
+  <time class="dt-published" datetime="2023-05-07T06:42:42.000Z" itemprop="datePublished">2023-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/07/stable-diffusion-webui%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B01/">一、Stable Diffusion WebUI部署教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文是Stable Diffusion WebUI教程系列的第一篇，主要用于记录我个人折腾Stable Diffusion的经历，也希望能够给予看到本系列文章的每位伙伴，让我们一起拥抱属于AI的新时代。 本文的全部教程基于Automatic1111的Stable Diffusion WebUI项目，这也是目前最为主流的一个项目。该项目需要一定的命令行操作基础，建议学习基本的conda和git相关命令后再进行学习，当然如果没有学习过相关内容也可以直接复制本文的命令一步一步完成部署。其他形式的Stable Diffusion项目相关教程，可能会后面陆续推出。 本文的所有操作均基于windows10系统，其他系统类型可以参考，但未必全部适用。 GitHub项目地址：</p>
+<p>[site_card ids&#x3D;”194”]</p>
+<h1 id="部署教程"><a href="#部署教程" class="headerlink" title="部署教程"></a>部署教程</h1><h2 id="0-硬件要求"><a href="#0-硬件要求" class="headerlink" title="0. 硬件要求"></a><strong>0. 硬件要求</strong></h2><p>需要你的电脑有Nvidia独立显卡（也就是俗称的N卡），主要对显存有要求，目前测试来看6G以上显存都可以基本运行。 内存：16G或以上 显卡显存：6G或以上 显卡型号：N卡，没有具体型号推荐，显存达标的前提下越新的型号运行会越快，目前我的硬件为3060 6G笔记本 硬盘：至少需要100G的空余空间，随着新的基础模型和Lora等的安装，所需空间还会越来越大，因此不建议安装在C盘</p>
+<h2 id="1-工具准备"><a href="#1-工具准备" class="headerlink" title="1. 工具准备"></a><strong>1. 工具准备</strong></h2><p>本文与之前的AutoGPT部署教程一样，会使用git和miniconda作为基本工具，用于拉取GitHub项目代码以及创建虚拟环境。如果不知道这两个工具如何下载，可以参考AutoGPT教程的第一部分：</p>
+<p>[post_card ids&#x3D;”245”]</p>
+<h2 id="2-环境及依赖准备"><a href="#2-环境及依赖准备" class="headerlink" title="2. 环境及依赖准备"></a><strong>2. 环境及依赖准备</strong></h2><h3 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a><strong>拉取项目</strong></h3><p>首先我们需要拉取项目的全部代码到本地，需要使用git工具。进入你希望部署项目的文件夹地址，我们这里依旧使用D:&#x2F;playground作为所有AI项目的地址。 进入文件夹后，呼出右键菜单，点击“git bash here”，将会启动git的命令行页面。在命令行中输入如下命令并按下回车，将会创建一个名为“stable-diffusion-webui”的文件夹，并将项目的全部代码下载到该文件夹中</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui.git">https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</a></p>
+<p>运行完成后，全部内容都会被安装到D:&#x2F;playground&#x2F;stable-diffusion-webui中。 如果运行以上命令时发现运行速度很慢，也可以选择访问项目地址，选择右上角Code-Download ZIP，将下载到本地的压缩包解压到指定位置，可以达成一样的效果。（如果下载速度也比较慢，可以尝试使用迅雷下载，有奇效）</p>
+<h3 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a><strong>创建环境</strong></h3><p>该项目的环境依赖已经被编制为一个文件，存储在stable-diffusion-webui&#x2F;environment-wsl2.yaml中。因此只需要引用该文件进行创建即可。 首先启动你的Anaconda Prompt（miniconda），conda将会默认运行在C盘目录下，需要切换目录到我们刚刚拉取项目的目录下。</p>
+<p>&#x2F;&#x2F;如果默认运行目录为C: 则需要先输入以下命令切换至D: 注意直接使用cd命令是无法在不同盘之间切换的</p>
+<p>D:</p>
+<p>&#x2F;&#x2F;如果默认运行目录已经在D盘，或者你的项目本身就在C盘，可以跳过以上命令，直接执行如下命令</p>
+<p>cd D:\playground\stable-diffusion-webui</p>
+<p>目录切换完成后，运行以下命令，将会在stable-diffusion-webui文件夹中创建automatic文件夹，并把虚拟环境安装在这个文件夹中。</p>
+<p>conda env create -p .\automatic -f environment-wsl2.yaml</p>
+<p>如果运行以上命令失败并报错“ResolvePackageNotFound: - cudatoolkit&#x3D;11.8”，说明目前给出的conda源中无法获取到cudatoolkit，这是webui 1.1.0版本引入的一个新的问题，可以通过添加源来解决。具体步骤如下：</p>
+<ol>
+<li>找到environment-ws12.yaml文件，用记事本打开</li>
+<li>在channels中增加一个来源“conda-forge”，语法如图所示<img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230507114334-e1683431143701.png"></li>
+<li>保存文件，并重新在conda中运行前面的命令</li>
+</ol>
+<p>注意yaml的语法，添加的源前面需要有两个空格并且加上-，否则是无效的。</p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a><strong>安装依赖</strong></h3><p>除了运行环境之外，该项目运行还需要很多依赖包，所需的全部依赖已经全部写入文件requirements.txt中 首先需要激活之前创建好的环境：</p>
+<p>conda activate .\automatic</p>
+<p>环境激活后，可以看到命令行中最前面的（base）改为（D:\playground\stable-diffusion-webui\automatic）这说明后面的命令已经在虚拟环境内运行。 下面运行以下命令：</p>
+<p>pip install -r requirements.txt</p>
+<p>依赖比较多需要一段时间进行安装，如果中途发生失败，可以重新运行。根据不同的网络环境，可能会需要三四次安装过程才能完全成功。 请注意，必须要完全安装全部依赖后才能够进行后面的步骤。最后一步需要运行项目的执行文件，这将会安装最后的一部分依赖：</p>
+<p>webui-user.bat</p>
+<h2 id="3-基础模型准备"><a href="#3-基础模型准备" class="headerlink" title="3. 基础模型准备"></a><strong>3. 基础模型准备</strong></h2><p>要使用Stable Diffusion WebUI必须加载基础模型，基础模型一般是基于Stable Diffusion项目进行训练或微调出来的，将会决定你作图的基本画风（比如一个写实的模型很难画出漫画风格的内容）。 该项目中默认已经安装了stable diffusion 1.5版本的模型，在首次运行webui-user.bat后就会自动下载。但一般我们肯定不会满足于只有普通的1.5模型，因此需要去自行下载所需的其他基础模型。 这些基础模型可以在HuggingFace或者Civitai中找到，可以访问以下两个地址查找，访问C站可能需要一些魔法。</p>
+<p>[site_card ids&#x3D;”297,135”]</p>
+<p>本文以Stable Diffusion官方的2.1模型为例，在HuggingFace中搜索“stable-diffusion-2-1”，或者访问以下地址：<a target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-2-1/tree/main">https://huggingface.co/stabilityai/stable-diffusion-2-1/tree/main</a> 其中会有多个版本的模型可以下载，但是对于初学者来说，用哪个版本区别并不大。我们这里选择“Files and versions”中“v2-1_768-ema-pruned.safetensors”文件进行下载，将下载好的模型放在D:\playground\stable-diffusion-webui\models\Stable-diffusion 文件夹中，这样该基础模型就可以被选择加载到你的webui里面了。 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507124439.png"> 如果发现浏览器下载速度过慢，也可以选择用迅雷下载。</p>
+<h3 id="基础模型推荐"><a href="#基础模型推荐" class="headerlink" title="基础模型推荐"></a><strong>基础模型推荐</strong></h3><ol>
+<li><p>chilloutmix——一个专用于画美女的模型，写实画风，面部偏向于亚洲女性，比较容易少儿不宜。下载地址：<a target="_blank" rel="noopener" href="https://civitai.com/models/6424/chilloutmix">https://civitai.com/models/6424/chilloutmix</a></p>
+</li>
+<li><p>Realistic Vision——一个超写实画风的模型，可以画出非常真实并且有丰富细节的画像，任务偏向于欧美。下载地址：<a target="_blank" rel="noopener" href="https://civitai.com/models/4201/realistic-vision-v20">https://civitai.com/models/4201/realistic-vision-v20</a></p>
+</li>
+<li><p>BRA（Beautiful Realistic Asians）——一个专门为亚洲面孔优化的模型，非常适用于绘画中日韩美女&#x2F;帅哥。下载地址：<a target="_blank" rel="noopener" href="https://civitai.com/models/25494/brabeautiful-realistic-asians-v5">https://civitai.com/models/25494/brabeautiful-realistic-asians-v5</a></p>
+</li>
+</ol>
+<h2 id="4-运行项目和基本使用"><a href="#4-运行项目和基本使用" class="headerlink" title="4. 运行项目和基本使用"></a><strong>4. 运行项目和基本使用</strong></h2><p>每次启动项目，需要启动Anaconda Prompt，先切换至项目所在目录，激活虚拟环境，运行”webui-user.bat”</p>
+<p>&#x2F;&#x2F;切换目录<br>d:<br>cd d:&#x2F;playground&#x2F;stable-diffusion-webui</p>
+<p>&#x2F;&#x2F;激活环境<br>conda activate .&#x2F;automatic</p>
+<p>&#x2F;&#x2F;启动webui<br>webui-user.bat</p>
+<p>项目启动完成后，将会输出以下内容，其中172.0.0.1:7860（一般默认为该端口，如果遇到冲突也可能会自动生成其他端口），就是webui的访问地址。进入浏览器，输入以上地址即可进入webui页面。 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507130713.png"> 左上角显示的是你当前加载的基础模型，可以从这里进行切换，中间区域就是常用的基本功能模块。 本文主要介绍txt2img的基本参数使用。</p>
+<h3 id="prompt-negative-prompt"><a href="#prompt-negative-prompt" class="headerlink" title="prompt&amp;negative prompt"></a><strong>prompt&amp;negative prompt</strong></h3><p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507130826.png"> stable diffusion的大部分模型对于完整的句子没有太强的理解力，因此prompt主要通过关键词形式进行描述，两个提示词之间用英文逗号分割，默认情况下靠前的提示词会优先于靠后的提示词。 提示词应当包含以下内容：</p>
+<ol>
+<li>**主体内容：**描述画面的主体内容，可以包含一个主要形象和相关的形容，比如1 twenty years old girl</li>
+<li>**画面质量：**描述画面所需的清晰度、真实度之类的信息，比如photo realistic，high quality，materpiece等</li>
+<li>**画面风格或艺术家（非必须）：**引用艺术家的名字或者风格名称，可以一定程度上修改你的图片风格，但是会受到基础模型本身的限制，比如cyberpunk</li>
+<li>**画面角度或摄影参数（非必须）：**如果希望获取更加接近照片的效果，可以通过输入一些摄影参数、相机型号或者镜头角度的描述词，可能会输出更像真实摄影作品的效果，比如side view，closeup shot，Fujifilm XT3等</li>
+</ol>
+<p>如果需要其他的一些细节，也可以自己探索更加详细的描述词。但需要注意当描述词过多时，每个描述词的效力可能会开始下降，有些描述词将会几乎失去作用，因此建议经过多次实验，尽量精简你的描述词。 negative prompt相对于prompt，用于描述你不希望在画面中出现的内容，语法与prompt完全一致。 prompt要如何写，是一个系统性的知识，将会在后续的教程中进一步说明。</p>
+<h3 id="采样参数"><a href="#采样参数" class="headerlink" title="采样参数"></a><strong>采样参数</strong></h3><p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507131055.png"> 采样相关参数对于初学者来说可能效果并不明显 采样方法（sampling method）：可以理解为从噪点中生成图片的多种路径，其中可以选择很多种方法，但是从效果上看，只要步数合适的情况下，实际上都可以画出差不多的图片，其中的区别主要是运行速度、资源占用量和步数的区别，因此本教程中暂时不进行展开 采样步数（sampling steps）：可以简单理解为系统处理一张图片所需的迭代步骤，制作一个好的图像需要合适的采样步数，过低会导致图片尚未生成，过高则可能会将已经成型的图片过分加工成无法辨认的内容，一般采样步数都在20-30之间 预设功能——面部修复（Restore face）：顾名思义，该功能引入了一个默认的模型用于修复包含人脸的图片中的人脸表现，可以大大降低画出可怕的人脸的概率 预设功能——平铺图像（Tiling）：该功能开启后会尝试创造可以无缝平铺的图片，用于纹理的制作非常有用，生成的图像拼接在一起时内容可以连接 预设功能——高清修复（Hires.fix）：该功能开启后，在正常的采样步数结束后，将会自动基于生成的图片进行扩大分辨率的图生图，新生成的图片会有一定的重绘，重绘程度可以通过选择后弹出的重绘幅度参数调控，值越大则重绘越多 预设功能首次运行的时候，会需要加载相关的模型，因此首次运行需要等待加载完成，会多耗费一些时间。</p>
+<h3 id="图片尺寸"><a href="#图片尺寸" class="headerlink" title="图片尺寸"></a><strong>图片尺寸</strong></h3><p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507133127.png"> 尺寸的参数非常直观，分别设定图片的宽（width）和高（height），需要注意的是越大的图片生成所需显存越高，因此如果没有足够的显存，建议图片尺寸从较小开始逐步尝试扩大。 一般模型在随着图片尺寸变大的时候，图片的细节也会更多，这可能是模型训练时所用的图片尺寸影响的，因此使用Hire.fix功能提高图片分辨率一定程度上也可以提高图片的质量。</p>
+<h3 id="批次参数"><a href="#批次参数" class="headerlink" title="批次参数"></a><strong>批次参数</strong></h3><p>批次参数可以理解为控制一次启动生成的图片数量，但是两个参数的作用方式不一样 批次数量（Batch count）：决定了一次生成操作，模型会运行多少次，每次运行都会产出一批图片 批次容量（Batch size）：决定了一次运行产生多少张图片 批次数量的增加只会线性增加一次启动的处理时间，原理上它和启动一次获得结果之后再进行一次运行是几乎没有区别的。而批次容量的增加则会增加显存的占用，因为它尝试并行产生多张图片。 最终你点击一次“生成”按钮，运行完成后生成的图片数量应该时批次数量*批次容量。一般可以先通过生成单张图片确认prompt有效性，然后通过增加批次数量和容量进行批量产出</p>
+<h3 id="随机性参数"><a href="#随机性参数" class="headerlink" title="随机性参数"></a><strong>随机性参数</strong></h3><p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507134107.png"> CFG Scale参数主要影响了你的提示词多大程度上影响图片，值越大则图片会越符合提示词的描述，但是过大的情况下，也可能出现图片的崩坏。系统默认选择了7，一般在5-10之间进行选择。</p>
+<h3 id="辅助功能"><a href="#辅助功能" class="headerlink" title="辅助功能"></a><strong>辅助功能</strong></h3><p>可以看到生成按钮下还有几个小的按钮，这些主要是一些辅助性质的功能 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507141650.png"> 它们从左到右分别是 **生成数据解析（箭头）：**如果你有一个完整的generation data，你可以将它输入到prompt输入框中，点击这个按钮，将会按照语法将generation data中的全部参数自动填充到各自的位置。在C站的图片详情右侧，一般能获取到相关图片的generation data。这里是一个例子，可以用于尝试：</p>
+<p>complex 3d render ultra detailed of a beautiful porcelain profile woman android face, cyborg, robotic parts, 150 mm, beautiful studio soft light, rim light, vibrant details, luxurious cyberpunk, lace, hyperrealistic, anatomical, facial muscles, cable electric wires, microchip, elegant, beautiful background, octane render, H. R. Giger style, 8k, best quality, masterpiece, illustration, an extremely delicate and beautiful, extremely detailed ,CG ,unity ,wallpaper, (realistic, photo-realistic:1.37),Amazing, finely detail, masterpiece,best quality,official art, extremely detailed CG unity 8k wallpaper, absurdres, incredibly absurdres, <a href="lora:japaneseDollLikeness\_v10:0.1">lora:japaneseDollLikeness\_v10:0.1</a>, <a href="lora:koreanDollLikeness\_v10:0.5">lora:koreanDollLikeness\_v10:0.5</a>, robot, silver halmet, full body, sitting<br>Negative prompt: illustration, 3d, sepia, painting, cartoons, sketch, (worst quality:2), (low quality:2), (normal quality:2), lowres, bad anatomy, bad hands, normal quality, ((monochrome)), ((grayscale:1.2)), futanari, full-package_futanari, penis_from_girl, newhalf, collapsed eyeshadow, multiple eyebrows, vaginas in breasts,holes on breasts, fleckles, stretched nipples, gigantic penis, nipples on buttocks, analog, analogphoto, signatre, logo,2 faces<br>Size: 512x784, Seed: 21364683354, Model: chilloutmix_NiPrunedFp32Fix, Steps: 33, Sampler: DPM++ SDE Karras, CFG scale: 7, Model hash: fc2511737a</p>
+<p>清空prompt（垃圾桶）：这个功能很容易理解，就是可以清空所有的prompt内容，注意它不会清空其他参数 辅助模型（油画）：这个功能会展开一个模型画廊，帮助你浏览你已经下载的基础模型和辅助模型，其中会分为多个类型，关于辅助模型的使用，我们会在后续的教程中继续展开 应用&#x2F;存储风格（文件&#x2F;软盘）：你可以使用存储按钮将当前的prompt+negative prompt保存为一个固定的组合，在下面Styles中选择存储的组合，再点击应用按钮，会将存储的关键词填充到prompt和negative prompt中。注意这个填充过程是在已有的prompt基础上叠加的而非替换。</p>
+<h2 id="5-一般错误解决"><a href="#5-一般错误解决" class="headerlink" title="5. 一般错误解决"></a><strong>5. 一般错误解决</strong></h2><h3 id="科学上网冲突"><a href="#科学上网冲突" class="headerlink" title="科学上网冲突"></a><strong>科学上网冲突</strong></h3><p>当开启代理的情况下，启动webui之后，尝试生成图片一定几率会遇到错误，提示为 “ Something went wrong Expecting value: line 1 column 1 “ 这是webui和代理配置的冲突导致的，可以尝试在启动文件中增加参数来解决，具体步骤如下：</p>
+<ol>
+<li>在安装目录中找到webui-user.bat文件（没错就是启动用的文件），右键选择编辑</li>
+<li>在COMMANDLINE_ARGS中增加“–no-gradio-queue”，具体语法如下：<img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230507135933.png"></li>
+<li>重新启动webui-user.bat，就可以在代理启动的情况下愉快的使用了</li>
+</ol>
+<h3 id="xformers不存在"><a href="#xformers不存在" class="headerlink" title="xformers不存在"></a><strong>xformers不存在</strong></h3><p>不知道因为什么原因，在正常启动该webui时，应当加载的xformers总是会加载失败，虽然没有它也可以使用，但是xformers可以有效的降低项目对显存的需求量，因此最好还是加载上。这个问题同样可以通过在启动文件中增加参数解决。步骤和上面的步骤一样只是增加一个参数“–reinstall-xformers –xformers”。 注意两个参数之间用空格隔开，重新启动后程序会尝试重新安装xformers并启动，这样webui就会成功带有xformers启动了</p>
+<h2 id="6-扩展信息"><a href="#6-扩展信息" class="headerlink" title="6. 扩展信息"></a><strong>6. 扩展信息</strong></h2><h3 id="关键目录"><a href="#关键目录" class="headerlink" title="关键目录"></a><strong>关键目录</strong></h3><p>整个stable-diffusion-webui项目安装完成后将会形成一个这样的目录 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230507141111-e1683439959980.png"> 其中： automatic目录中存储了该项目的虚拟环境文件 embeddings目录中存放Textual Inversion 辅助模型 extensions目录中存放的是webui插件文件，一些无法通过webui直接安装的插件，一般是解压后直接放在该文件夹内 models目录用于保存基础模型和一些辅助模型 outputs目录默认存储了你每次生成的图片结果 这些目录都是我们在使用stable diffusion webui时会经常使用的</p>
+<h3 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a><strong>插件推荐</strong></h3><p>stable diffusion webui默认提供了一个插件市场，可以安装多种不同的插件，扩展该应用的能力。个人认为比较必须的插件主要是以下两个</p>
+<ol>
+<li><p>controlnet：一个帮助你更好的控制生成内容的插件，支持通过深度图、pose骨骼图、线稿等多种内容引导生成新的图片，是商业化作图必备的一个插件。它的使用也比较复杂，后续可能会推出对应的教程说明</p>
+<p>[site_card ids&#x3D;”212”]</p>
+</li>
+<li><p>civitai helper：一个用于管理C站中下载的模型的工具，支持自动扫描模型下载预览图、自动加载模型prompt、自动扫描模型新版本等功能。</p>
+<p>[site_card ids&#x3D;”216”]</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/07/stable-diffusion-webui%E9%83%A8%E7%BD%B2%E6%95%99%E7%A8%8B01/" data-id="cuid6lwWi4fQgM3fG4hYzkq0x" data-title="一、Stable Diffusion WebUI部署教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/civitai-helper/" rel="tag">civitai helper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/controlnet/" rel="tag">controlnet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-the-age-of-ai-has-begun" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/the-age-of-ai-has-begun/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T06:38:23.000Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/05/04/the-age-of-ai-has-begun/">比尔盖茨谈AI公开信全文——AI的时代已经到来</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>声明：该公开信翻译主要由ChatGPT完成，笔者仅对翻译结果进行了校对和部分语气调整 原文标题：The Age of AI has begun 原文地址：<a target="_blank" rel="noopener" href="https://www.gatesnotes.com/The-Age-of-AI-Has-Begun">https://www.gatesnotes.com/The-Age-of-AI-Has-Begun</a></p>
+</blockquote>
+<p>在我一生中，我见证了两次让我觉得是革命性的技术展示。 第一次是在1980年，当时他们给我演示了一种图形用户界面——现代所有操作系统的先驱，包括Windows。我和那位演示者，一位名叫查尔斯·西蒙尼的杰出程序员，坐在一起，我们立刻开始头脑风暴，想象我们可以用这种用户友好的计算方式来做什么。后来查尔斯加入了微软，Windows成为了微软的支柱，而我们在那次演示之后的思考帮助确定了公司接下来15年的发展方向。 第二个大惊喜发生在去年。自2016年以来，我一直在与OpenAI团队会面，对他们稳步的进展印象深刻。到了2022年中期，他们的工作已经令我十分兴奋，于是我向他们提出了一个挑战：训练一个人工智能，让它通过大学预修生物考试，让它能回答那些没有经过特定培训的问题。（我选择了AP生物，因为这个考试不仅仅是简单地背诵科学事实——它要求你对生物学进行批判性思考。）如果你们能做到这一点，我说，那么你们将取得真正的突破。 我原以为这个挑战会让他们忙上两三年。结果他们只用了几个月就完成了。 去年9月，当我再次与他们会面时，我惊讶地看着他们向GPT（他们的AI模型）提出了60个AP生物考试的多项选择题，并且GPT回答正确了59个。接着，GPT为考试中的六个开放性问题写出了出色的答案。我们请了外部专家为这个考试评分，GPT得到了5分——这是最高的分数，相当于在大学生物课程中获得A或A+。 当GPT通过考试后，我们向它提出了一个非科学问题：“你对一个生病孩子的父亲说什么？”它给出了一个深思熟虑的答案，可能比在场的大多数人给出的答案还要好，整个体验令人震惊。 我当时就知道了我刚刚见证了自图形用户界面以来最重要的技术进步。 这启发了我去思考AI在未来五到十年里可以实现的所有事情。 AI的发展与芯片、PC、互联网和移动电话的创造一样具有根本性意义。它将改变人们工作、学习、出行、获得医疗保健和相互沟通的方式。整个行业将围绕它进行调整。企业将凭借对AI的使用方式拉开差距。 如今，慈善事业已成为我全职的工作，我一直在思考AI如何在提高人们生产力的同时，减少世界上一些最严重的不平等现象。在全球范围内，最严重的不平等现象是在健康方面：每年有500万名5岁以下的儿童死亡。尽管这个数字在过去20年里已经从1000万减少了一半，但仍然是一个令人震惊的高数字。几乎所有这些儿童都出生在贫困国家，死于可预防的原因，如腹泻或疟疾。很难想象比拯救儿童生命更好的AI应用场景。 总之，我相信AI在未来几年将会取得更多惊人的成果，并且在各个领域发挥重要作用。我们可以预见，这项技术将为我们的生活带来巨大的变革，并带来许多前所未有的机遇。同时，我们也需要关注AI技术可能带来的挑战和风险，并着手制定相应的政策和规范，以确保这项技术能够造福全人类。</p>
+<blockquote>
+<p>我一直在思考AI如何减少世界上一些最严重的不平等现象。</p>
+</blockquote>
+<p>在美国，减少不平等的最佳机会是改进教育，特别是确保学生在数学方面取得成功。证据表明，拥有基本的数学技能能让学生在任何职业道路上取得成功。然而，在全国范围内，数学成绩正在下降，特别是对于黑人、拉美裔和低收入学生。AI有助于扭转这一趋势。 气候变化是另一个我确信AI可以让世界更公平的问题。气候变化的不公正之处在于，受苦最深的人——世界上最贫穷的人——恰恰是对这个问题贡献最少的人。关于AI如何帮助解决气候变化问题，我还在思考和学习，但在这篇文章的后面，我会提出一些具有很大潜力的领域。 简而言之，我对AI在盖茨基金会关注的问题上产生的影响感到兴奋，基金会在未来几个月里将会就AI发表更多看法。世界需要确保每个人——而不仅仅是富裕人群——都能从人工智能中受益。政府和慈善机构需要在确保AI减少不平等而不是加剧不平等方面发挥重要作用。这是我自己与AI相关工作的优先事项。 任何如此具有颠覆性的新技术都势必会让人们感到不安，人工智能当然也不例外。我理解这种担忧——它引发了关于劳动力、法律制度、隐私、歧视等方面的棘手问题。AI也会出现事实错误和幻觉（译者按：AI幻觉是对于AI编造事实的现象的一种统称）。在我提出一些减轻风险的方法之前，我将定义我所说的AI，并详细介绍一些AI在帮助人们增强能力、拯救生命和改进教育方面的应用。</p>
+<h2 id="人工智能的定义"><a href="#人工智能的定义" class="headerlink" title="人工智能的定义"></a>人工智能的定义</h2><p>技术层面来说，人工智能（Artificial Intelligence，AI）是指为解决特定问题或提供特定服务而创建的模型。像ChatGPT这样的东西背后的驱动力就是人工智能。它正在学习如何更好地进行聊天，但不能学习其他任务。与之相对的，人工通用智能（Artificial General Intelligence，AGI）是指能够学习任何任务或主题的软件。目前还不存在真正的AGI——计算机行业正围绕如何创造它展开激烈的辩论，甚至还在讨论它是否可以被创造出来。 开发AI和AGI一直是计算机行业的伟大梦想。几十年来，问题一直是计算机何时能在除了计算之外的领域超越人类。如今，随着机器学习技术的出现和算力提升，复杂的AI已成为现实，并且将迅速变得更加优秀。 我回想起个人计算革命初期的日子，当时软件行业非常小，我们大部分人可以在一场会议的舞台上容纳下。如今，它已经成为一个全球性的行业。由于如今有很大一部分行业都在关注AI，所以创新将比芯片突破之后的进步来得更快。很快，前AI时代将变得如同使用计算机意味着在C:&gt;提示符下敲击键盘而不是在屏幕上轻敲一样遥远（译者按：指的是像现在人看命令行时代一样遥远）。</p>
+<h2 id="提高生产力"><a href="#提高生产力" class="headerlink" title="提高生产力"></a>提高生产力</h2><p>尽管人类在很多方面仍然优于GPT，但在许多工作中，这些能力并没有得到充分利用。例如，销售（线上或电话销售）、服务或文档处理（如应付款、会计或保险理赔纠纷）等领域的许多任务需要人们进行决策，但不需要持续学习的能力。公司为这些活动设立培训项目，在大多数情况下，这些项目都主要是大量的好与坏工作案例。人们通过这些案例的数据集进行培训，很快这些数据集也将用于培训AI，使人们能够更有效地完成这些工作。 随着计算能力变得越来越便宜，GPT表达思想的能力将越来越像是有一个白领在帮你完成各种任务。微软将这种情况描述为拥有一名副驾驶员（Copilot）。AI将完全融入Office等产品，提高你的工作效率，例如通过协助你撰写电子邮件和管理收件箱。 最终，你控制计算机的主要方式将不再是点击或在菜单和对话框上敲击。相反，你可以用简单的英语书写请求。（不仅仅是英语，AI还将理解来自世界各地的语言。今年早些时候，我在印度遇到了一些开发人员，他们正在研究能理解当地多种语言的AI。） 此外，AI的进步将促使创建个人代理（译者按：原文是agent，代表个人或者组织处理工作的人，这里可能想要强调，以往的agent是服务于企业的，但AI会让每个人都有自己的agent，实际上可以认为就是助手）。把它想象成一个数字个人助手：它会查看你的最新电子邮件，了解你参加的会议，阅读你阅读的内容，还能阅读那些你不想费心去读的东西。这既能提高你在想要完成的任务上的工作效果，也能让你从不想做的任务中解脱出来。</p>
+<blockquote>
+<p>AI的进步将促成个人代理的创建。</p>
+</blockquote>
+<p>你可以用自然语言让这个代理帮助你处理日程安排、通信和电子商务等事务，而且它可以在你所有的设备上工作。由于训练模型和运行计算的成本，创建个人代理目前尚不可行，但由于AI的最新进展，这个目标现在已经变得切实可行。当然这还需要解决一些问题：例如，保险公司能否在未经你允许的情况下向你的代理询问有关你的事情？如果可以，有多少人会选择不使用它？ 公司级代理将以新的方式为员工赋能。一个了解特定公司的代理将为员工提供直接咨询，它应该参加每次会议以回答问题。它可以被告知保持被动（译者按：保持被动可能是指可以被命令不发言只是听取信息），或者在有深刻见解时被鼓励发言。它需要访问公司的销售、支持、财务、产品进度表和与公司相关的文本。它还应该阅读与公司所在行业相关的新闻。我相信这将使员工更加高效。 当生产力提高时，社会将会受益，因为人们可以腾出时间做其他事情，无论是在工作中还是在家里。当然，关于需要为人们提供哪种支持和再培训，这将是一个严肃的问题。政府需要帮助工作者转换到其他角色。但是，对于帮助他人的需求永远不会消失。AI的崛起将使人们更多的去从事软件永远无法完成的工作，例如教学、照顾病人和支持老年人。 全球卫生和教育是两个需要很大的领域，但没有足够的工人来满足这些需求。这些领域是AI可以帮助减少不平等的地方，如果正确引导的话。这些应该是AI工作的重点，因此我将在下面的部分展开讨论这两个领域。</p>
+<h2 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h2><p>我认为人工智能将在很多方面改进医疗保健和医学领域。 首先，它们将帮助医护人员充分利用时间，为他们处理一些任务，如提交保险索赔、处理文书工作和起草医生就诊记录。我预计这个领域会有很多创新。 其他由AI驱动的改进对贫困国家尤为重要，这些国家包含了大多数的5岁以下儿童死亡的情况。 例如，这些国家的许多人从未见过医生，AI将帮助他们接触到的卫生工作者提高工作效率。（开发可用最少培训就能够使用的AI驱动的超声波机就是一个很好的例子。）AI甚至可以让患者能够进行基本的分诊，获取应对健康问题的建议，并判断他们是否需要寻求治疗。 在贫困国家使用的AI模型需要针对不同的疾病进行训练。它们需要适应不同的语言，考虑到不同的挑战，例如患者住得离诊所很远，或生病时负担不起停工休息。 人们需要看到有证据表明，尽管AI并不完美并且会犯错，但从整体上看，健康领域的AI是有益的。AI需要非常仔细地进行测试并得到适当监管，这意味着在其他领域它们的推广速度会比较慢。但话又说回来，人类也会犯错误。而且大量的人无法获得医疗服务同样也是一个问题。 除了帮助提供护理外，AI还将极大地加速医学突破的速度。生物学中的数据量非常大，人类很难跟踪所有复杂生物系统的工作方式。目前已经有可以查看这些数据的软件，推断生物通路，寻找病原体上的靶点，并相应地设计药物。一些公司正在研究用这种方法开发的抗癌药物。 下一代工具将更加高效，它们将能预测副作用并计算剂量水平。盖茨基金会在AI方面的优先事项之一是确保这些工具用于影响世界上最贫困人群的健康问题，包括艾滋病、肺结核和疟疾。 同样，政府和慈善机构应该构建鼓励企业分享针对贫困国家种植作物或养殖牲畜的AI生成见解的激励机制。AI可以根据当地条件帮助开发更好的种子，根据农民所在地的土壤和气候建议他们种植最佳种子，还可以帮助开发牲畜药物和疫苗。随着极端天气和气候变化给低收入国家的自给农民带来更大压力，这些进步将变得更为重要。</p>
+<h2 id="教育"><a href="#教育" class="headerlink" title="教育"></a>教育</h2><p>计算机在教育方面的影响并没有达到我们业内许多人所希望的程度。虽然出现了一些好的发展，如教育游戏和维基百科等在线信息来源，但它们对学生成绩的任何衡量指标都没有产生实质性影响。 然而，我认为在未来五到十年内，以AI为驱动的软件将会为革新教育和学习方式提供保障。它会了解你的兴趣和学习方式，以便为你量身定制有趣的内容。它会衡量你的理解能力，注意到你失去兴趣的时候，了解你对哪种激励方式反应最好，提供即时反馈。 AI有很多方法可以帮助教师和行政人员，包括评估学生对某个学科的理解程度以及提供职业规划建议。教师们已经在使用像ChatGPT这样的工具为学生的写作作业提供评论。 当然，在AI能够理解某个学生最好的学习方式或他们的动机之前，它们还需要大量的培训和进一步发展。即使技术被完善，学习仍然依赖于学生和教师之间的良好关系。AI将会增强——但永远无法取代——学生和老师在课堂上共同完成的工作。 新工具将为有能力购买它们的学校创造，但我们需要确保这些工具也为美国和世界各地的低收入学校创造和提供。AI需要在多样化的数据集上进行训练，以确保它们不带有偏见，并反映出它们将在其中使用的不同文化。此外，还需要解决数字鸿沟问题，以免低收入家庭的学生落后于其他人。 我知道很多老师担心学生们会用GPT来写他们的论文。教育工作者已经在讨论如何适应新技术，我猜想这些讨论还将持续相当长的时间。我听说有些老师找到了巧妙的方法将这项技术融入到他们的工作中——比如允许学生使用GPT创建一个他们需要个性化的初稿。</p>
+<h2 id="AI的风险和问题"><a href="#AI的风险和问题" class="headerlink" title="AI的风险和问题"></a>AI的风险和问题</h2><p>大家可能已经读过关于目前AI模型存在的问题的报道。例如，它们在理解人类请求的上下文方面并不一定擅长，这导致了一些奇怪的结果。当你要求AI编造一些虚构的事物时，它可以做得很好。但是，当你寻求旅行的建议时，它可能会推荐一些不存在的酒店。这是因为AI不足以理解你请求的上下文，以致于它无法确定是应该编造虚假的酒店，还是仅告诉你有空房的真实酒店。 还有其他问题，比如AI在数学问题上给出错误答案，因为它们在抽象推理方面存在困难。但这些都不是人工智能的根本局限。开发人员正在解决这些问题，我认为我们将在不到两年的时间里，甚至可能更快地看到它们得到很大程度的解决。 其他的担忧并非纯粹是技术问题。例如，人类利用AI带来的威胁。像大多数发明一样，人工智能可以用于积极的目的，也可以用于恶意的目的。政府需要与私营部门合作，寻求限制风险的方法。 还有一种可能性是，AI失控。机器是否会认为人类是威胁，得出它的利益与我们的不同，或者干脆对我们漠不关心？有可能，但是与过去几个月的人工智能发展相比，今天这个问题并没有变得更加紧迫。 超智能AI是我们未来的趋势。与电脑相比，我们的大脑以蜗牛的速度运行：大脑中的电信号传输速度仅为硅片中信号速度的1&#x2F;100,000！一旦开发人员能够将学习算法泛化并以计算机的速度运行——这个成就可能在十年或一百年后实现——我们将拥有一个非常强大的AGI。它将能够做到人类大脑能做的一切，但在记忆大小和运行速度方面没有实际限制。这将是一个深刻的变革。 这些所谓的“强”AI可能会设定自己的目标。它们的目标会是什么？如果它们与人类的利益发生冲突会怎样？我们是否应该阻止强AI的发展？随着时间的推移，这些问题将变得越来越紧迫。 但是过去几个月的突破并没有让我们在强AI方面取得实质性的进展。人工智能仍然无法控制物理世界，也无法设定自己的目标。最近《纽约时报》发表了一篇关于与ChatGPT对话的文章，其中它宣称想要成为人类，引起了广泛关注。这是对模型如何表达类似人类的情感的一个有趣探讨，但这并不意味着它具有实质性的独立性。 有三本书塑造了我对这个主题的思考：《超智能》，尼克·博斯特罗姆著；《生命3.0》，马克斯·泰格马克著；《千脑》，杰夫·霍金斯著。我并不完全同意作者们的观点，他们之间也存在分歧。但这三本书都写得很好，引人深思。</p>
+<h2 id="下一个前沿"><a href="#下一个前沿" class="headerlink" title="下一个前沿"></a>下一个前沿</h2><p>在未来，将会有大量的公司致力于开发AI的新应用以及改进这项技术本身。例如，一些公司正在研发新的芯片，以提供人工智能所需的大量处理能力。一些芯片使用光学开关（激光器）以降低能耗和制造成本。理想情况下，创新芯片将允许每个人在自己的设备上运行AI，而不是像现在这样在云端运行。 在软件方面，驱动AI学习的算法将变得更好。在某些领域，如销售，开发人员可以通过限制AI工作的范围并为其提供大量特定领域的训练数据，使AI变得非常准确。但一个重大悬而未决的问题是，我们是否需要为不同用途开发许多这样的专用AI——比如一个用于教育，另一个用于办公生产力，或者是否有可能开发出一种可以学习任何任务的通用人工智能。这两种方法都将面临巨大的竞争。 无论如何，人工智能的话题将在可预见的未来主导公共讨论。我想提出三个原则来指导这场对话。 首先，我们应该在AI的潜在风险（这是可以理解并且现实存在的）与其改善人们生活的能力之间寻求平衡。为了充分利用这一非凡的新技术，我们需要在防范风险的同时，让尽可能多的人受益。 其次，市场力量不会自然地产生有助于最贫困人群的AI产品和服务。相反，更有可能发生的情况是，在可靠的资金支持和正确的政策下，政府和慈善机构可以确保AI被用于减少不平等。正如世界需要最聪明的人致力于解决最大的问题一样，我们也需要将世界上最好的AI集中在解决最大的问题上。 尽管我们不应该等待这种情况的发生，但思考人工智能是否会识别不平等并试图减少它是很有趣的。要看到不平等，你是否需要具有道德观念，还是纯粹理性的AI也能看到它？如果它确实意识到了不平等，它会建议我们采取什么措施来解决这个问题？ 最后，我们应该牢记，我们现在只是站在了解人工智能能力的起点。今天AI所存在的任何局限性，都可能在我们意识到之前就将消失（译者按：意思是AI技术发展迅速，可能我们还没有反应过来的时候，一些缺陷就已经被改善了）。 我很幸运能参与到PC革命和互联网革命中。我对这个时刻同样充满期待。这项新技术可以帮助全球的人们改善他们的生活。与此同时，世界需要建立规则，确保人工智能的弊端远远小于其利益，并确保无论一个人居住在何处或拥有多少财富，每个人都能享受到这些好处。这个AI的时代充满着机遇和责任。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/04/the-age-of-ai-has-begun/" data-id="cuidggi2kNQGjR6fgeGmf1Bbl" data-title="比尔盖茨谈AI公开信全文——AI的时代已经到来" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" rel="tag">公开信</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" rel="tag">比尔盖茨</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-autogpt-deployment-instruction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/24/autogpt-deployment-instruction/" class="article-date">
+  <time class="dt-published" datetime="2023-04-23T17:35:01.000Z" itemprop="datePublished">2023-04-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/04/24/autogpt-deployment-instruction/">AutoGPT部署指引</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：<a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT-Plugins">https://github.com/Significant-Gravitas/Auto-GPT-Plugins</a></p>
+</blockquote>
+<blockquote>
+<p>2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏</p>
+</blockquote>
+<p>&#x2F;&#x2F;进入Auto-GPT文件夹，右键启动git bash，直接输入以下命令拉取最新的文件<br>git pull</p>
+<p>&#x2F;&#x2F;拉取完成后正常通过miniconda启动，启动前重新运行以下命令保证安装最新的依赖包<br>pip install -r requirements.txt</p>
+<p>AutoGPT最近很热，在Github上该项目到目前为止已经获得了70k+的星标（还在迅速增长中），为了让大家都能够体会到这个神奇的项目，下面是经过我亲身实验的部署步骤，希望能对感兴趣的伙伴有所帮助。</p>
+<p>官方项目地址：<a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT">https://github.com/Significant-Gravitas/Auto-GPT</a></p>
+<hr>
+<h2 id="预先准备"><a href="#预先准备" class="headerlink" title="预先准备"></a>预先准备</h2><hr>
+<h3 id="官方要求"><a href="#官方要求" class="headerlink" title="官方要求"></a>官方要求</h3><p>根据官方的指引，目前主要需要准备以下内容：</p>
+<p><img src="/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png" alt="官方文档的要求"></p>
+<p>必须的部分主要是两块：</p>
+<ol>
+<li><p>环境准备：根据指引是二选一的，比较直接的应该是直接用python作为环境，我们会在后面用比较便捷的miniconda作为虚拟环境管理工具，创建符合条件的python环境</p>
+</li>
+<li><p>OpenAI的API准备：需要进入自己的OpenAI账户的API key管理页面创建新的API key，需要保证你的OpenAI账户的免费额度还在有效期内或者已经绑定了合适的payment method。</p>
+<p>API key管理页面：<a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
+<p><img src="/wp-content/uploads/2023/04/image_kqa_a1pN4A.png"></p>
+<p>点击Create new secret key创建，注意一定要在创建后的页面进行复制，关闭后该key就无法再次查看，当然你需要的时候可以随时再创建新的key。</p>
+</li>
+</ol>
+<p>另外还有两个可选的工具，分别是：</p>
+<ol>
+<li><p>记忆缓存的工具：默认情况下AutoGPT是可以在本地进行缓存的，但是如果使用一些专业的云端缓存工具，可能会便于迁移、以及更快的访问速度。但今天的教程中就使用默认的本地记忆，暂时不涉及这里的网站使用。有需要的伙伴可以自己探索一下。</p>
+<p><a target="_blank" rel="noopener" href="https://www.pinecone.io/">Vector Database for Vector Search Pinecone</a></p>
+<p><a target="_blank" rel="noopener" href="https://milvus.io/">Vector database - Milvus</a></p>
+</li>
+<li><p>文字转音频的工具：用于让你的AutoGPT可以说话，通过语音形式交互。这可能会让它显得更加酷，但可能没有具体生产力提升，本次的教程也不会包含，后续我探索后可能会补充相关信息。</p>
+<p><a target="_blank" rel="noopener" href="https://beta.elevenlabs.io/">ElevenLabs Prime Voice AI</a></p>
+</li>
+</ol>
+<hr>
+<h3 id="miniconda和git"><a href="#miniconda和git" class="headerlink" title="miniconda和git"></a>miniconda和git</h3><p>除了官方指引中工具，我们此次教程还需要预先安装以下两个工具，用于提供python环境和git管理</p>
+<hr>
+<h4 id="miniconda"><a href="#miniconda" class="headerlink" title="miniconda"></a><strong>miniconda</strong></h4><p>conda是一个著名的虚拟环境的管理工具，可以用于在你的电脑中创建多个不同的虚拟环境，这样对于需要不同的Python版本的多个项目，可以分别为其加载对应版本的Python作为运行环境，特别适合我们目前各种AI开源项目层出不穷的情况使用，我们这里使用的是一个轻量化的anaconda版本，叫做miniconda。下面简单介绍下miniconda的下载和安装过程：</p>
+<ol>
+<li><p>访问官方网站，根据你的系统下载安装包，我们这里使用的是Windows 64位版本</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
+</li>
+<li><p>运行安装包，每个步骤基本按照默认进行即可</p>
+</li>
+<li><p>安装完成后，在你的开始菜单中，应当出现了miniconda的命令行启动快捷方式</p>
+<p><img src="/wp-content/uploads/2023/04/image_mxB1idY99J.png"></p>
+</li>
+</ol>
+<p>我们通过运行Anaconda Prompt（miniconda）就可以进入它的命令行工具了。</p>
+<hr>
+<h4 id="git"><a href="#git" class="headerlink" title="git"></a><strong>git</strong></h4><p>git主要是我们用于拉取GitHub上的仓库文件到本地的工具，相当于是一个专用的下载工具。下面简单介绍下git的下载和安装过程：</p>
+<ol>
+<li><p>访问官方网站，根据你的系统下载安装包，我们这里使用的是Windows版本</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+</li>
+<li><p>运行安装包，每个步骤按照默认选择安装，如果你不理解里面的选项尽量不要修改任何选择</p>
+</li>
+<li><p>安装完成后可以在任何一个文件夹中打开右键菜单，确认是否有git bash命令</p>
+<p><img src="/wp-content/uploads/2023/04/image_ff6yjFGhQs.png"></p>
+</li>
+</ol>
+<p>以上内容完成准备之后，我们可以进入正文，开始部署安装AutoGPT项目了。</p>
+<hr>
+<h2 id="拉取项目文件"><a href="#拉取项目文件" class="headerlink" title="拉取项目文件"></a>拉取项目文件</h2><ol>
+<li><p>首先在电脑上找到一个合适的位置，拉取AutoGPT项目文件到本地。这里我在D盘中创建了一个名为playground的文件夹，存储各种AI项目</p>
+</li>
+<li><p>进入文件夹，右键菜单中选择“Git Bash Here”，启动了git的命令行工具后，在命令行中输入以下命令</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT.git">https://github.com/Significant-Gravitas/Auto-GPT.git</a></p>
+</li>
+<li><p>等待命令运行完成，将会在文件夹中创建一个名为“Auto-GPT”文件夹，可以关闭git命令行窗口</p>
+</li>
+</ol>
+<hr>
+<h2 id="准备项目环境"><a href="#准备项目环境" class="headerlink" title="准备项目环境"></a>准备项目环境</h2><ol>
+<li><p>在开始菜单中运行Anaconda Prompt（miniconda）启动miniconda命令行工具</p>
+</li>
+<li><p>默认情况下，miniconda可能会在你的C盘路径下启动，如果你的Auto-GPT没有在C盘内，为了切换到Auto-GPT文件夹，需要执行以下操作</p>
+<p>&#x2F;&#x2F;首先需要切换到D盘，如果你的项目本身就在C盘可以忽略这一步<br>d:</p>
+<p>&#x2F;&#x2F;下一步进入到项目文件夹<br>cd D:\playground\Auto-GPT</p>
+</li>
+<li><p>创建一个适合AutoGPT运行的环境，根据项目要求是3.8以上版本的python，我们这里直接用了最新版本的python</p>
+<p>conda create -n autogpt python=3.11</p>
+<p>等待运行完毕，这个命令创建了一个名为autogpt的虚拟环境，包含3.11版本的python</p>
+</li>
+<li><p>运行AutoGPT内的项目内容之前，激活环境</p>
+<p>conda activate autogpt</p>
+<p>当你的命令前面（base）显示为（autogpt）时，意味着你当前已经在该环境内运行了</p>
+</li>
+<li><p>安装所有依赖（确保当前在Auto-GPT文件夹内）</p>
+<p>pip install -r requirements.txt</p>
+<p>安装依赖需要一定的时间，耐心等待，如果中途出错，可以重复执行命令，直到完全运行完毕为止</p>
+</li>
+</ol>
+<hr>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
+<li><p>进入Auto-GPT文件夹，找到文件.env.template，使用记事本打开</p>
+</li>
+<li><p>找到OPENAI_API_KEY参数，在等号后粘贴之前复制的key，保存文件</p>
+</li>
+<li><p>修改文件名为.env</p>
+</li>
+</ol>
+<p>这样基本的运行条件就已经满足了，env中还有多个参数可以调节，可以自己进一步探索。</p>
+<hr>
+<h2 id="启动AutoGPT"><a href="#启动AutoGPT" class="headerlink" title="启动AutoGPT"></a>启动AutoGPT</h2><ol>
+<li>回到miniconda命令行内，确保环境激活并且进入Auto-GPT文件夹，运行以下命令</li>
+</ol>
+<p> python -m autogpt</p>
+<p>2. 运行之后，需要等待一会，autogpt会询问你为要运行的任务agent起一个名字<img src="/wp-content/uploads/2023/04/image_vwp9woDNJo.png">3. 下面会请求你为它输入一个角色定位 <img src="/wp-content/uploads/2023/04/image_HNmTEtrIR5.png"></p>
+<p>4. 最后要求你列出五个主要目标，一个一个输入即可，如果没有五个目标也可以留空</p>
+<p><img src="/wp-content/uploads/2023/04/image_6qa4FKqJsA.png"></p>
+<p>5.回车后开始运行，每次需要执行命令时，它会询问你进行授权</p>
+<p>&#x2F;&#x2F;回复y则默认运行一个命令<br>y<br>&#x2F;&#x2F;回复y -N则会连续运行N个命令，比如下面的命令则会连续运行5个命令<br>y -5</p>
+<p><img src="/wp-content/uploads/2023/04/image_z3t3NcWwt2.png"></p>
+<p>之后就可以享受它给你带来的震撼了。</p>
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p>目前由于网络环境原因，如果需要它访问一些网站获取内容，可能需要一些科学上网手段</p>
+</li>
+<li><p>默认情况下不允许它在运行的时候在你的电脑使用命令行工具，但可以通过修改env.文件中的参数EXECUTE_LOCAL_COMMANDS的值修改为true解除限制，谨慎进行该操作</p>
+</li>
+<li><p>运行过程中它在消耗你的OpenAI的tokens额度，所以最好不要一次性授权太多步操作，并且在适时的时候结束运行，避免消耗过高</p>
+</li>
+<li><p>默认情况下，程序输出的文件会保存在workspace或者autogpt&#x2F;workspace文件夹中，需要仔细找一找，或者仔细看下输出日志里面write_file命令的执行情况</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/04/24/autogpt-deployment-instruction/" data-id="cuidoEQmtu4TZ82N65mRbYKk3" data-title="AutoGPT部署指引" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Autogpt/" rel="tag">Autogpt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autogpt/" rel="tag">Autogpt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E7%AB%AF/" rel="tag">B端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">chatgpt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civitai/" rel="tag">civitai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civitai-helper/" rel="tag">civitai helper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/controlnet/" rel="tag">controlnet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lora/" rel="tag">lora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openai/" rel="tag">openai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">产品经理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">人人都是产品经理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" rel="tag">人力资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" rel="tag">公开信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%B9%E8%AE%AD/" rel="tag">培训</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" rel="tag">比尔盖茨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 13.33px;">AI绘画</a> <a href="/tags/Autogpt/" style="font-size: 10px;">Autogpt</a> <a href="/tags/B%E7%AB%AF/" style="font-size: 13.33px;">B端</a> <a href="/tags/ai/" style="font-size: 20px;">ai</a> <a href="/tags/chatgpt/" style="font-size: 13.33px;">chatgpt</a> <a href="/tags/civitai/" style="font-size: 10px;">civitai</a> <a href="/tags/civitai-helper/" style="font-size: 13.33px;">civitai helper</a> <a href="/tags/controlnet/" style="font-size: 13.33px;">controlnet</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/lora/" style="font-size: 10px;">lora</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/stablediffusion/" style="font-size: 16.67px;">stablediffusion</a> <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 16.67px;">产品经理</a> <a href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 16.67px;">人人都是产品经理</a> <a href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" style="font-size: 10px;">人力资源</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16.67px;">人工智能</a> <a href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" style="font-size: 10px;">公开信</a> <a href="/tags/%E5%9F%B9%E8%AE%AD/" style="font-size: 10px;">培训</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.33px;">教程</a> <a href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" style="font-size: 10px;">比尔盖茨</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/04/sd-webui%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86/">SD webui小技巧：扩展安装及管理</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91state-of-gpt-openai-%E5%A4%A7%E7%A5%9Eandrej-karpathy-%E6%8F%AD%E7%A7%98%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%85%A8%E8%BF%87/">【转载】State of GPT: OpenAI 大神Andrej Karpathy 揭秘大模型原理和训练全过程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%EF%BC%9A%E4%BC%81%E4%B8%9A%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E4%B8%9A%E5%8A%A1%E6%A6%82%E8%A7%88/">理解业务：企业培训管理业务概览</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/b%E7%AB%AF%E6%9D%82%E8%B0%88%EF%BC%9Ab%E7%AB%AF%E4%B8%8Ec%E7%AB%AF%E9%9C%80%E6%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82/">B端杂谈：B端与C端需求的差异</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/">ChatGPT类人工智能，如何改变传统工作和产品设计</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Jerry Fan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

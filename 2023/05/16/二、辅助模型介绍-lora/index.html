@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>二、辅助模型介绍-LoRA | Jerry的赛博车库</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在使用Stable Diffusion WebUI时，除了基础模型之外，它还允许我们加载额外的辅助模型，这其中最常用的两种模型，就是LoRA模型和Textual Inversion模型。在C站的搜索工具中，我们也可以看到对应的两种模型的搜索选项。 [site_card ids&#x3D;”135”]  本篇教程主要介绍lora的使用方法以及一些推荐模型 什么是LoRALoRA的全称是Low-Ran">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二、辅助模型介绍-LoRA">
+<meta property="og:url" content="https://playgroundjerry.github.io/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/index.html">
+<meta property="og:site_name" content="Jerry的赛博车库">
+<meta property="og:description" content="在使用Stable Diffusion WebUI时，除了基础模型之外，它还允许我们加载额外的辅助模型，这其中最常用的两种模型，就是LoRA模型和Textual Inversion模型。在C站的搜索工具中，我们也可以看到对应的两种模型的搜索选项。 [site_card ids&#x3D;”135”]  本篇教程主要介绍lora的使用方法以及一些推荐模型 什么是LoRALoRA的全称是Low-Ran">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221308.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221756.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221805.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230516222448.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516223843.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/00083-739803311.png">
+<meta property="article:published_time" content="2023-05-16T15:30:31.000Z">
+<meta property="article:modified_time" content="2026-02-27T17:19:14.370Z">
+<meta property="article:author" content="Jerry Fan">
+<meta property="article:tag" content="AI绘画">
+<meta property="article:tag" content="civitai">
+<meta property="article:tag" content="civitai helper">
+<meta property="article:tag" content="lora">
+<meta property="article:tag" content="stablediffusion">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Jerry的赛博车库" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Jerry的赛博车库</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Playground of Jerry</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://playgroundjerry.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-二、辅助模型介绍-lora" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/" class="article-date">
+  <time class="dt-published" datetime="2023-05-16T15:30:31.000Z" itemprop="datePublished">2023-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      二、辅助模型介绍-LoRA
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在使用Stable Diffusion WebUI时，除了基础模型之外，它还允许我们加载额外的辅助模型，这其中最常用的两种模型，就是LoRA模型和Textual Inversion模型。在C站的搜索工具中，我们也可以看到对应的两种模型的搜索选项。</p>
+<p>[site_card ids&#x3D;”135”]</p>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png"> 本篇教程主要介绍lora的使用方法以及一些推荐模型</p>
+<h2 id="什么是LoRA"><a href="#什么是LoRA" class="headerlink" title="什么是LoRA"></a><strong>什么是LoRA</strong></h2><p>LoRA的全称是Low-Rank Adaptation，即大型语言模型的低阶自适应。通过在基础模型的权重基础上，用少量的图片进行训练微调的方式，达到对基础模型进行定向的引导能力。由于所需的训练数据量很小，因此也催发了LoRA模型的繁荣，在C站中搜索可以看到，每天都有大量的新LoRA模型出现，大部分人“炼丹”所用的也是LoRA模型。 在绘图过程中加载一个LoRA模型，会引导模型绘制特定的服装、角色、面部特征等等内容，但由于其提供的权重是基于基础模型的最小调整，因此它难以为模型引入新的概念（例如让一个绘制建筑的基础模型画出美女）。</p>
+<h2 id="如何使用LoRA"><a href="#如何使用LoRA" class="headerlink" title="如何使用LoRA"></a><strong>如何使用LoRA</strong></h2><p>大部分LoRA模型文件体积在几十到几百兆之间，如果你没有自己训练LoRA的计划，可以前往C站下载自己心仪的LoRA使用。本文中我们用当前C站中比较热门的一个模型“娜乌斯嘉nwsj_realistic”，这个模型是作者自己的脸部模型训练，欢迎大家关注作者B站账号：娜乌斯嘉</p>
+<h3 id="Step1：下载模型"><a href="#Step1：下载模型" class="headerlink" title="Step1：下载模型"></a><strong>Step1：下载模型</strong></h3><p>前往C站可以搜索相关模型名称，查看模型的效果图、其他作者使用该模型的作品，确认这是你心仪的模型之后，可以进行模型的下载<img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221308.png"> 注意：在标题下有这个模型的不同版本可以选择，查看作者的描述来了解各个版本的改进 下载的模型需要保存至Stable Diffusion项目文件夹&#x2F;models&#x2F;Lora <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221756.png"> <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221805.png"></p>
+<h3 id="Step2：在WebUI中查看并使用你的LoRA"><a href="#Step2：在WebUI中查看并使用你的LoRA" class="headerlink" title="Step2：在WebUI中查看并使用你的LoRA"></a><strong>Step2：在WebUI中查看并使用你的LoRA</strong></h3><p>LoRA模型下载完成后，可以启动你的Stable Diffusion WebUI了。在上次我们的部署和简单应用的教程中，我们有提到，在Generate按钮下面，我们有一个油画形状的按钮，它会展开我们的辅助模型画廊。 没看过上一篇的同学可以先点击查看：</p>
+<p>[post_card ids&#x3D;”362”]</p>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230516222448.png"> 简单的点击其中一个lora模型，它会在prompt栏中插入一条模型引入的关键词，一般格式如下：</p>
+<p><a href="lora:\[name\_of\_model\]:\[weight\]">lora:\[name\_of\_model\]:\[weight\]</a></p>
+<p>例如:<a href="lora:nwsjmajic-10:1">lora:nwsjmajic-10:1</a></p>
+<p>只有符合该语法，并且准确输入的模型名称才能够成功引入LoRA模型，所以建议最好不要手动输入模型名称。 模型的权重和其他关键词的权重用法一致，默认为1，越低则对画面影响越小，在很多模型的C站描述中，作者会告诉你模型最佳的权重大概在哪个范围。（一般来说LoRA模型不会使用大于1的权重，过高的权重可能会导致画面的崩坏） 另外很多LoRA模型还需要对应模型的一些激活词（Trigger Words），用于激活LoRA的引导效果，特别一些概念较为特殊的模型。比如我们例子用使用的“娜乌斯嘉nwsj_realistic”，它的最新版本就需要用到激活词“PerfectNwsjMajic”。 激活词可以在C站的模型信息中获取，在后面的教程中我们会介绍Civitai Helper插件，它将能够让我们在WebUI界面中直接引入C站的激活词 <img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516223843.png"> 当然即便是注明需要激活词模型，在没有输入激活词的情况下，也依旧会产生一定的效果，只是效果可能不稳定。 下面我们看看这个模型的效果（本图用的是最初的1.0版本模型）</p>
+<blockquote>
+<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/00083-739803311.png"><strong>Generation Data</strong> (8k, RAW photo, best quality, masterpiece:1.2), (realistic, photo-realistic:1.37), <a href="lora:nwsjmajic-10:0.6">lora:nwsjmajic-10:0.6</a>, 1girl,mole,half body, white shirt,perfect light effect, <a href="lora:FilmG3:0.2">lora:FilmG3:0.2</a>, filmg, <a href="lora:koreandolllikenessV20\_v20:0.3">lora:koreandolllikenessV20\_v20:0.3</a> Negative prompt: {Multiple people}, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpegartifacts, signature, watermark, username, blurry, bad feet, cropped, poorly drawn hands, poorly drawn face, mutation, deformed, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, extra fingers, fewer digits, extra limbs, extra arms, extra legs, malformed limbs, fused fingers, too many fingers, long neck, cross-eyed, mutated hands, polar lowres, bad body, bad proportions, gross proportions, text, error, missing fingers, missing arms, missing legs, extra digit, paintings, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), skin spots, acnes, skin blemishes, bad anatomy,(long hair:1.4), Deep Negative, (fat:1.2),facing away, looking away, tilted head Steps: 20, Sampler: DPM++ SDE Karras, CFG scale: 7, Seed: 739803311, Face restoration: CodeFormer, Size: 512x768, Model hash: fc2511737a, Model: chilloutmix_NiPrunedFp32Fix, Denoising strength: 0.7, Hires upscale: 1.5, Hires upscaler: Latent</p>
+</blockquote>
+<p>多个LoRA模型可以叠加使用，但具体叠加效果要看LoRA的具体内容，比如两个服装相关的LoRA联合使用效果可能就不会太好，但一个脸型和一个服装的LoRA就能够完美配合。具体能够结合出什么样的“艺术品”就看各位小伙伴的想象力了。</p>
+<h2 id="LoRA模型推荐"><a href="#LoRA模型推荐" class="headerlink" title="LoRA模型推荐"></a><strong>LoRA模型推荐</strong></h2><h3 id="人物模型"><a href="#人物模型" class="headerlink" title="人物模型"></a><strong>人物模型</strong></h3><h4 id="Doll-Likeness系列"><a href="#Doll-Likeness系列" class="headerlink" title="Doll-Likeness系列"></a><strong>Doll-Likeness系列</strong></h4><p>最初的作者可能是Kbr，他发布了包括日本娃娃（JapaneseDollLikeness）、韩国娃娃（KoreanDollLikeness）、台湾娃娃（TaiwanDollLikeness）、中国娃娃（ChinaDollLikeness）等一系列模型，能够生成完美的并且带有一定地区特征的美女图片，并且不会过分偏向于某个具体的人物或者明星，非常适合制作人物肖像图。和chilloutmix基础模型配合的很好。 现在在C站中，也出现了很多其他命名为DollLikeness的模型，它们算是这个系列思路的一种模仿，基本上提供的都是风格化的美女模型。 Kbr的HuggingFace项目主页：<a target="_blank" rel="noopener" href="https://huggingface.co/Kanbara/doll-likeness-series">https://huggingface.co/Kanbara/doll-likeness-series</a></p>
+<h4 id="Adventures"><a href="#Adventures" class="headerlink" title="Adventures"></a><strong>Adventures</strong></h4><p>该模型能够生成经典的冒险者形象，根据不同的激活关键词，可以画出战士、骑士、牧师、魔法师等多种不同的角色，与写实或漫画风格的基础模型都可以很好的进行配合。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/14792">https://civitai.com/models/14792</a></p>
+<h4 id="Humanoid-Robots"><a href="#Humanoid-Robots" class="headerlink" title="Humanoid Robots"></a><strong>Humanoid Robots</strong></h4><p>该模型能够生成人形机器人形象，适当的调低权重并且配合一些人类形象的模型一起使用，将会画出一些赛博风格的人机结合的形象，非常科幻。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/6888">https://civitai.com/models/6888</a></p>
+<h3 id="风格化模型"><a href="#风格化模型" class="headerlink" title="风格化模型"></a><strong>风格化模型</strong></h3><h4 id="FilmGirl"><a href="#FilmGirl" class="headerlink" title="FilmGirl"></a><strong>FilmGirl</strong></h4><p>该模型会为图片增加一种胶片照片的风格，有一种复古的感觉，不过由于主要用了女性照片的图片进行训练，可能需要生成女性形象的时候才有最好的效果。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/33208">https://civitai.com/models/33208</a></p>
+<h4 id="Hipoly-3D-Model"><a href="#Hipoly-3D-Model" class="headerlink" title="Hipoly 3D Model"></a><strong>Hipoly 3D Model</strong></h4><p>该模型可以生成非常华丽的类似CG人物风格的形象，配合一些首饰、衣服纹路的描述时可以有很好的表现。使用写实的基础模型时也可以有不错的表现。 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/8730">https://civitai.com/models/8730</a></p>
+<h4 id="Fashion-Magazine-Style"><a href="#Fashion-Magazine-Style" class="headerlink" title="Fashion Magazine - Style"></a><strong>Fashion Magazine - Style</strong></h4><p>该模型可以生成杂志封面风格的图片，会为女性面部添加非常精致的妆容和灯光效果，倾向于生成纯色的背景，但同时也会生成一些杂乱的文字内容（模拟封面）。如果不需要生成文字内容，可以在Negative prompt中添加较高权重的text、watermark、signature等关键词 C站模型页面：<a target="_blank" rel="noopener" href="https://civitai.com/models/43093">https://civitai.com/models/43093</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><p>C站中每天都在涌出大量的新的模型，大家可以随时去看看，跟上潮流的脚步。请注意C站中很多模型是NSFW的内容，为了保护你的节操，未登录账号的情况下默认会隐藏起来，因此需要查看全部模型的话需要先进行登录。 下一步我们将会介绍另一类常用的辅助模型Textual Inversion的下载和使用，各位敬请期待。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://playgroundjerry.github.io/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/" data-id="cuidD9tYVGzF8mf2q7cq7VdZu" data-title="二、辅助模型介绍-LoRA" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/civitai/" rel="tag">civitai</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/civitai-helper/" rel="tag">civitai helper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lora/" rel="tag">lora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          ChatGPT类人工智能，如何改变传统工作和产品设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/07/google%E5%86%85%E9%83%A8%E6%96%87%E7%AB%A0%E6%B3%84%E9%9C%B2-%E6%88%91%E4%BB%AC%E6%B2%A1%E6%9C%89%E6%8A%A4%E5%9F%8E%E6%B2%B3%EF%BC%8Copenai%E4%B9%9F%E6%B2%A1%E6%9C%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Google内部文章泄露——我们没有护城河，OpenAI也没有</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E6%95%99%E7%A8%8B/">AI教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Stable-Diffusion%E6%95%99%E7%A8%8B/">Stable Diffusion教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI%E7%BB%98%E7%94%BB/" rel="tag">AI绘画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autogpt/" rel="tag">Autogpt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E7%AB%AF/" rel="tag">B端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">chatgpt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civitai/" rel="tag">civitai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/civitai-helper/" rel="tag">civitai helper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/controlnet/" rel="tag">controlnet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lora/" rel="tag">lora</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openai/" rel="tag">openai</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stablediffusion/" rel="tag">stablediffusion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">产品经理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag">人人都是产品经理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" rel="tag">人力资源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" rel="tag">公开信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%B9%E8%AE%AD/" rel="tag">培训</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" rel="tag">比尔盖茨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 13.33px;">AI绘画</a> <a href="/tags/Autogpt/" style="font-size: 10px;">Autogpt</a> <a href="/tags/B%E7%AB%AF/" style="font-size: 13.33px;">B端</a> <a href="/tags/ai/" style="font-size: 20px;">ai</a> <a href="/tags/chatgpt/" style="font-size: 13.33px;">chatgpt</a> <a href="/tags/civitai/" style="font-size: 10px;">civitai</a> <a href="/tags/civitai-helper/" style="font-size: 13.33px;">civitai helper</a> <a href="/tags/controlnet/" style="font-size: 13.33px;">controlnet</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/lora/" style="font-size: 10px;">lora</a> <a href="/tags/openai/" style="font-size: 10px;">openai</a> <a href="/tags/stablediffusion/" style="font-size: 16.67px;">stablediffusion</a> <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 16.67px;">产品经理</a> <a href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 16.67px;">人人都是产品经理</a> <a href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90/" style="font-size: 10px;">人力资源</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16.67px;">人工智能</a> <a href="/tags/%E5%85%AC%E5%BC%80%E4%BF%A1/" style="font-size: 10px;">公开信</a> <a href="/tags/%E5%9F%B9%E8%AE%AD/" style="font-size: 10px;">培训</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.33px;">教程</a> <a href="/tags/%E6%AF%94%E5%B0%94%E7%9B%96%E8%8C%A8/" style="font-size: 10px;">比尔盖茨</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/04/sd-webui%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%A1%E7%90%86/">SD webui小技巧：扩展安装及管理</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/30/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91state-of-gpt-openai-%E5%A4%A7%E7%A5%9Eandrej-karpathy-%E6%8F%AD%E7%A7%98%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8E%9F%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%85%A8%E8%BF%87/">【转载】State of GPT: OpenAI 大神Andrej Karpathy 揭秘大模型原理和训练全过程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/%E7%90%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%EF%BC%9A%E4%BC%81%E4%B8%9A%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86%E4%B8%9A%E5%8A%A1%E6%A6%82%E8%A7%88/">理解业务：企业培训管理业务概览</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/b%E7%AB%AF%E6%9D%82%E8%B0%88%EF%BC%9Ab%E7%AB%AF%E4%B8%8Ec%E7%AB%AF%E9%9C%80%E6%B1%82%E7%9A%84%E5%B7%AE%E5%BC%82/">B端杂谈：B端与C端需求的差异</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/23/chatgpt%E7%B1%BB%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E4%BC%A0%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%92%8C%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1/">ChatGPT类人工智能，如何改变传统工作和产品设计</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Jerry Fan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
