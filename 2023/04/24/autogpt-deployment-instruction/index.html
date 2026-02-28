@@ -12,37 +12,37 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans SC, Noto Sans:300,300italic,400,400italic,700,700italic|JetBrains Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"playgroundjerry.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"playgroundjerry.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：https:&#x2F;&#x2F;github.com&#x2F;Significant-Gravitas&#x2F;Auto-GPT-Plugins   2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏  &#x2F;&#x2F;进入Auto-GPT文件夹，右键启动">
+  <meta name="description" content="2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：https:&#x2F;&#x2F;github.com&#x2F;Significant-Gravitas&#x2F;Auto-GPT-Plugins  2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏  1 2 3 4 5   # 进入Auto-GPT文件夹，右键启动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AutoGPT部署指引">
 <meta property="og:url" content="https://playgroundjerry.github.io/2023/04/24/autogpt-deployment-instruction/index.html">
 <meta property="og:site_name" content="Jerry的赛博车库">
-<meta property="og:description" content="2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：https:&#x2F;&#x2F;github.com&#x2F;Significant-Gravitas&#x2F;Auto-GPT-Plugins   2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏  &#x2F;&#x2F;进入Auto-GPT文件夹，右键启动">
+<meta property="og:description" content="2023.4.27更新：目前项目已经支持大量Plugin，可以访问官方的Plugin项目仓库查看具体的情况和安装方法：https:&#x2F;&#x2F;github.com&#x2F;Significant-Gravitas&#x2F;Auto-GPT-Plugins  2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏  1 2 3 4 5   # 进入Auto-GPT文件夹，右键启动">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_kqa_a1pN4A.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_mxB1idY99J.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_ff6yjFGhQs.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_vwp9woDNJo.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_HNmTEtrIR5.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_6qa4FKqJsA.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/image_z3t3NcWwt2.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_kqa_a1pN4A.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_mxB1idY99J.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_ff6yjFGhQs.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_vwp9woDNJo.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_HNmTEtrIR5.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_6qa4FKqJsA.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/04/image_z3t3NcWwt2.png">
 <meta property="article:published_time" content="2023-04-23T17:35:01.000Z">
-<meta property="article:modified_time" content="2026-02-27T20:05:47.132Z">
+<meta property="article:modified_time" content="2026-02-28T08:31:10.961Z">
 <meta property="article:author" content="Jerry Fan">
 <meta property="article:tag" content="Autogpt">
 <meta property="article:tag" content="ai">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://playgroundjerry.github.io/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png">
+<meta name="twitter:image" content="https://playgroundjerry.github.io/images/posts/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png">
 
 <link rel="canonical" href="https://playgroundjerry.github.io/2023/04/24/autogpt-deployment-instruction/">
 
@@ -198,13 +198,6 @@
 
               <time title="创建时间：2023-04-24 01:35:01" itemprop="dateCreated datePublished" datetime="2023-04-24T01:35:01+08:00">2023-04-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-28 04:05:47" itemprop="dateModified" datetime="2026-02-28T04:05:47+08:00">2026-02-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -236,21 +229,21 @@
 <blockquote>
 <p>2023.4.17更新：该项目日新月异，新版本发布神速，建议小伙伴每天更新一下项目，跟上最快的节奏</p>
 </blockquote>
-<p>&#x2F;&#x2F;进入Auto-GPT文件夹，右键启动git bash，直接输入以下命令拉取最新的文件<br>git pull</p>
-<p>&#x2F;&#x2F;拉取完成后正常通过miniconda启动，启动前重新运行以下命令保证安装最新的依赖包<br>pip install -r requirements.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入Auto-GPT文件夹，右键启动git bash，直接输入以下命令拉取最新的文件</span><br>git pull<br><br><span class="hljs-comment"># 拉取完成后正常通过miniconda启动，启动前重新运行以下命令保证安装最新的依赖包</span><br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
+
 <p>AutoGPT最近很热，在Github上该项目到目前为止已经获得了70k+的星标（还在迅速增长中），为了让大家都能够体会到这个神奇的项目，下面是经过我亲身实验的部署步骤，希望能对感兴趣的伙伴有所帮助。</p>
 <p>官方项目地址：<a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT">https://github.com/Significant-Gravitas/Auto-GPT</a></p>
 <hr>
 <h2 id="预先准备"><a href="#预先准备" class="headerlink" title="预先准备"></a>预先准备</h2><hr>
 <h3 id="官方要求"><a href="#官方要求" class="headerlink" title="官方要求"></a>官方要求</h3><p>根据官方的指引，目前主要需要准备以下内容：</p>
-<p><img src="/wp-content/uploads/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png" alt="官方文档的要求"></p>
+<p><img src="/images/posts/2023/04/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE-2023-04-16-123733_ueFeRHeTC2.png" alt="官方文档的要求"></p>
 <p>必须的部分主要是两块：</p>
 <ol>
 <li><p>环境准备：根据指引是二选一的，比较直接的应该是直接用python作为环境，我们会在后面用比较便捷的miniconda作为虚拟环境管理工具，创建符合条件的python环境</p>
 </li>
 <li><p>OpenAI的API准备：需要进入自己的OpenAI账户的API key管理页面创建新的API key，需要保证你的OpenAI账户的免费额度还在有效期内或者已经绑定了合适的payment method。</p>
 <p>API key管理页面：<a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a></p>
-<p><img src="/wp-content/uploads/2023/04/image_kqa_a1pN4A.png"></p>
+<p><img src="/images/posts/2023/04/image_kqa_a1pN4A.png"></p>
 <p>点击Create new secret key创建，注意一定要在创建后的页面进行复制，关闭后该key就无法再次查看，当然你需要的时候可以随时再创建新的key。</p>
 </li>
 </ol>
@@ -275,7 +268,7 @@
 <li><p>运行安装包，每个步骤基本按照默认进行即可</p>
 </li>
 <li><p>安装完成后，在你的开始菜单中，应当出现了miniconda的命令行启动快捷方式</p>
-<p><img src="/wp-content/uploads/2023/04/image_mxB1idY99J.png"></p>
+<p><img src="/images/posts/2023/04/image_mxB1idY99J.png"></p>
 </li>
 </ol>
 <p>我们通过运行Anaconda Prompt（miniconda）就可以进入它的命令行工具了。</p>
@@ -288,7 +281,7 @@
 <li><p>运行安装包，每个步骤按照默认选择安装，如果你不理解里面的选项尽量不要修改任何选择</p>
 </li>
 <li><p>安装完成后可以在任何一个文件夹中打开右键菜单，确认是否有git bash命令</p>
-<p><img src="/wp-content/uploads/2023/04/image_ff6yjFGhQs.png"></p>
+<p><img src="/images/posts/2023/04/image_ff6yjFGhQs.png"></p>
 </li>
 </ol>
 <p>以上内容完成准备之后，我们可以进入正文，开始部署安装AutoGPT项目了。</p>
@@ -296,10 +289,10 @@
 <h2 id="拉取项目文件"><a href="#拉取项目文件" class="headerlink" title="拉取项目文件"></a>拉取项目文件</h2><ol>
 <li><p>首先在电脑上找到一个合适的位置，拉取AutoGPT项目文件到本地。这里我在D盘中创建了一个名为playground的文件夹，存储各种AI项目</p>
 </li>
-<li><p>进入文件夹，右键菜单中选择“Git Bash Here”，启动了git的命令行工具后，在命令行中输入以下命令</p>
-<p>git clone <a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/Auto-GPT.git">https://github.com/Significant-Gravitas/Auto-GPT.git</a></p>
+<li><p>进入文件夹，右键菜单中选择”Git Bash Here”，启动了git的命令行工具后，在命令行中输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/Significant-Gravitas/Auto-GPT.git<br></code></pre></td></tr></table></figure>
 </li>
-<li><p>等待命令运行完成，将会在文件夹中创建一个名为“Auto-GPT”文件夹，可以关闭git命令行窗口</p>
+<li><p>等待命令运行完成，将会在文件夹中创建一个名为”Auto-GPT”文件夹，可以关闭git命令行窗口</p>
 </li>
 </ol>
 <hr>
@@ -307,19 +300,21 @@
 <li><p>在开始菜单中运行Anaconda Prompt（miniconda）启动miniconda命令行工具</p>
 </li>
 <li><p>默认情况下，miniconda可能会在你的C盘路径下启动，如果你的Auto-GPT没有在C盘内，为了切换到Auto-GPT文件夹，需要执行以下操作</p>
-<p>&#x2F;&#x2F;首先需要切换到D盘，如果你的项目本身就在C盘可以忽略这一步<br>d:</p>
-<p>&#x2F;&#x2F;下一步进入到项目文件夹<br>cd D:\playground\Auto-GPT</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 首先需要切换到D盘，如果你的项目本身就在C盘可以忽略这一步</span><br>d:<br><br><span class="hljs-comment"># 下一步进入到项目文件夹</span><br><span class="hljs-built_in">cd</span> D:\playground\Auto-GPT<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>创建一个适合AutoGPT运行的环境，根据项目要求是3.8以上版本的python，我们这里直接用了最新版本的python</p>
-<p>conda create -n autogpt python=3.11</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda create -n autogpt python=3.11<br></code></pre></td></tr></table></figure>
+
 <p>等待运行完毕，这个命令创建了一个名为autogpt的虚拟环境，包含3.11版本的python</p>
 </li>
 <li><p>运行AutoGPT内的项目内容之前，激活环境</p>
-<p>conda activate autogpt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda activate autogpt<br></code></pre></td></tr></table></figure>
+
 <p>当你的命令前面（base）显示为（autogpt）时，意味着你当前已经在该环境内运行了</p>
 </li>
 <li><p>安装所有依赖（确保当前在Auto-GPT文件夹内）</p>
-<p>pip install -r requirements.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
+
 <p>安装依赖需要一定的时间，耐心等待，如果中途出错，可以重复执行命令，直到完全运行完毕为止</p>
 </li>
 </ol>
@@ -337,13 +332,15 @@
 <h2 id="启动AutoGPT"><a href="#启动AutoGPT" class="headerlink" title="启动AutoGPT"></a>启动AutoGPT</h2><ol>
 <li>回到miniconda命令行内，确保环境激活并且进入Auto-GPT文件夹，运行以下命令</li>
 </ol>
-<p> python -m autogpt</p>
-<p>2. 运行之后，需要等待一会，autogpt会询问你为要运行的任务agent起一个名字<img src="/wp-content/uploads/2023/04/image_vwp9woDNJo.png">3. 下面会请求你为它输入一个角色定位 <img src="/wp-content/uploads/2023/04/image_HNmTEtrIR5.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -m autogpt<br></code></pre></td></tr></table></figure>
+
+<p>2. 运行之后，需要等待一会，autogpt会询问你为要运行的任务agent起一个名字<img src="/images/posts/2023/04/image_vwp9woDNJo.png">3. 下面会请求你为它输入一个角色定位 <img src="/images/posts/2023/04/image_HNmTEtrIR5.png"></p>
 <p>4. 最后要求你列出五个主要目标，一个一个输入即可，如果没有五个目标也可以留空</p>
-<p><img src="/wp-content/uploads/2023/04/image_6qa4FKqJsA.png"></p>
+<p><img src="/images/posts/2023/04/image_6qa4FKqJsA.png"></p>
 <p>5.回车后开始运行，每次需要执行命令时，它会询问你进行授权</p>
-<p>&#x2F;&#x2F;回复y则默认运行一个命令<br>y<br>&#x2F;&#x2F;回复y -N则会连续运行N个命令，比如下面的命令则会连续运行5个命令<br>y -5</p>
-<p><img src="/wp-content/uploads/2023/04/image_z3t3NcWwt2.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 回复y则默认运行一个命令</span><br>y<br><br><span class="hljs-comment"># 回复y -N则会连续运行N个命令，比如下面的命令则会连续运行5个命令</span><br>y -5<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/posts/2023/04/image_z3t3NcWwt2.png"></p>
 <p>之后就可以享受它给你带来的震撼了。</p>
 <hr>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
@@ -380,8 +377,8 @@
       <i class="fa fa-chevron-left"></i> ChatGPT类人工智能，如何改变传统工作和产品设计
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/05/04/the-age-of-ai-has-begun/" rel="next" title="【转载】比尔盖茨谈AI公开信全文——AI的时代已经到来">
-      【转载】比尔盖茨谈AI公开信全文——AI的时代已经到来 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/05/04/the-age-of-ai-has-begun/" rel="next" title="【转载翻译】比尔盖茨谈AI公开信全文——AI的时代已经到来">
+      【转载翻译】比尔盖茨谈AI公开信全文——AI的时代已经到来 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -457,7 +454,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -470,7 +467,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -517,7 +514,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jerry Fan</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -543,7 +540,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>

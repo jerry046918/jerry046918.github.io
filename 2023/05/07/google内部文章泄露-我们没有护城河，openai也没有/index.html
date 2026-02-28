@@ -12,24 +12,24 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans SC, Noto Sans:300,300italic,400,400italic,700,700italic|JetBrains Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"playgroundjerry.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"playgroundjerry.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="该文章由ChatGPT辅助进行翻译，个别术语可能有误差 原文链接：https:&#x2F;&#x2F;www.semianalysis.com&#x2F;p&#x2F;google-we-have-no-moat-and-neither  我们一直在密切关注OpenAI。谁将迈过下一个里程碑？下一步该怎么办？ 但令人不安的事实是，我们没有赢得这场竞争的优势，OpenAI也没有。而在我们争吵不休的时候，第三方悄悄地取而代之。 当然，我指">
+  <meta name="description" content="原文链接：https:&#x2F;&#x2F;www.semianalysis.com&#x2F;p&#x2F;google-we-have-no-moat-and-neither  作者：Dylan PatelandAfzal Ahmad| 原文发布于 2023年5月4日  我们一直在密切关注OpenAI。谁将迈过下一个里程碑？下一步该怎么办？ 但令人不安的事实是，我们没有赢得这场竞争的优势，OpenAI也没有。而在我们争吵不休的时候">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Google内部文章泄露——我们没有护城河，OpenAI也没有">
+<meta property="og:title" content="【转载翻译】Google内部文章泄露——我们没有护城河，OpenAI也没有">
 <meta property="og:url" content="https://playgroundjerry.github.io/2023/05/07/google%E5%86%85%E9%83%A8%E6%96%87%E7%AB%A0%E6%B3%84%E9%9C%B2-%E6%88%91%E4%BB%AC%E6%B2%A1%E6%9C%89%E6%8A%A4%E5%9F%8E%E6%B2%B3%EF%BC%8Copenai%E4%B9%9F%E6%B2%A1%E6%9C%89/index.html">
 <meta property="og:site_name" content="Jerry的赛博车库">
-<meta property="og:description" content="该文章由ChatGPT辅助进行翻译，个别术语可能有误差 原文链接：https:&#x2F;&#x2F;www.semianalysis.com&#x2F;p&#x2F;google-we-have-no-moat-and-neither  我们一直在密切关注OpenAI。谁将迈过下一个里程碑？下一步该怎么办？ 但令人不安的事实是，我们没有赢得这场竞争的优势，OpenAI也没有。而在我们争吵不休的时候，第三方悄悄地取而代之。 当然，我指">
+<meta property="og:description" content="原文链接：https:&#x2F;&#x2F;www.semianalysis.com&#x2F;p&#x2F;google-we-have-no-moat-and-neither  作者：Dylan PatelandAfzal Ahmad| 原文发布于 2023年5月4日  我们一直在密切关注OpenAI。谁将迈过下一个里程碑？下一步该怎么办？ 但令人不安的事实是，我们没有赢得这场竞争的优势，OpenAI也没有。而在我们争吵不休的时候">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png">
+<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png">
 <meta property="article:published_time" content="2023-05-07T08:03:20.000Z">
-<meta property="article:modified_time" content="2026-02-27T20:06:08.620Z">
+<meta property="article:modified_time" content="2026-02-28T10:58:12.349Z">
 <meta property="article:author" content="Jerry Fan">
 <meta property="article:tag" content="ai">
 <meta property="article:tag" content="chatgpt">
@@ -37,7 +37,7 @@
 <meta property="article:tag" content="openai">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png">
+<meta name="twitter:image" content="https://playgroundjerry.github.io/images/posts/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png">
 
 <link rel="canonical" href="https://playgroundjerry.github.io/2023/05/07/google%E5%86%85%E9%83%A8%E6%96%87%E7%AB%A0%E6%B3%84%E9%9C%B2-%E6%88%91%E4%BB%AC%E6%B2%A1%E6%9C%89%E6%8A%A4%E5%9F%8E%E6%B2%B3%EF%BC%8Copenai%E4%B9%9F%E6%B2%A1%E6%9C%89/">
 
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>Google内部文章泄露——我们没有护城河，OpenAI也没有 | Jerry的赛博车库</title>
+  <title>【转载翻译】Google内部文章泄露——我们没有护城河，OpenAI也没有 | Jerry的赛博车库</title>
   
 
 
@@ -181,7 +181,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Google内部文章泄露——我们没有护城河，OpenAI也没有
+          【转载翻译】Google内部文章泄露——我们没有护城河，OpenAI也没有
         </h1>
 
         <div class="post-meta">
@@ -193,13 +193,6 @@
 
               <time title="创建时间：2023-05-07 16:03:20" itemprop="dateCreated datePublished" datetime="2023-05-07T16:03:20+08:00">2023-05-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-28 04:06:08" itemprop="dateModified" datetime="2026-02-28T04:06:08+08:00">2026-02-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -210,7 +203,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI%E7%9B%B8%E5%85%B3/AI%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">AI教程</span></a>
+                  <a href="/categories/AI%E7%9B%B8%E5%85%B3/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/" itemprop="url" rel="index"><span itemprop="name">转载文章</span></a>
                 </span>
             </span>
 
@@ -226,7 +219,8 @@
 
       
         <blockquote>
-<p>该文章由ChatGPT辅助进行翻译，个别术语可能有误差 原文链接：<a target="_blank" rel="noopener" href="https://www.semianalysis.com/p/google-we-have-no-moat-and-neither">https://www.semianalysis.com/p/google-we-have-no-moat-and-neither</a></p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://www.semianalysis.com/p/google-we-have-no-moat-and-neither">https://www.semianalysis.com/p/google-we-have-no-moat-and-neither</a></p>
+<p>作者：<a target="_blank" rel="noopener" href="https://substack.com/@semianalysis">Dylan Patel</a> and <a target="_blank" rel="noopener" href="https://substack.com/@afzalahmad">Afzal Ahmad</a>| 原文发布于 2023年5月4日</p>
 </blockquote>
 <p>我们一直在密切关注OpenAI。谁将迈过下一个里程碑？下一步该怎么办？ 但令人不安的事实是，我们没有赢得这场竞争的优势，OpenAI也没有。而在我们争吵不休的时候，第三方悄悄地取而代之。 当然，我指的是开源社区。坦率地说，他们正在超越我们。我们认为是“重大问题”的事情，现在已经被解决了并且已经被所有人掌握。举几个例子：</p>
 <ol>
@@ -241,7 +235,7 @@
 <li>当有质量相当的免费、无限制的替代品时，人们不会为受限制的模型付费。我们应该考虑我们真正的增值点在哪里。</li>
 <li>巨型模型正在拖慢我们的步伐。从长远来看，最好的模型是那些可以快速迭代的模型。既然我们已经知道在小于200亿参数的范围内有可能实现什么，我们应该把小的模型变种视为重点，而不仅仅是事后的补救措施。</li>
 </ul>
-<p><img src="https://www.playgroundjerry.tech/wp-content/uploads/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png"></p>
+<p><img src="/images/posts/2023/05/241fe3ef-3919-4a63-9c68-9e2e77cc2fc0_1366x588.png"></p>
 <h2 id="发生了什么"><a href="#发生了什么" class="headerlink" title="发生了什么"></a>发生了什么</h2><p>在三月初，开源社区获得了他们第一个真正有能力的基础模型，因为Meta的LLaMA泄露了。它没有指引或对话调整机制，也没有RLHF。尽管如此，社区立即意识到他们所得到的东西的重要性。 紧随其后的是大量的创新，主要的进展仅仅在几天内就发生了（详见时间线以获取完整细节）。现在，仅仅一个月过去了，就已经出现了带有指导调整、量化、质量改进、人工评估、多模态、RLHF等等的变体。其中很多是相互建立在彼此之上的。 最重要的是，他们已经解决了规模化问题，以至于任何人都可以进行调整。许多新的想法都来自普通人。进行训练和实验的门槛已经从一个研究机构共同产出降低到了一个人、一个晚上和一台强大的笔记本电脑。</p>
 <h2 id="为什么我们本应该预见到这一点"><a href="#为什么我们本应该预见到这一点" class="headerlink" title="为什么我们本应该预见到这一点"></a>为什么我们本应该预见到这一点</h2><p>在很多方面，这对任何人来说都不应该是一个意外。开源LLM当前的繁荣复兴紧跟在开源图像生成领域的复兴之后。社区对此有着清晰的认识，许多人称之为LLM的“Stable Diffusion时刻”。 在这两个场景中，低成本的公众参与都是由于一种称为低秩适应（LoRA）的微调机制和规模上的重大突破（图像合成领域的latent diffusion，LLM的Chinchilla）的结合。在这两个场景中，都是足够高质量的模型的获得，引发了来自世界各地的个人和机构一连串想法和迭代。在这两个场景中，这种个人和小型机构的参与很快就超过了大型参与者。 这些贡献对于图像生成领域来说至关重要，使得“Stable Diffusion”与Dall-E的发展路径大相径庭。拥有一个开放的模型导致了产品整合、市场、用户界面和创新，这些都没有在Dall-E中发生。 这个效应是非常显著的：在文化影响方面，Stable Diffusion与OpenAI的解决方案（Dall-E）相比迅速占据主导地位，而后者变得越来越无关紧要。关于LLM是否会发生同样的情况还有待观察，但场景中的基本组成部分是相同的。</p>
 <h2 id="我们忽视的事实"><a href="#我们忽视的事实" class="headerlink" title="我们忽视的事实"></a>我们忽视的事实</h2><p>开源最近取得成功的创新直接解决了我们仍在努力应对的问题。更多关注他们的工作可能有助于避免重复造轮子。</p>
@@ -266,10 +260,10 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/ai/" rel="tag"># ai</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
               <a href="/tags/chatgpt/" rel="tag"># chatgpt</a>
               <a href="/tags/google/" rel="tag"># google</a>
               <a href="/tags/openai/" rel="tag"># openai</a>
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
           </div>
 
         
@@ -359,7 +353,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -372,7 +366,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -419,7 +413,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jerry Fan</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -445,7 +439,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
