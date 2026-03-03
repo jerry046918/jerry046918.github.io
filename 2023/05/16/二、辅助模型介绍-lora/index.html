@@ -17,32 +17,32 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"playgroundjerry.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"www.playgroundjerry.tech","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="在使用Stable Diffusion WebUI时，除了基础模型之外，它还允许我们加载额外的辅助模型，这其中最常用的两种模型，就是LoRA模型和Textual Inversion模型。在C站的搜索工具中，我们也可以看到对应的两种模型的搜索选项。  相关链接：Civitai (C站) - 模型下载和分享平台   本篇教程主要介绍lora的使用方法以及一些推荐模型  什么是LoRA LoRA的全称是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二、辅助模型介绍-LoRA">
-<meta property="og:url" content="https://playgroundjerry.github.io/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/index.html">
+<meta property="og:url" content="https://www.playgroundjerry.tech/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/index.html">
 <meta property="og:site_name" content="Jerry的赛博车库">
 <meta property="og:description" content="在使用Stable Diffusion WebUI时，除了基础模型之外，它还允许我们加载额外的辅助模型，这其中最常用的两种模型，就是LoRA模型和Textual Inversion模型。在C站的搜索工具中，我们也可以看到对应的两种模型的搜索选项。  相关链接：Civitai (C站) - 模型下载和分享平台   本篇教程主要介绍lora的使用方法以及一些推荐模型  什么是LoRA LoRA的全称是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221308.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221756.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221805.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230516222448.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516223843.png">
-<meta property="og:image" content="https://playgroundjerry.github.io/images/posts/2023/05/00083-739803311.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221308.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221756.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516221805.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230516222448.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20230516223843.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/00083-739803311.png">
 <meta property="article:published_time" content="2023-05-16T15:30:31.000Z">
 <meta property="article:modified_time" content="2026-02-28T08:31:30.455Z">
 <meta property="article:author" content="Jerry Fan">
 <meta property="article:tag" content="AI绘画">
 <meta property="article:tag" content="stablediffusion">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://playgroundjerry.github.io/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png">
+<meta name="twitter:image" content="https://www.playgroundjerry.tech/images/posts/2023/05/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230513142519.png">
 
-<link rel="canonical" href="https://playgroundjerry.github.io/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/">
+<link rel="canonical" href="https://www.playgroundjerry.tech/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/">
 
 
 <script id="page-configurations">
@@ -180,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://playgroundjerry.github.io/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/">
+    <link itemprop="mainEntityOfPage" href="https://www.playgroundjerry.tech/2023/05/16/%E4%BA%8C%E3%80%81%E8%BE%85%E5%8A%A9%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D-lora/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.svg">
