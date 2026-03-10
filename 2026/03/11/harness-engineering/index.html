@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#3a6299">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-31.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/avatar.svg" color="#3a6299">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans SC, Noto Sans:300,300italic,400,400italic,700,700italic|JetBrains Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.playgroundjerry.tech","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="自2022年底ChatGPT掀起这一轮席卷全球的AI浪潮开始，“人如何使用AI”（或站在当下看：“人如何与AI协作”）一直是一个核心议题。本文尝试从另一个视角探讨——人与AI的协作范式转变，与模型本身能力发展的关系，以及未来新范式的可能性。  从Prompt到Context再到Harness AI这几年的发展可以说是日新月异，可能并没有机会在过程中形成固定的规则或模式。但在AI的主流应用领域中，我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Harness Engineering：人与AI的协作范式转变">
+<meta property="og:url" content="https://www.playgroundjerry.tech/2026/03/11/harness-engineering/index.html">
+<meta property="og:site_name" content="Jerry的赛博车库">
+<meta property="og:description" content="自2022年底ChatGPT掀起这一轮席卷全球的AI浪潮开始，“人如何使用AI”（或站在当下看：“人如何与AI协作”）一直是一个核心议题。本文尝试从另一个视角探讨——人与AI的协作范式转变，与模型本身能力发展的关系，以及未来新范式的可能性。  从Prompt到Context再到Harness AI这几年的发展可以说是日新月异，可能并没有机会在过程中形成固定的规则或模式。但在AI的主流应用领域中，我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.praxisframework.org/images/hersey-and-blanchard-chi.png">
+<meta property="article:published_time" content="2026-03-10T16:36:46.822Z">
+<meta property="article:modified_time" content="2026-03-10T16:38:07.962Z">
+<meta property="article:author" content="Jerry Fan">
+<meta property="article:tag" content="agent">
+<meta property="article:tag" content="ai">
+<meta property="article:tag" content="产品经理">
+<meta property="article:tag" content="人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.praxisframework.org/images/hersey-and-blanchard-chi.png">
+
+<link rel="canonical" href="https://www.playgroundjerry.tech/2026/03/11/harness-engineering/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6626975679787601"
+     crossorigin="anonymous"></script>
+
+  <title>Harness Engineering：人与AI的协作范式转变 | Jerry的赛博车库</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF5T2W3BE8"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TF5T2W3BE8');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jerry的赛博车库</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Playground of Jerry</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.playgroundjerry.tech/2026/03/11/harness-engineering/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.svg">
+      <meta itemprop="name" content="Jerry Fan">
+      <meta itemprop="description" content="人是目的，不是手段">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jerry的赛博车库">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Harness Engineering：人与AI的协作范式转变
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-03-11 00:36:46" itemprop="dateCreated datePublished" datetime="2026-03-11T00:36:46+08:00">2026-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">AI相关</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E7%9B%B8%E5%85%B3/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">杂谈</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>自2022年底ChatGPT掀起这一轮席卷全球的AI浪潮开始，<strong>“人如何使用AI”</strong>（或站在当下看：<strong>“人如何与AI协作”</strong>）一直是一个核心议题。本文尝试从另一个视角探讨——人与AI的协作范式转变，与模型本身能力发展的关系，以及未来新范式的可能性。</p>
+<h2 id="从Prompt到Context再到Harness"><a href="#从Prompt到Context再到Harness" class="headerlink" title="从Prompt到Context再到Harness"></a>从Prompt到Context再到Harness</h2><p>AI这几年的发展可以说是日新月异，可能并没有机会在过程中形成固定的规则或模式。但在AI的主流应用领域中，我们还是可以观察到一个大致的范式转换过程。</p>
+<h3 id="第一阶段：Prompt-Engineering（提示词工程）"><a href="#第一阶段：Prompt-Engineering（提示词工程）" class="headerlink" title="第一阶段：Prompt Engineering（提示词工程）"></a>第一阶段：Prompt Engineering（提示词工程）</h3><p>在<strong>2022年底至2024年初</strong>，所有主流的”AI教程”都会着重讲解所谓Prompt Engineering（提示词工程）的概念。这个阶段提出的各种技巧（角色扮演、Few-shot、Step-by-step等等）都致力于创建一个”完美指令”，从而一次性让模型输出最佳结果。</p>
+<p>在这个阶段，用户实际上仍是整个工作的”绝对掌控者”，而模型只是基于单条指令完成任务的被动执行者。模型没有记忆、没有工具，每一次交互都是独立的条件概率生成。</p>
+<h3 id="第二阶段：Context-Engineering（上下文工程）"><a href="#第二阶段：Context-Engineering（上下文工程）" class="headerlink" title="第二阶段：Context Engineering（上下文工程）"></a>第二阶段：Context Engineering（上下文工程）</h3><p>在<strong>2024年至2025年初</strong>，基于模型上下文窗口的普遍扩充（从4K到128K&#x2F;200K tokens）以及AI工程化的落地，业内开始形成**Context Engineering（上下文工程）**的共识。相较于研究提示词如何”遣词造句”，行业开始探索如何以系统性框架（RAG知识库、系统提示词、Memory记忆系统、工具调用接口），根据业务场景动态地为模型构建信息环境。</p>
+<p>此时模型获得了有限的”自由”：用户从**“直接发号施令者”<strong>转变为</strong>“情境构建者”<strong>——负责判断当前情况，提供信息与资源；而模型则在给定的上下文环境中，自行判断如何应对用户诉求。协作重心从</strong>“优化输入”<strong>转向了</strong>“配置环境”**。</p>
+<h3 id="第三阶段：Harness-Engineering（驾驭工程）"><a href="#第三阶段：Harness-Engineering（驾驭工程）" class="headerlink" title="第三阶段：Harness Engineering（驾驭工程）"></a>第三阶段：Harness Engineering（驾驭工程）</h3><p><strong>自2025年初至今</strong>，随着模型能力进一步提升（特别是Claude 4.6、GPT-5.4 Codex、Gemini 3.1 Pro等具备深度Agentic能力的模型成熟），新的范式被提出——<strong>Harness Engineering</strong>（Harness意为”马具&#x2F;缰绳”，可译为”驾驭工程”或”约束工程”）。</p>
+<p>在这个新范式中，提示词写作技巧与上下文内容依然存在，但已不再是核心。AI应用的搭建开始关注：</p>
+<ul>
+<li><strong>授权模型访问</strong>必要的工具与数据（如OpenClaw的Skill Hub技能市场）；</li>
+<li><strong>框定运转边界</strong>（Guardrails护栏、权限分级、Docker沙箱隔离）；</li>
+<li><strong>建立自主运转机制</strong>（如OpenClaw的Heartbeat心跳机制——每15-30分钟自主唤醒执行任务，无需人工触发）；</li>
+<li><strong>设定验收目标与自我调整机制</strong>（Evals评估、Control Loops控制循环）。</li>
+</ul>
+<p>我们可以看到以OpenClaw为代表的一类自主长任务Agent框架在2026年初开始流行：它支持本地化部署，通过Gateway连接Telegram&#x2F;WhatsApp&#x2F;Slack等消息平台，在设定目标后几乎不需要用户的逐步指挥，而是按照”工作-验证”的循环自主运转直至目标达成。用户的重点不再是”告诉AI该如何做”，而是”告诉它该做什么，并设定行为边界与检查点”。</p>
+<h2 id="AI协作中的”情境领导”？"><a href="#AI协作中的”情境领导”？" class="headerlink" title="AI协作中的”情境领导”？"></a>AI协作中的”情境领导”？</h2><p>管理学中的<strong>情境领导理论</strong>（Situational Leadership Theory，由Hersey与Blanchard提出）认为，应根据下属的”准备度”（Readiness）选择不同的管理风格。该理论将员工分为四个阶段，对应四种管理风格：</p>
+<ul>
+<li><strong>S1：指令（Telling）</strong>——对应<strong>低能力且低意愿</strong>的员工。单向沟通，直接告知如何执行。</li>
+<li><strong>S2：教练（Selling）</strong>——对应<strong>低能力但有意愿</strong>的员工。双向沟通，解释决策并鼓励接受。</li>
+<li><strong>S3：支持（Participating）</strong>——对应<strong>高能力但低意愿</strong>的员工。分享决策，注重支持而非指导。</li>
+<li><strong>S4：授权（Delegating）</strong>——对应<strong>高能力且高意愿</strong>的员工。授权执行，保留监督职责。</li>
+</ul>
+<p><img src="https://www.praxisframework.org/images/hersey-and-blanchard-chi.png"></p>
+<p>从这个视角再看AI协作范式的转换，我们会看到一个明显的对应关系——尽管AI没有人类意义上的”意愿”（动机&#x2F;情绪），但模型能力决定了它能否进行长时间自主活动（即”代理性”或”积极性”的强弱）。</p>
+<ul>
+<li><strong>低能力、低自主性阶段（S1）</strong>：对应<strong>Prompt Engineering</strong>。初期模型（如早期GPT-3.5）无法受信赖地解决复杂问题，且倾向于在单轮对话中快速结束任务。**“**指令模式”恰如”告知型管理”——人必须事无巨细地指导AI的每一步。</li>
+<li><strong>高能力、低自主性阶段（S3）</strong>：对应<strong>Context Engineering</strong>。中期模型（如GPT-4、Claude 3.5）能力显著提升（能准确理解、推理），但缺乏自主规划与主动探索的倾向（不会自行制定计划、调用工具）。此时人需要提供情境支持（资源、信息、工具），正如”支持型管理”——给足条件，让AI在短程任务中发挥能力。</li>
+<li><strong>高能力、高自主性阶段（S4）</strong>：对应<strong>Harness Engineering</strong>。当前模型（Claude 4.6、GPT-5.4、Gemini 3.1 Pro）表现出Agentic特质（主动规划、自主学习工具使用、通过Heartbeat机制持续执行任务），成长为”高能力且高自主性”的数字员工。”授权模式”成为必然——人负责设定目标与边界（Harness），AI负责在边界内自主执行长程任务（如OpenClaw的24&#x2F;7自主运转）。</li>
+</ul>
+<p>由此，我们实际上看到了一种”AI情境协作”的演进路径：从<strong>微观管理</strong>（Micro-management）到<strong>情境赋能</strong>（Empowerment），再到<strong>制度化授权</strong>（Governed Delegation）。</p>
+<h2 id="完全自主的Agent？人的意义何在？"><a href="#完全自主的Agent？人的意义何在？" class="headerlink" title="完全自主的Agent？人的意义何在？"></a>完全自主的Agent？人的意义何在？</h2><p>从上文的分析可见，人与模型协作的范式，事实上与模型本身能力的发展强耦合。那么，如果模型再进一步发展——如果我们获得了能够超长程完成抽象目标的模型，人该如何与AI协作？人在工作场景中还有存在的价值吗？</p>
+<p>我认为，人最终在整个工作链路中的唯一价值，可能只有**“意图”（Intention）<strong>或者</strong>“动机”（Motivation）**。</p>
+<p>至少在目前的发展中，模型实际上被训练为一个缺乏内在动机的”工具”。不论它表现得多么智能（如OpenClaw可以24&#x2F;7自主检查邮件、执行代码、管理文件），一个模型被部署后，若没有任何外部目标注入（通过Prompt或任务触发），它不会自行运转，也不会”想要”做什么。这意味着，即便一个”无所不能”的模型出现，在没有外部意图注入时，它倾向于什么都不做。</p>
+<p>那么，至少在人类主导的市场逻辑没有崩溃之前，人还是要作为那个产生动机、设定目标的角色。最终，一切工作或商业活动将出现从**“实现为瓶颈”<strong>（How to do）向</strong>“意图为瓶颈”**（What to do &amp; Why）的转变。所有工作本质上都将变成创造性工作——洞察需求、设定目标、验收结果。</p>
+<p>乐观地看，在这个设想中，人不会被直接取代；但残酷的是，这种模式的转变还是会毁灭大多数人的生存逻辑——特别是那些穷其一生磨练单一技能到顶峰的人。某种意义上，这是终极的颠覆；但更大意义上，这是终极的解放——人将被迫（或得以）从”手段”回归”目的”。</p>
+<p>因此，站在这个时代，我的建议是：学习如何使用AI固然重要，但更重要的是剥离全部物化的标签，探寻自我，探寻他人，拥抱纯粹的创作与劳动。</p>
+<p><strong>记住，人是目的，不是手段！</strong></p>
+<p>(本文事实核查、资料搜集及最终文字润色由Kimi agent完成，列为共同作者）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ai/" rel="tag"># ai</a>
+              <a href="/tags/agent/" rel="tag"># agent</a>
+              <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag"># 产品经理</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/03/05/lessons-from-building-claude-code-seeing-like-an-agent/" rel="prev" title="构建 Claude Code 的经验教训：像智能体一样思考">
+      <i class="fa fa-chevron-left"></i> 构建 Claude Code 的经验教训：像智能体一样思考
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8EPrompt%E5%88%B0Context%E5%86%8D%E5%88%B0Harness"><span class="nav-number">1.</span> <span class="nav-text">从Prompt到Context再到Harness</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9APrompt-Engineering%EF%BC%88%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">第一阶段：Prompt Engineering（提示词工程）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9AContext-Engineering%EF%BC%88%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">第二阶段：Context Engineering（上下文工程）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9AHarness-Engineering%EF%BC%88%E9%A9%BE%E9%A9%AD%E5%B7%A5%E7%A8%8B%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">第三阶段：Harness Engineering（驾驭工程）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AI%E5%8D%8F%E4%BD%9C%E4%B8%AD%E7%9A%84%E2%80%9D%E6%83%85%E5%A2%83%E9%A2%86%E5%AF%BC%E2%80%9D%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">AI协作中的”情境领导”？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E8%87%AA%E4%B8%BB%E7%9A%84Agent%EF%BC%9F%E4%BA%BA%E7%9A%84%E6%84%8F%E4%B9%89%E4%BD%95%E5%9C%A8%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">完全自主的Agent？人的意义何在？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jerry Fan"
+      src="/images/avatar.svg">
+  <p class="site-author-name" itemprop="name">Jerry Fan</p>
+  <div class="site-description" itemprop="description">人是目的，不是手段</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jerry046918" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jerry046918" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fjy046918@outlook.com" title="E-Mail → mailto:fjy046918@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.woshipm.com/u/940369" title="人人都是产品经理 → https:&#x2F;&#x2F;www.woshipm.com&#x2F;u&#x2F;940369" rel="noopener" target="_blank"><i class="fa fa-pencil-alt fa-fw"></i>人人都是产品经理</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/fan-jia-yu-59" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-jia-yu-59" rel="noopener" target="_blank"><i class="fa fa-comment fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://openclaw101.dev/" title="https:&#x2F;&#x2F;openclaw101.dev&#x2F;" rel="noopener" target="_blank">OpenClaw101</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://shitjournal.org/" title="https:&#x2F;&#x2F;shitjournal.org&#x2F;" rel="noopener" target="_blank">S.H.I.T. Journal</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Fan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
