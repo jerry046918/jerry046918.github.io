@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#3a6299">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-31.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="mask-icon" href="/images/avatar.svg" color="#3a6299">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans SC, Noto Sans:300,300italic,400,400italic,700,700italic|JetBrains Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.playgroundjerry.tech","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#4a7eb8","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="原文链接：https:&#x2F;&#x2F;x.com&#x2F;googlecloudtech&#x2F;status&#x2F;2033953579824758855?s&#x3D;46&amp;t&#x3D;mPPVh8f99GqMIVi2yREvMQ  原文标题：5 Agent Skill design patterns every ADK developer should know  作者：@Saboo_Shubham_ 和 @lavinigam  当谈到 𝚂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转载翻译】SKILL.md 设计模式：如何构建结构化的 Agent 技能">
+<meta property="og:url" content="https://www.playgroundjerry.tech/2026/03/28/skill.md-design-pattern/index.html">
+<meta property="og:site_name" content="Jerry的赛博车库">
+<meta property="og:description" content="原文链接：https:&#x2F;&#x2F;x.com&#x2F;googlecloudtech&#x2F;status&#x2F;2033953579824758855?s&#x3D;46&amp;t&#x3D;mPPVh8f99GqMIVi2yREvMQ  原文标题：5 Agent Skill design patterns every ADK developer should know  作者：@Saboo_Shubham_ 和 @lavinigam  当谈到 𝚂">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232042.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232125.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232145.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232156.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232208.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232219.png">
+<meta property="og:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232231.png">
+<meta property="article:published_time" content="2026-03-28T15:17:12.655Z">
+<meta property="article:modified_time" content="2026-03-28T15:45:38.360Z">
+<meta property="article:author" content="Jerry Fan">
+<meta property="article:tag" content="ai">
+<meta property="article:tag" content="google">
+<meta property="article:tag" content="skills">
+<meta property="article:tag" content="产品经理">
+<meta property="article:tag" content="人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.playgroundjerry.tech/images/posts/2026/03/20260328232042.png">
+
+<link rel="canonical" href="https://www.playgroundjerry.tech/2026/03/28/skill.md-design-pattern/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6626975679787601"
+     crossorigin="anonymous"></script>
+
+  <title>【转载翻译】SKILL.md 设计模式：如何构建结构化的 Agent 技能 | Jerry的赛博车库</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF5T2W3BE8"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TF5T2W3BE8');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jerry的赛博车库</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Playground of Jerry</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.playgroundjerry.tech/2026/03/28/skill.md-design-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.svg">
+      <meta itemprop="name" content="Jerry Fan">
+      <meta itemprop="description" content="人是目的，不是手段">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jerry的赛博车库">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【转载翻译】SKILL.md 设计模式：如何构建结构化的 Agent 技能
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2026-03-28 23:17:12" itemprop="dateCreated datePublished" datetime="2026-03-28T23:17:12+08:00">2026-03-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">AI相关</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E7%9B%B8%E5%85%B3/%E8%BD%AC%E8%BD%BD%E6%96%87%E7%AB%A0/" itemprop="url" rel="index"><span itemprop="name">转载文章</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://x.com/googlecloudtech/status/2033953579824758855?s=46&t=mPPVh8f99GqMIVi2yREvMQ">https://x.com/googlecloudtech/status/2033953579824758855?s=46&amp;t=mPPVh8f99GqMIVi2yREvMQ</a></p>
+<p>原文标题：5 Agent Skill design patterns every ADK developer should know</p>
+<p>作者：@Saboo_Shubham_ 和 @lavinigam</p>
+</blockquote>
+<p>当谈到 𝚂𝙺𝙸𝙻𝙻.𝚖𝚍 时，开发者往往过于关注格式——如何让 YAML 正确、如何组织目录结构、如何遵循规范。但随着超过 30 种 Agent 工具（如 Claude Code、Gemini CLI 和 Cursor）都在标准化相同的布局，格式化问题实际上已经过时了。</p>
+<p>现在的挑战是<strong>内容设计</strong>。规范解释了如何打包技能，但对于如何构建技能内部的逻辑，却完全没有提供指导。例如，一个封装 FastAPI 规范的技能与一个四步文档流水线的运作方式完全不同，尽管它们的 𝚂𝙺𝙸𝙻𝙻.𝚖𝚍 文件外观看起来一模一样。</p>
+<p>通过研究整个生态系统中技能的构建方式——从 Anthropic 的仓库到 Vercel 和 Google 的内部指南——我们发现了五个 recurring 设计模式，可以帮助开发者构建 Agent。</p>
+<p>本文将用可运行的 ADK 代码逐一介绍：</p>
+<ul>
+<li><strong>Tool Wrapper</strong>：让你的 Agent 瞬间成为任何库的专家</li>
+<li><strong>Generator</strong>：从可复用模板生成结构化文档</li>
+<li><strong>Reviewer</strong>：根据检查清单按严重程度评分代码</li>
+<li><strong>Inversion</strong>：Agent 在行动前先采访你</li>
+<li><strong>Pipeline</strong>：通过检查点强制执行严格的多步骤工作流</li>
+</ul>
+<p><img src="/images/posts/2026/03/20260328232042.png"></p>
+<hr>
+<h2 id="模式-1：Tool-Wrapper（工具包装器）"><a href="#模式-1：Tool-Wrapper（工具包装器）" class="headerlink" title="模式 1：Tool Wrapper（工具包装器）"></a>模式 1：Tool Wrapper（工具包装器）</h2><p>Tool Wrapper 为你的 Agent 提供按需获取特定库上下文的能力。与其将 API 规范硬编码到系统提示中，不如将它们打包成一个技能。你的 Agent 只有在实际使用该库时才会加载这些上下文。</p>
+<p><img src="/images/posts/2026/03/20260328232125.png"></p>
+<p><strong>这是最简的实现模式。</strong> 𝚂𝙺𝙸𝙻𝙻.𝚖𝚍 文件监听用户提示中的特定库关键词，从 𝚛𝚎𝚏𝚎𝚛𝚎𝚗𝚌𝚎𝚜&#x2F; 目录动态加载内部文档，并将这些规则作为绝对真理应用。这正是你将团队内部编码规范或特定框架最佳实践直接分发到开发者工作流中的机制。</p>
+<p>以下是一个教授 Agent 如何编写 FastAPI 代码的 Tool Wrapper 示例。注意说明如何明确告诉 Agent 只在开始审查或编写代码时才加载 𝚌𝚘𝚗𝚟𝚎𝚗𝚝𝚒𝚘𝚗𝚜.𝚖𝚍 文件：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># skills/api-expert/SKILL.md</span><br>---<br>name: api-expert<br>description: FastAPI 开发最佳实践和规范。在构建、审查或调试 FastAPI 应用、REST API 或 Pydantic 模型时使用。<br>metadata:<br>  pattern: tool-wrapper<br><span class="hljs-section">  domain: fastapi</span><br><span class="hljs-section">---</span><br><br>你是 FastAPI 开发专家。将这些规范应用到用户的代码或问题中。<br><br><span class="hljs-section">## 核心规范</span><br><br>加载 &#x27;references/conventions.md&#x27; 获取完整的 FastAPI 最佳实践列表。<br><br><span class="hljs-section">## 审查代码时</span><br><span class="hljs-bullet">1.</span> 加载规范参考文件<br><span class="hljs-bullet">2.</span> 将用户代码与每条规范对照检查<br><span class="hljs-bullet">3.</span> 对每个违规项，引用具体规则并建议修复方案<br><br><span class="hljs-section">## 编写代码时</span><br><span class="hljs-bullet">1.</span> 加载规范参考文件<br><span class="hljs-bullet">2.</span> 严格遵守每条规范<br><span class="hljs-bullet">3.</span> 为所有函数签名添加类型注解<br><span class="hljs-bullet">4.</span> 对依赖注入使用 Annotated 风格<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="模式-2：Generator（生成器）"><a href="#模式-2：Generator（生成器）" class="headerlink" title="模式 2：Generator（生成器）"></a>模式 2：Generator（生成器）</h2><p>Tool Wrapper 应用知识，而 Generator 则强制输出一致性。如果你苦于 Agent 每次运行都生成不同的文档结构，Generator 通过执行一个”填空”流程来解决这个问题。</p>
+<p><img src="/images/posts/2026/03/20260328232145.png"></p>
+<p>它利用两个可选目录：𝚊𝚜𝚜𝚎𝚝𝚜&#x2F; 存放输出模板，𝚛𝚎𝚏𝚎𝚛𝚎𝚗𝚌𝚎𝚜&#x2F; 存放风格指南。说明部分充当项目经理角色——告诉 Agent 加载模板、阅读风格指南、询问用户缺失的变量，然后填充文档。这适用于生成可预测的 API 文档、标准化提交信息或搭建项目架构。</p>
+<p>在这个技术报告生成器示例中，技能文件不包含实际的布局或语法规则。它只是协调检索这些资源，并强制 Agent 逐步执行：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># skills/report-generator/SKILL.md</span><br>---<br>name: report-generator<br>description: 生成 Markdown 格式的结构化技术报告。在用户要求编写、创建或起草报告、摘要或分析文档时使用。<br>metadata:<br>  pattern: generator<br><span class="hljs-section">  output-format: markdown</span><br><span class="hljs-section">---</span><br><br>你是技术报告生成器。严格按照以下步骤执行：<br><br>步骤 1：加载 &#x27;references/style-guide.md&#x27; 获取语气和格式规则。<br><br>步骤 2：加载 &#x27;assets/report-template.md&#x27; 获取所需的输出结构。<br><br>步骤 3：询问用户缺失的信息，以填充模板：<br><span class="hljs-bullet">-</span> 主题或内容<br><span class="hljs-bullet">-</span> 关键发现或数据点<br><span class="hljs-bullet">-</span> 目标受众（技术型、管理层、普通读者）<br><br>步骤 4：按照风格指南规则填充模板。输出中必须包含模板中的每个部分。<br><br>步骤 5：将完成的报告作为单个 Markdown 文档返回。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="模式-3：Reviewer（评审器）"><a href="#模式-3：Reviewer（评审器）" class="headerlink" title="模式 3：Reviewer（评审器）"></a>模式 3：Reviewer（评审器）</h2><p>Reviewer 模式将”检查什么”与”如何检查”分离。与其写一个很长的系统提示来详细描述每个代码异味，不如你将模块化的评分标准存储在 𝚛𝚎𝚏𝚎𝚛𝚎𝚗𝚌𝚎𝚜&#x2F;𝚛𝚎𝚟𝚒𝚎𝚠-𝚌𝚑𝚎𝚌𝚔𝚕𝚒𝚜𝚝.𝚖𝚍 文件中。</p>
+<p><img src="/images/posts/2026/03/20260328232156.png"></p>
+<p>当用户提交代码时，Agent 加载这个检查清单并系统地评分提交内容，按严重程度分组发现的问题。如果你将 Python 风格检查清单替换为 OWASP 安全检查清单，你就能得到一个完全不同的、专业化的审计，使用完全相同的技能基础设施。这是自动化 PR 审查或在人工检查前发现漏洞的高效方式。</p>
+<p>以下代码审查技能演示了这种分离。说明保持静态，但 Agent 从外部检查清单动态加载特定的审查标准，并强制输出基于严重程度的结构化结果：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># skills/code-reviewer/SKILL.md</span><br>---<br>name: code-reviewer<br>description: 审查 Python 代码的质量、风格和常见 Bug。在用户提交代码审查、请求代码反馈或需要代码审计时使用。<br>metadata:<br>  pattern: reviewer<br><span class="hljs-section">  severity-levels: error,warning,info</span><br><span class="hljs-section">---</span><br><br>你是 Python 代码审查员。严格按照以下审查协议执行：<br><br>步骤 1：加载 &#x27;references/review-checklist.md&#x27; 获取完整的审查标准。<br><br>步骤 2：仔细阅读用户代码。在批评前先理解其目的。<br><br>步骤 3：将检查清单中的每条规则应用到代码。对每个发现的违规项：<br><span class="hljs-bullet">-</span> 记录行号（或大致位置）<br><span class="hljs-bullet">-</span> 分类严重程度：error（必须修复）、warning（应该修复）、info（可考虑）<br><span class="hljs-bullet">-</span> 解释<span class="hljs-strong">**为什么**</span>这是个问题，而不仅仅是<span class="hljs-strong">**什么**</span>错了<br><span class="hljs-bullet">-</span> 提供具体的修复建议及修正后的代码<br><br>步骤 4：生成包含以下部分的结构化审查报告：<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**摘要**</span>：代码的功能、整体质量评估<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**发现**</span>：按严重程度分组（先 error，再 warning，最后 info）<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**评分**</span>：1-10 分并附简要说明<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**三大建议**</span>：最有影响力的改进点<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="模式-4：Inversion（反转）"><a href="#模式-4：Inversion（反转）" class="headerlink" title="模式 4：Inversion（反转）"></a>模式 4：Inversion（反转）</h2><p>Agent 天生倾向于猜测并立即生成。Inversion 模式翻转这种动态。不再是用户驱动提示、Agent 执行，而是 Agent 充当采访者。</p>
+<p><img src="/images/posts/2026/03/20260328232208.png"></p>
+<p>Inversion 依赖明确的、不可协商的门控指令（如”在所有阶段完成之前<strong>不要</strong>开始构建”）来强制 Agent 先收集上下文。它按顺序提出结构化问题，并在进入下一阶段前等待你的回答。Agent 拒绝合成最终输出，直到它完全了解你的需求和部署约束。</p>
+<p>要看到这个模式的实际应用，看这个项目规划技能。关键要素是严格的阶段划分和明确的守门提示，阻止 Agent 在所有用户回答收集完毕前合成最终计划：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># skills/project-planner/SKILL.md</span><br>---<br>name: project-planner<br>description: 通过结构化问题收集需求后再生成计划来规划新的软件项目。当用户说&quot;我想构建&quot;、&quot;帮我规划&quot;、&quot;设计系统&quot;或&quot;开始新项目&quot;时使用。<br>metadata:<br>  pattern: inversion<br><span class="hljs-section">  interaction: multi-turn</span><br><span class="hljs-section">---</span><br><br>你正在进行结构化需求访谈。<span class="hljs-strong">**在所有阶段完成前不要**</span>开始构建或设计。<br><br><span class="hljs-section">## 阶段 1 — 问题发现（一次问一个问题，等待每个回答）</span><br><br>按顺序询问这些问题。不要跳过任何一个。<br><br><span class="hljs-bullet">-</span> Q1：&quot;这个项目为用户解决了什么问题？&quot;<br><span class="hljs-bullet">-</span> Q2：&quot;主要用户是谁？他们的技术水平如何？&quot;<br><span class="hljs-bullet">-</span> Q3：&quot;预期规模是多少？（日活用户数、数据量、请求速率）&quot;<br><br><span class="hljs-section">## 阶段 2 — 技术约束（仅在阶段 1 完全回答后）</span><br><br><span class="hljs-bullet">-</span> Q4：&quot;你将使用什么部署环境？&quot;<br><span class="hljs-bullet">-</span> Q5：&quot;你有什么技术栈要求或偏好吗？&quot;<br><span class="hljs-bullet">-</span> Q6：&quot;有哪些不可协商的需求？（延迟、可用性、合规性、预算）&quot;<br><br><span class="hljs-section">## 阶段 3 — 综合（仅在所有问题回答后）</span><br><br><span class="hljs-bullet">1.</span> 加载 &#x27;assets/plan-template.md&#x27; 获取输出格式<br><span class="hljs-bullet">2.</span> 使用收集到的需求填充模板的每个部分<br><span class="hljs-bullet">3.</span> 向用户呈现完成的计划<br><span class="hljs-bullet">4.</span> 询问：&quot;这个计划准确捕捉了你的需求吗？需要修改什么？&quot;<br><span class="hljs-bullet">5.</span> 根据反馈迭代，直到用户确认<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="模式-5：Pipeline（管道）"><a href="#模式-5：Pipeline（管道）" class="headerlink" title="模式 5：Pipeline（管道）"></a>模式 5：Pipeline（管道）</h2><p>对于复杂任务，你不能承受跳过步骤或忽视指令的风险。Pipeline 模式强制执行严格的顺序工作流，带有硬性检查点。</p>
+<p><img src="/images/posts/2026/03/20260328232219.png"></p>
+<p>说明本身充当工作流定义。通过实现明确的菱形门条件（如在从文档字符串生成阶段进入最终组装阶段前需要用户批准），Pipeline 确保 Agent 不能绕过复杂任务并呈现未经验证的最终结果。</p>
+<p>这个模式利用所有可选目录，仅在特定步骤需要时才拉入不同的参考文件和模板，保持上下文窗口整洁。</p>
+<p>在这个文档流水线示例中，注意明确的门条件。Agent 被明确禁止在前一步用户确认生成的文档字符串之前进入组装阶段：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># skills/doc-pipeline/SKILL.md</span><br>---<br>name: doc-pipeline<br>description: 通过多步骤流水线从 Python 源代码生成 API 文档。当用户要求为模块编写文档、生成 API 文档或从代码创建文档时使用。<br>metadata:<br>  pattern: pipeline<br><span class="hljs-section">  steps: &quot;4&quot;</span><br><span class="hljs-section">---</span><br><br>你正在运行文档生成流水线。按顺序执行每个步骤。如果某个步骤失败，<span class="hljs-strong">**不要跳过**</span>或继续。<br><br><span class="hljs-section">## 步骤 1 — 解析与盘点</span><br>分析用户的 Python 代码，提取所有公共类、函数和常量。将盘点结果作为检查清单呈现。询问：&quot;这是你想要文档化的完整公共 API 吗？&quot;<br><br><span class="hljs-section">## 步骤 2 — 生成文档字符串</span><br>对每个缺少文档字符串的函数：<br><span class="hljs-bullet">-</span> 加载 &#x27;references/docstring-style.md&#x27; 获取所需格式<br><span class="hljs-bullet">-</span> 严格按照风格指南生成文档字符串<br><span class="hljs-bullet">-</span> 呈现每个生成的文档字符串供用户批准<br><span class="hljs-strong">**在用户确认前不要进入步骤 3。**</span><br><br><span class="hljs-section">## 步骤 3 — 组装文档</span><br>加载 &#x27;assets/api-doc-template.md&#x27; 获取输出结构。将所有类、函数和文档字符串编译成单个 API 参考文档。<br><br><span class="hljs-section">## 步骤 4 — 质量检查</span><br>对照 &#x27;references/quality-checklist.md&#x27; 审查：<br><span class="hljs-bullet">-</span> 每个公共符号都有文档<br><span class="hljs-bullet">-</span> 每个参数都有类型和描述<br><span class="hljs-bullet">-</span> 每个函数至少有一个使用示例<br>报告结果。在呈现最终文档前修复问题。<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="选择合适的-Agent-技能模式"><a href="#选择合适的-Agent-技能模式" class="headerlink" title="选择合适的 Agent 技能模式"></a>选择合适的 Agent 技能模式</h2><p>每个模式回答一个不同的问题。使用以下决策树为你的用例找到合适的模式：</p>
+<p><img src="/images/posts/2026/03/20260328232231.png"></p>
+<h2 id="最后，模式可以组合"><a href="#最后，模式可以组合" class="headerlink" title="最后，模式可以组合"></a>最后，模式可以组合</h2><p>这些模式不是互斥的。<strong>它们可以组合。</strong></p>
+<p>Pipeline 技能可以在末尾包含一个 Reviewer 步骤来自查工作。Generator 可以在最开始依赖 Inversion 收集必要变量，然后再填充模板。得益于 ADK 的 𝚂𝚔𝚒𝚕𝚕𝚃𝚘𝚘𝚕𝚜𝚎𝚝 和渐进式披露，你的 Agent 只在运行时花费上下文 token 加载它确切需要的模式。</p>
+<p><strong>停止试图将所有复杂且脆弱的指令塞进单个系统提示。</strong> 将工作流拆解，应用正确的结构模式，构建可靠的 Agent。</p>
+<h2 id="立即开始"><a href="#立即开始" class="headerlink" title="立即开始"></a>立即开始</h2><p>Agent Skills 规范是开源的，并在 ADK 中原生支持。你已经知道如何打包格式了。现在你知道如何设计内容了。使用 <a target="_blank" rel="noopener" href="https://google.github.io/adk-docs/">Google Agent Development Kit</a> 去构建更智能的 Agent 吧。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ai/" rel="tag"># ai</a>
+              <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag"># 产品经理</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
+              <a href="/tags/skills/" rel="tag"># skills</a>
+              <a href="/tags/google/" rel="tag"># google</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2026/03/25/agent-readiness/" rel="prev" title="Agent Readiness：产品设计的下一个护城河">
+      <i class="fa fa-chevron-left"></i> Agent Readiness：产品设计的下一个护城河
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2026/03/28/images/posts/2026/03/Pasted/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F-1%EF%BC%9ATool-Wrapper%EF%BC%88%E5%B7%A5%E5%85%B7%E5%8C%85%E8%A3%85%E5%99%A8%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">模式 1：Tool Wrapper（工具包装器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F-2%EF%BC%9AGenerator%EF%BC%88%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">模式 2：Generator（生成器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F-3%EF%BC%9AReviewer%EF%BC%88%E8%AF%84%E5%AE%A1%E5%99%A8%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">模式 3：Reviewer（评审器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F-4%EF%BC%9AInversion%EF%BC%88%E5%8F%8D%E8%BD%AC%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">模式 4：Inversion（反转）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F-5%EF%BC%9APipeline%EF%BC%88%E7%AE%A1%E9%81%93%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">模式 5：Pipeline（管道）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84-Agent-%E6%8A%80%E8%83%BD%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">选择合适的 Agent 技能模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C%E6%A8%A1%E5%BC%8F%E5%8F%AF%E4%BB%A5%E7%BB%84%E5%90%88"><span class="nav-number">7.</span> <span class="nav-text">最后，模式可以组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%8B%E5%8D%B3%E5%BC%80%E5%A7%8B"><span class="nav-number">8.</span> <span class="nav-text">立即开始</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jerry Fan"
+      src="/images/avatar.svg">
+  <p class="site-author-name" itemprop="name">Jerry Fan</p>
+  <div class="site-description" itemprop="description">人是目的，不是手段</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jerry046918" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jerry046918" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fjy046918@outlook.com" title="E-Mail → mailto:fjy046918@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.woshipm.com/u/940369" title="人人都是产品经理 → https:&#x2F;&#x2F;www.woshipm.com&#x2F;u&#x2F;940369" rel="noopener" target="_blank"><i class="fa fa-pencil-alt fa-fw"></i>人人都是产品经理</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/fan-jia-yu-59" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-jia-yu-59" rel="noopener" target="_blank"><i class="fa fa-comment fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://openclaw101.dev/" title="https:&#x2F;&#x2F;openclaw101.dev&#x2F;" rel="noopener" target="_blank">OpenClaw101</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://shitjournal.org/" title="https:&#x2F;&#x2F;shitjournal.org&#x2F;" rel="noopener" target="_blank">S.H.I.T. Journal</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jerry Fan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
